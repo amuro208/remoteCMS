@@ -8,5 +8,5 @@ application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 
-application/htdocs/uploads/*
+htdocs/uploads/*
 conf/*
