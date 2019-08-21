@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-2 m-n font-thin h4">
+        System User
+      </div>
+      <div class="col-xs-10" style="text-align:right;">
+        <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-plus"
+                ng-click="createData()"
+                ng-if="checkCreatableAuthority(moduleName)" alt="Add"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-body" ng-show="showSystemUserPanel">
+    <ng-include src="versionUrl('static/modules/systemuser/views/template/systemuser_form.html')"/>
+  </div>
+
+  <div class="table-responsive" style="overflow-x:scroll;">
+    <div id="treegrid">
+      <tree-grid tree-data='tree_data'
+                 col-defs='col_defs'
+                 expand-on='expanding_property'
+                 on-select='onSelectedTree(branch)'
+                 on-command='onCommand(command,branch)'
+                 expand-level='2'
+                 icon-leaf='glyphicon glyphicon-tasks text-info'
+                 app-settings="app.settings"
+                 />
+    </div>
+  </div>
+
+</div>
+
+<script type="text/ng-template" id="tree-grid-template.html">
+  <div ng-include="'static/modules/systemuser/views/template/systemuser.html'"></div>
+</script>

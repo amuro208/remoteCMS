@@ -1,0 +1,74 @@
+<form name="mainMemoForm" id="mainMemoForm" class="css-form" style="margin:7px;" novalidate>
+  <div class="row">
+    <div class="form-group">
+      <label for="address" class="col-xs-2 control-label">Customer</label>
+      <div class="col-xs-6">
+        <usertypeahead items="customerTypeAHeadData"
+                   prompt="Enter name"
+                   title="name"
+                   subtitle="abbreviation"
+                   model="memoData.cid"
+                   search="customersearch"
+                   on-select="onItemSelected(value)"
+                   on-new-customer="onClickedNewCustomer()"
+                   />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <label for="address" class="col-xs-2 control-label">Memo</label>
+      <div class="col-xs-10">
+          <input type="text" class="form-control" id="address" ng-model="memoData.memo" ng-required="true"/>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <label for="to" class="col-xs-2 control-label">To</label>
+      <div class="col-xs-4">
+        <select ng-options="obj.value as obj.text for obj in employeeOptions" class="form-control" id="to" ng-model="memoData.toId">
+            <option value="">-- Choose Employee --</option>
+          </select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <div class="col-xs-12">
+        <div class="btn btn-info m-l-xs pull-right" ng-click="cancelMemo();">Cancel</div>
+        <div class="btn btn-default pull-right" ng-disabled="mainMemoForm.$invalid" ng-click="saveMemo(mainMemoForm);">Add</div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<script type="text/ng-template" id="TypeAheadTemplate.html">
+  <style>
+    .items{
+      position:absolute;top:35px;width:100%;z-index:1000;
+    }
+    .compact .items{
+      position:absolute;top:27px;width:100%;z-index:1000;
+    }
+    .item{
+      margin: 0px;
+      text-align: left;
+      background: #F2F2F2;
+      padding: 5px 10px;
+
+    }
+    .active{
+      background-color: #C44741;
+      color:#f2f2f2;
+    }
+  </style>
+  <div style="position:relative;z-order:1000;">
+    <input type="text" class="form-control" ng-model="search" placeholder="{{prompt}}" ng-keydown="selected=false" />
+    <div class="items" ng-hide="!search.length || selected">
+      <div class="item" ng-repeat="item in items | filter:search  track by $index | limitTo:4" ng-click="handleSelection(item.label,item.value)" style="cursor:pointer" ng-class="{active:isCurrent($index)}" ng-mouseenter="setCurrent($index)">
+        <div class="title">{{item.label}}</div>
+      </div>
+    </div>
+  </div>
+</script>

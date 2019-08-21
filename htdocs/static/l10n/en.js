@@ -1,0 +1,146 @@
+{
+
+  "header" : {
+    "navbar" : {
+      "UPLOAD" : "Upload",
+      "new" : {
+        "NEW" : "New",
+        "PROJECT" : "Projects",
+        "TASK" : "Task",
+        "USER" : "User",
+        "EMAIL" : "Email"
+      },
+      "NOTIFICATIONS" : "Notifications"
+    }
+  },
+  "aside" : {
+    "nav" : {
+      "HEADER" : "Navigation",
+      "DASHBOARD" : "Dashboard",
+      "CALENDAR" : "Calendar",
+      "EMAIL" : "Email",
+      "WIDGETS" : "Widgets",
+      "COMMON" : "Common",
+      "components" : {
+        "COMPONENTS" : "Components",
+        "ui_kits" : {
+          "UI_KITS" : "UI Kits",
+          "BUTTONS" : "Buttons",
+          "ICONS" : "Icons",
+          "GRID" : "Grid",
+          "BOOTSTRAP" : "Bootstrap",
+          "SORTABLE" : "Sortable",
+          "PORTLET" : "Portlet",
+          "TIMELINE" : "Timeline",
+          "VECTOR_MAP" : "Vector Map"
+        },
+        "table" : {
+          "TABLE" : "Table",
+          "TABLE_STATIC" : "Table static",
+          "DATATABLE" : "Datatable",
+          "FOOTABLE" : "Footable"
+        },
+        "form" : {
+          "FORM" : "Form",
+          "FORM_ELEMENTS" : "Form elements",
+          "FORM_VALIDATION" : "Form validation",
+          "FORM_WIZARD" : "Form wizard"
+        },
+        "CHART" : "Chart",
+        "access": {
+          "ACCESS" : "Access",
+          "LOCK_SCREEN" : "Lock Screen",
+          "SIGNIN" : "Signin",
+          "SIGNUP" : "Signup",
+          "FORGOT_PASSWORD" : "Forgot password",
+          "404" : "404"
+        },
+        "system": {
+          "SYSTEM" : "System",
+          "CODE" : "Code",
+          "MENU" : "Menu",
+          "ROLE" : "Role",
+          "SETTING" : "System Option",
+          "EVENT" : "Event",
+          "USER" : "System User"
+        },
+        "pages" : {
+          "PAGES" : "Pages",
+          "PROFILE" : "Profile",
+          "POST" : "Post",
+          "SEARCH" : "Search",
+          "INVOICE" : "Invoice",
+          "LOCK_SCREEN" : "Lock screen",
+          "SIGNIN" : "Signin",
+          "SIGNUP" : "Signup",
+          "FORGOT_PASSWORD" : "Forgot password",
+          "404" : "404"
+        }
+      },
+      "your_stuff" : {
+        "YOUR_STUFF": "Your Stuff",
+        "PROFILE" : "Profile",
+        "DOCUMENTS" : "Documents"
+      }
+    },
+
+    "MILESTONE" : "Milestone",
+    "RELEASE" : "Release"
+  },
+
+  "system":{
+    "code":{
+      "CATEGORY":"Category",
+      "CODE":"Code",
+      "NAME":"Name",
+      "DESCRIPTION":"Description",
+      "RESERVE1":"Reserve#1",
+      "RESERVE2":"Reserve#2",
+      "RESERVE3":"Reserve#3",
+      "RESERVE4":"Reserve#4",
+      "RESERVE5":"Reserve#5"
+    },
+    "menu":{
+      "NAME":"Name",
+      "URL":"Url"
+    },
+    "term":{
+      "NAME":"Name",
+      "TERMCODE":"Term Code",
+      "FISCALYEAR":"Fiscal Year",
+      "STARTDATE":"Start Date",
+      "ENDDATE":"End Date"
+    }
+  },
+  "account":{
+    "EMAIL":"Email",
+    "PASSWORD":"Password",
+    "CONFIRM":"Confirm",
+    "ROLE":"Role Name",
+    "APPROVAL":"Approval",
+    "FIRSTNAME":"First Name",
+    "LASTNAME":"Last Name"
+  },
+  "DIALOGS_ERROR": "Error",
+  "DIALOGS_ERROR_MSG": "An unknown error has occurred.",
+  "DIALOGS_CLOSE": "Close",
+  "DIALOGS_PLEASE_WAIT": "Please Wait",
+  "DIALOGS_PLEASE_WAIT_ELIPS": "Please Wait...",
+  "DIALOGS_PLEASE_WAIT_MSG": "Waiting on operation to complete.",
+  "DIALOGS_PERCENT_COMPLETE": "% Complete",
+  "DIALOGS_NOTIFICATION": "Notification",
+  "DIALOGS_NOTIFICATION_MSG": "Unknown application notification.",
+  "DIALOGS_CONFIRMATION": "Confirmation",
+  "DIALOGS_CONFIRMATION_MSG": "Confirmation required.",
+  "DIALOGS_CONFIRMATION_DELETE": "Would you really like to delete the information?",
+  "DIALOGS_CONFIRMATION_DONE":"Would you really like to have this task done?",
+  "DIALOGS_CONFIRMATION_CANCEL":"Would you really like to cancel this task?",
+  "DIALOGS_CONFIRMATION_REJECT":"Would you really like to reject this task?",
+  "DIALOGS_CONFIRMATION_SAVE":"Would you really like to save the information?",
+  "DIALOGS_CONFIRMATION_CHANGE":"There is something changed, do you want to stay on the page?",
+  "DIALOGS_OK": "OK",
+  "DIALOGS_YES": "Yes",
+  "DIALOGS_SEARCH": "Search",
+  "DIALOGS_NO": "No",
+  "DIALOGS_CANCEL": "Cancel"
+}

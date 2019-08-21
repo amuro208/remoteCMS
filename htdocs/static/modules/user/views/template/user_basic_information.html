@@ -1,0 +1,183 @@
+<div class="panel panel-default">
+  <div class="panel-heading inner-panel">
+    Basic Information
+  </div>
+  <div class="panel-body form">
+      <div class="row">
+        <div class="form-group">
+          <label for="id" class="col-xs-2 control-label">ID</label>
+          <div class="col-xs-4">
+              <input type="text" class="form-control" id="id"
+                     ng-model="modifiedData.id"
+                     ng-readonly="true"/>
+          </div>
+          <label for="localDate" class="col-xs-2 control-label">Local Date</label>
+          <div class="col-xs-4">
+              <input type="text" class="form-control" id="localDate"
+                     ng-model="modifiedData.localCreateDate.date"
+                     ng-readonly="true"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="approval" class="col-xs-2 control-label">Approval</label>
+          <div class="col-xs-4">
+            <input type="checkbox"
+                   ng-checked="modifiedData.isApproved == 'Y'"
+                   ng-model="modifiedData.isApproved"
+                   ng-click="onClickApproved2(modifiedData)"
+                   ng-disabled="modifiedData.isSentEmail == 'Y'" /> <-- Email Auto Send
+          </div>
+          <label for="sendemail" class="col-xs-2 control-label">Send Email</label>
+          <div class="col-xs-2">
+            <input type="checkbox"
+                   ng-checked="modifiedData.isSentEmail == 'Y'"
+                   ng-model="modifiedData.isSentEmail"
+                   ng-click="onClickSentEmail2(modifiedData)"/>
+            {{modifiedData.isSentEmail}}-{{modifiedData.emaillog}}
+          </div>
+          <div class="col-xs-2">
+            <a href="#" class="btn btn-primary btn-xs glyphicon glyphicon-send pull-right"
+               ng-click="onClickResendEmail(modifiedData)"> Resend</a>
+          </div>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="sitecode" class="col-xs-2 control-label">Site Code</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="sitecode"
+                   ng-model="modifiedData.siteCode"
+                   ng-readonly="true"/>
+          </div>
+          <label for="eventcode" class="col-xs-2 control-label">Event Code</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="eventcode"
+                   ng-model="modifiedData.eventCode"
+                   ng-readonly="true"/>
+          </div>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="firstName" class="col-xs-2 control-label">First Name</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="firstName"
+                   ng-model="modifiedData.firstName"/>
+          </div>
+          <label for="lastName" class="col-xs-2 control-label">Last Name</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="lastName"
+                   ng-model="modifiedData.lastName"/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="email" class="col-xs-2 control-label">Email</label>
+          <div class="col-xs-10">
+            <input type="text" class="form-control" id="email"
+                   ng-model="modifiedData.email"/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="phone" class="col-xs-2 control-label">Phone</label>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="phone"
+                   ng-model="modifiedData.phone"/>
+          </div>
+          <label for="mobile" class="col-xs-1 control-label">Mobile</label>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" id="mobile"
+                   ng-model="modifiedData.mobile"/>
+          </div>
+          <label for="zipCode" class="col-xs-1 control-label">ZipCode</label>
+          <div class="col-xs-2">
+            <input type="text" class="form-control" id="zipCode"
+                   ng-model="modifiedData.zipcode"/>
+          </div>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="videoid" class="col-xs-2 control-label">Video Id</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="videoid" ng-model="modifiedData.videoId"/>
+          </div>
+          <label for="photoid" class="col-xs-2 control-label">Photo Id</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="photoid" ng-model="modifiedData.photoId"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="gamecode" class="col-xs-2 control-label">Game Code</label>
+          <div class="col-xs-2">
+            <input type="text" class="form-control" id="gamecode" ng-model="modifiedData.gameCode"/>
+          </div>
+          <label for="teamcode" class="col-xs-2 control-label">Team Code</label>
+          <div class="col-xs-2">
+            <input type="text" class="form-control" id="teamcode" ng-model="modifiedData.teamCode"/>
+          </div>
+          <label for="playercode" class="col-xs-2 control-label">Player Code</label>
+          <div class="col-xs-2">
+            <input type="text" class="form-control" id="playercode" ng-model="modifiedData.teamPlayerCode"/>
+          </div>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="reserve1" class="col-xs-2 control-label">Reserve1</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="reserve1" ng-model="modifiedData.reserve1"/>
+          </div>
+          <label for="reserve2" class="col-xs-2 control-label">Reserve2</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="reserve2" ng-model="modifiedData.reserve2"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="reserve3" class="col-xs-2 control-label">Reserve3</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="reserve3" ng-model="modifiedData.reserve3"/>
+          </div>
+          <label for="reserve4" class="col-xs-2 control-label">Reserve4</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="reserve4" ng-model="modifiedData.reserve4"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="reserve5" class="col-xs-2 control-label">Reserve5</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="reserve5" ng-model="modifiedData.reserve5"/>
+
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<form name="dataForm" id="dataForm" class="css-form" novalidate>
+  <div ng-init="setForm(dataForm);"></div>
+  <div class="panel panel-default">
+    <div class="panel-heading" ng-class="{'compact':app.settings.compact}">
+      <div class="row">
+        <div class="col-xs-6 m-n font-thin h4">
+          Role
+        </div>
+        <div class="col-xs-6" style="text-align:right;">
+          <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-floppy-disk"
+                  ng-disabled="dataForm.$invalid || dataForm.$pristine || isUnchanged()"
+                  ng-click="saveData();" ng-if="checkCreatableAuthority(moduleName)"
+                  alt="Save"></button>
+          <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-remove"
+                  ng-click="listData();" alt="List"></button>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="row normal">
+
+        <div class="col-xs-6">
+          <ng-include src="versionUrl('static/modules/role/views/template/role_basic_information.html')" />
+        </div>
+
+        <div class="col-xs-6">
+          <ng-include src="'static/modules/role/views/template/role_rolemenu.html'" />
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>

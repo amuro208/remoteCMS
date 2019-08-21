@@ -1,0 +1,196 @@
+<div class="panel panel-default" ng-controller="StatisticListController">
+  <div class="panel-heading" ng-class="{'compact':app.settings.compact}">
+    <div class="row">
+      <div class="col-xs-6 m-n font-thin h4">
+       Statistics
+      </div>
+      <div class="col-xs-6" style="text-align:right;">
+        <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-save"
+                ng-click="csvAllRawDownload()"
+                >AllRawData</button>
+        <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-save"
+                ng-click="csvDownload()"
+                >Download</button>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive" style="overflow-x:scroll;">
+    <table ng-table="listTableParams"
+           show-filter="false"
+           style="width:3000px !important;"
+           class="table table-striped table-hover"
+           id="ngListTable"
+           ng-class="{'compact':app.settings.compact}">
+      <thead>
+        <tr>
+          <th colspan="3">Event</th>
+          <th rowspan="2" width="100px">Total Email</th>
+          <th rowspan="2" width="100px">Unique Email</th>
+          <th rowspan="2" width="100px">Valid Email</th>
+          <th colspan="6">Invalid Email</th>
+          <th colspan="11">From EDM</th>
+          <th colspan="4">Click Backs</th>
+          <th colspan="6">Microsite Activity From Click Backs</th>
+          <th colspan="4">EDM Link</th>
+        </tr>
+        <tr>
+          <th width="100px">Date</th>
+          <th width="200px">Name</th>
+          <th width="100px">Games Played</th>
+
+          <th width="100px">Total</th>
+          <th width="100px">Format</th>
+          <th width="100px">DNS</th>
+          <th width="100px">Unknow</th>
+          <th width="100px">No User</th>
+          <th width="100px">Could not Connect to Server</th>
+
+          <th width="100px">Sent</th>
+          <th width="100px">Opened</th>
+          <th width="100px">Unique</th>
+          <th width="100px">EDM Contents Clicked</th>
+          <th width="100px">EDM Button Clicked</th>
+          <th width="100px">Microsite Contents Clicked</th>
+          <th width="100px">Downloaded</th>
+          <th width="100px">Facebook</th>
+          <th width="100px">Twitter</th>
+          <th width="100px">Instagram</th>
+          <th width="100px">Banner</th>
+
+          <th width="100px">FB Shared</th>
+          <th width="100px">Twitter Shared</th>
+          <th width="100px">Instagram Shared</th>
+          <th width="100px">Other Shared</th>
+
+          <th width="100px">Microsite Contents Clicked</th>
+          <th width="100px">Downloaded</th>
+          <th width="100px">Facebook</th>
+          <th width="100px">Twitter</th>
+          <th width="100px">Instagram</th>
+          <th width="100px">Banner</th>
+
+          <th width="50px">1</th>
+          <th width="50px">2</th>
+          <th width="50px">3</th>
+          <th width="50px">4</th>
+        </tr>
+      </thead>
+      <tr ng-repeat="data in $data" ng-class="{active:data.selected,total:data.eventDate=='TOTAL'||data.eventName=='SUBTOTAL'}">
+        <td width="100px" data-title="'Date'"> 
+          {{data.eventDate}} 
+        </td>
+        <td width="200px" data-title="'Event Name'">
+          {{data.eventName}} 
+        </td>
+        <td width="100px" class="currency" data-title="'Game Played'">
+          {{data.participant}} 
+        </td>
+        <td width="100px" class="currency" data-title="'Total Email'">
+          {{data.totalEmailCount}} 
+        </td>
+        <td width="100px" class="currency" data-title="'Total Email'">
+          {{data.uniqueParticipantCount}} 
+        </td>
+        <td width="100px" class="currency" data-title="'Valid Email'">
+          {{data.validEmailCount}} 
+        </td>
+        <td width="100px" class="currency" data-title="'Invalid Total'">
+          {{data.invalidEmailCount}} 
+        </td>
+        <td width="100px" class="currency" data-title="'Invalid Format'">
+          {{data.invalidEmailCountInvalidFormat}} 
+        </td>
+        <td width="100px" class="currency" data-title="'Invalid DNS'">
+          {{data.invalidEmailCountDNS}} 
+        </td>
+        <td width="100px" class="currency" data-title="'Unknown'">
+          {{data.invalidEmailCountUnknown}} 
+        </td>
+        <td width="100px" class="currency" data-title="'No User'">
+          {{data.invalidEmailCountNoUser}} 
+        </td>
+        <td width="100px" class="currency" data-title="'Can't Connect'">
+          {{data.invalidCannotConnectUser}} 
+        </td>
+        <td width="100px" class="currency" data-title="'Sent Email'">
+          {{data.sentEmailCount}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.openedEmailCount}} 
+        </td>
+        <td width="100px" class="currency" data-title="'Unique Email'">
+          {{data.uniqueEmailCount}} 
+        </td>
+
+        <td width="100px" class="currency">
+          {{data.EDMClickContents}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.EDMClickButton}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.EDMMicrositeClickContents}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.EDMDownload}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.EDMFacebook}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.EDMTwitter}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.EDMWeibo}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.EDMBanner}} 
+        </td>
+
+        <td width="100px" class="currency">
+          {{data.ClickBackFromFacebook}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.ClickBackFromTwitter}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.ClickBackFromWeibo}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.ClickBackFromOther}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.ClickBackMicrositeClickContents}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.ClickBackDownload}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.ClickBackFacebook}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.ClickBackTwitter}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.ClickBackWeibo}} 
+        </td>
+        <td width="100px" class="currency">
+          {{data.ClickBackBanner}} 
+        </td>
+
+        <td width="50px" class="currency">
+          {{data.EDMLink1}} 
+        </td>
+        <td width="50px" class="currency">
+          {{data.EDMLink2}} 
+        </td>
+        <td width="50px" class="currency">
+          {{data.EDMLink3}} 
+        </td>
+        <td width="50px" class="currency">
+          {{data.EDMLink4}} 
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

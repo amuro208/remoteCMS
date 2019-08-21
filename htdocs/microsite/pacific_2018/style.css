@@ -1,0 +1,236 @@
+*, html { line-height: 1.6em; }
+body, p { font-family: 'Roboto' !important; }
+h1, h2, h3, h4 { font-weight: normal; !important; }
+
+body.main {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 100%; /* best for all browser using em */
+    padding:0; 
+    margin:0;
+    background-color: #000;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-image: url('http://www.pacificfairgames.com.au/microsite/pacific_2018/images/COMMON/Desk_top_back.png');
+}
+
+#wrapper {
+    font-size: 1.0em; 
+    width: 1024px;
+    margin: 0px auto 0px auto;
+    background: #ffffff;
+}
+
+.section_wrapper{
+    width:1024px;
+}
+
+section{
+    width:1024px;
+    margin:0px auto;
+    padding:0px 0px 0px 0px;
+}
+
+section > .content {
+    margin: 0px auto;
+    padding: 0px 0px;
+    width: 620px; 
+    text-align:center;
+}
+
+.logo {
+    text-align:center;
+    padding: 55px 0px 45px;
+}
+
+.logo-text{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.content > img{
+    width: 620px; 
+}
+
+section > .hash-text{
+    margin: 65px 0px 0px 0px;
+    width: 100%; 
+    text-align:center;
+}
+
+.hash-text p{
+    color: #32bcc6;
+    font-weight: bold;
+    font-size: 60px;
+    text-transform: uppercase;
+    margin: 0px;
+    line-height: 1.0em;
+}
+
+section > .hash{
+    margin: 15px 0px 0px 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.hash p{
+    margin: 0px;
+    line-height: 1.0em;
+    font-size: 60px;
+    color: #26959a;
+    font-weight: bold;
+}
+
+section > .sharebutton{
+    margin:35px 0px 0px 0px;
+    width: 100%; 
+    text-align:center;
+}
+
+.sharebutton a{
+    margin: 0px 5px;
+    width: 250px;
+    height: 80px;
+    display: inline-block;
+    background-position: top;
+}
+
+.sharebutton a:hover{
+    background-position: bottom!important;
+}
+
+.sharebutton #facebook{
+    background: url('http://www.pacificfairgames.com.au/microsite/pacific_2018/images/COMMON/BTN_share_over.png');
+}
+
+.sharebutton #instagram{
+    background: url('http://www.pacificfairgames.com.au/microsite/pacific_2018/images/COMMON/BTN_post_over.png');
+}
+
+.sharebutton #download{
+    width: 370px;
+    background: url('http://www.pacificfairgames.com.au/microsite/pacific_2018/images/COMMON/BTN_download_over.png');
+}
+
+.whiteline{
+    margin-top:90px;
+}
+
+section > .message{
+    margin: 95px 0px 0px 0px;
+    width: 100%; 
+    text-align:center;
+}
+
+.message p{
+    margin: 0px;
+    line-height: 0em;
+    color: #32bcc6;
+    font-weight: bold;
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+.sponsor{
+    margin: 40px 0px 0px 0px;
+    padding: 10px 0px;
+    text-align:center;
+    background: #96dee3;
+}
+
+@media only screen and (max-width: 1000px){
+    #wrapper{
+        width:100%;
+        margin: 0px 0px 0px 0px;
+    }
+    .section_wrapper{
+        width: 95%;
+        background: #32bcc6;
+        margin:0px auto;
+        padding: 0px 10px;
+    }
+    section {
+        width: 100%;
+        background: #ffffff;
+    }
+    section .logo{
+        margin-bottom: 20px;
+    }
+    section .logo-text{
+        margin-bottom: 20px;
+    }
+    section > .logo img{
+        width: 40%;
+        max-width: 472px;
+    }
+    section > .logo-text img{
+        width: 90%;
+    }
+    section > .content{
+        width:100%;
+    }
+    section > .hash-text{
+        margin: 30px 0px 0px 0px;
+        width: 100%; 
+        text-align:center;
+    }
+    .hash-text p{
+        font-size: 30px;
+    }
+    section > .hash{
+        margin: 10px 0px 0px 0px;
+    }
+    .hash p{
+        font-size: 30px;
+    }
+    section > .sharebutton{
+        margin: 20px 0px 0px 0px;
+    }
+    section > .message{
+        margin: 20px 0px 0px 0px;
+    }
+    section > .banner{
+        margin: 20px 0px 40px 0px;
+    }
+    .content > img{
+        width: 300px;
+    }
+    .sharebutton a{
+        margin: 10px 0px;
+    }
+
+    .sharebutton #download{
+        width: 300px;
+        height: 70px;
+        background-size: cover;
+    }
+
+    .message > img{
+        width: 235px;
+    }
+    .message p{
+        display: none;
+    }
+    .whiteline > img{
+        width: 100%;
+    }
+    .sponsor{
+        position: relative;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .vjs-default-skin{
+        width: 280px;
+    }
+
+    .vjs-default-skin.vk{
+        height: 160px !important;
+    }
+
+    .vjs-default-skin.sr{
+        height: 497px !important;
+    }
+}
+

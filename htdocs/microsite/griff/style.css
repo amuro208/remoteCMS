@@ -1,0 +1,292 @@
+*, html { line-height: 1.6em; }
+body, p { font-family: 'Arial' !important; }
+h1, h2, h3, h4 { font-weight: normal; !important; }
+
+body.main {
+  font-family: Arial, sans-serif;
+  font-size: 100%; /* best for all browser using em */
+  padding:0; 
+  margin:0;
+  background-color: #E01021;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  background-image: url('img/Desktop/background.png');
+  /*
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  */
+}
+
+#f1_banner {
+  padding:0px;
+  margin:0px;
+  top:36px;
+  position:absolute;
+  width:100%;
+  height:30px;
+}
+
+#f1_banner_left{
+  position:absolute;
+  left:0px;
+}
+
+#f1_banner_right{
+  position:absolute;
+  right:0px;
+}
+
+#wrapper {
+  font-size: 1.0em; 
+  width:770px;
+  margin: 90px auto 0px auto;
+}
+
+section{
+  width:770px;
+  margin:0px auto;
+  padding:0px 0px 0px 0px;
+}
+
+section > .content {
+  margin: 0px auto;
+  padding: 0px 0px;
+  width: 762px; 
+  text-align:center;
+  border: 4px solid #fff;
+}
+
+.logo{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.content > img{
+  width: 762px; 
+}
+
+section > .hash{
+  margin: 75px 0px 0px 0px;
+  width: 100%; 
+  text-align:center;
+}
+
+section > .sharebutton{
+  margin:40px 0px 0px 0px;
+  width: 100%; 
+}
+
+#facebook > img {
+  display:none;
+}
+#instagram > img {
+  display:none;
+}
+#download > img {
+  display:none;
+}
+
+a#facebook{
+  display: inline-block;
+  width: 220px;
+  height: 74px;
+  background: url(/img/Desktop/btn_socialmedia.png) left top;
+}
+a#facebook:hover{
+  background: url(/img/Desktop/btn_socialmedia.png) right top;
+}
+
+a#instagram{
+  display: inline-block;
+  width: 220px;
+  height: 74px;
+  background: url(/img/Desktop/btn_socialmedia.png) left 148px;
+  margin: 0px 50px 0px 50px;
+}
+a#instagram:hover{
+  background: url(/img/Desktop/btn_socialmedia.png) right 148px;
+}
+
+a#download{
+  display: inline-block;
+  width: 220px;
+  height: 74px;
+  background: url(/img/Desktop/btn_socialmedia.png) left bottom;
+}
+a#download:hover{
+  background: url(/img/Desktop/btn_socialmedia.png) right bottom;
+}
+
+section > .message{
+  margin: 40px 0px 0px 0px;
+  width: 100%; 
+  text-align:center;
+}
+
+section > .banner{
+  font-size: 12px;
+  height:71px; 
+  padding:0px;
+  margin: 120px 0px 40px 0px;
+  text-align:center;
+  position:relative;
+}
+
+.sponsor{
+}
+
+/*
+@media only screen and (min-width:600px) and (max-width: 960px){
+  body.main{
+    background-image: url('img/gr_background_sml.png') !important;
+  }
+
+  #wrapper{
+    width:100%;
+  }
+  section {
+    width:600px;
+  }
+  section > .hash{
+    margin: 40px 0px 0px 0px;
+  }
+  section > .sharebutton{
+    margin: 20px 0px 0px 0px;
+  }
+  section > .message{
+    margin: 20px 0px 0px 0px;
+  }
+  section > .banner{
+    margin: 20px 0px 40px 0px;
+  }
+  .content > img{
+    width: 280px;
+  }
+  .hash > img{
+    content: url("./img/txt_ausgp_sml.png")
+  }
+  #facebook > img{
+    width: 225px;
+    hiehgt: 75px;
+    display: block;
+    content: url("./img/btn_facebook_sml.png")
+  }
+  #twitter > img{
+    width: 225px;
+    hiehgt: 75px;
+    display: block;
+    content: url("./img/btn_twitter_sml.png")
+  }
+  #instagram > img{
+    width: 225px;
+    hiehgt: 75px;
+    display: block;
+    content: url("./img/btn_instagram_sml.png")
+  }
+  #download > img{
+    content: url("./img/btn_download_sml.png")
+  }
+  .message > img{
+    content: url("./img/txt_sharenow_sml.png")
+  }
+  .sponsor{
+    position:relative;
+    width:100%;
+    top:0px;
+    margin: 20px 0px 40px 0px;
+    text-align:center;
+  }
+}
+*/
+@media only screen and (max-width: 770px){
+  body.main{
+    background: none;
+    background-color: #E01021;
+  }
+  #wrapper{
+    width:100%;
+    margin: 30px auto;
+  }
+  section {
+    width:300px;
+  }
+  section > .content{
+    width:292px;
+  }
+  section > .hash{
+    margin: 30px 0px 0px 0px;
+  }
+  section > .sharebutton{
+    margin: 30px 0px 0px 0px;
+  }
+  section > .message{
+    margin: 30px 0px 0px 0px;
+  }
+  section > .banner{
+    font-size: 8px;
+    margin: 30px 0px 40px 0px;
+  }
+  .content > img{
+    width: 292px;
+  }
+  .logo{
+    text-align:center;
+    margin-bottom:26px;
+  }
+  .logo > img{
+    content: url("./img/Mobile/gr_griffiths_logo_mb.png")
+    width: 195px;
+    height: 50px;
+  }
+  #twitter{
+    margin: 0px auto 0px auto;
+  }
+  a#facebook {
+    display: block;
+    margin: 15px auto;
+    padding: 0px;
+  }
+  a#instagram {
+    display: block;
+    margin: 15px auto;
+    padding: 0px;
+  }
+  a#download {
+    display: block;
+    margin: 15px auto;
+    padding: 0px;
+  }
+  #facebook > img{
+    width: 225px;
+    hiehgt: 75px;
+    display: block;
+    content: url("./img/Mobile/btn_facebook.png");
+  }
+  #instagram > img{
+    width: 225px;
+    hiehgt: 75px;
+    display: block;
+    content: url("./img/Mobile/btn_instagram.png");
+  }
+  #download > img{
+    width: 225px;
+    hiehgt: 75px;
+    display: block;
+    content: url("./img/Mobile/btn_download.png");
+  }
+  .message > img{
+    width: 238px;
+    height: 56;
+    content: url("./img/Mobile/txt_sharenow_mb.png");
+  }
+  .sponsor{
+    position:relative;
+    width:100%;
+    top:0px;
+    margin: 20px 0px 40px 0px;
+    text-align:center;
+  }
+}

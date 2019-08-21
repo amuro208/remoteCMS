@@ -1,0 +1,86 @@
+<div class="panel panel-default" ng-controller="UserListController">
+  <div class="panel-heading" ng-class="{'compact':app.settings.compact}">
+    <div class="row">
+      <div class="col-xs-2 m-n font-thin h4">
+        Lip Sync 
+      </div>
+      <!--
+      <div class="col-xs-10" style="text-align:right;">
+        <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-ok"
+                ng-if="maderateMode"
+                ng-click="onClickMaderate()"> Maderate</button>
+      </div>
+      -->
+    </div>
+  </div>
+  <div class="table-responsive" style="overflow-x:scroll;">
+    <table ng-table="listTableParams"
+           show-filter="true"
+           style="width:940px !important;"
+           class="table table-striped table-hover"
+           ng-class="{'compact':app.settings.compact}">
+      <tr ng-repeat="data in $data" ng-click="selectData(data)" ng-class="{'active': data.selected}" style="height:40px;">
+        <td width="40px" data-title="''" class="btn-cell">
+          <button class="btn btn-xs btn-edit glyphicon glyphicon-download-alt" ng-click="downloadVideo(data)"></button>
+        </td>
+        <td width="60px" class="text-right" sortable="'id'" data-title="'ID'">
+          {{data.id}}
+        </td>
+        <td width="50px" data-title="'Vidoe'" style="padding:0px;text-align:center;">
+          <!--
+          <img ng-if="data.files[0].mimeType!='video/mp4' && data.file1" ng-src="{{data.thumbfile1 || ''}}" 
+               style="cursor:pointer;"
+               alt="{{data.files[0].typeCode}}"
+               tooltip="{{data.files[0].typeCode}}"
+               width="50px" fancybox ng-click="openImageFancybox(data.file1)">
+          -->
+          <img ng-if="data.files[0].mimeType!='video/mp4' && data.file1" ng-src="{{data.file1 || ''}}" 
+               style="cursor:pointer;"
+               alt="{{data.files[0].typeCode}}"
+               tooltip="{{data.files[0].typeCode}}"
+               width="50px" fancybox ng-click="openImageFancybox(data.file1)">
+          <img ng-if="data.files[0].mimeType=='video/mp4' && data.file1" src="./static/img/playvideo.png" 
+               style="cursor:pointer;"
+               alt="{{data.files[0].typeCode}}"
+               width="40px" fancybox ng-click="openVideoFancybox('/framework/index.php/userdata/playvideo/id/'+data.files[0].id)">
+        </td>
+        <td width="50px" data-title="'EDM'" style="padding:0px;text-align:center;">
+          <!--
+          <img ng-if="data.files[1].mimeType!='video/mp4' && data.file2" ng-src="{{data.thumbfile2 || ''}}" 
+               style="cursor:pointer;"
+               alt="{{data.files[1].typeCode}}"
+               width="50px" fancybox ng-click="openImageFancybox(data.file2)">
+          -->
+          <img ng-if="data.files[1].mimeType!='video/mp4' && data.file2" ng-src="{{data.file2 || ''}}" 
+               style="cursor:pointer;"
+               alt="{{data.files[1].typeCode}}"
+               width="50px" fancybox ng-click="openImageFancybox(data.file2)">
+          <img ng-if="data.files[1].mimeType=='video/mp4' && data.file2" src="./static/img/playvideo.png" 
+               style="cursor:pointer;"
+               alt="{{data.files[1].typeCode}}"
+               width="40px" fancybox ng-click="openVideoFancybox('/framework/index.php/userdata/playvideo/id/'+data.files[1].id)">
+        </td>
+        <td width="150px" data-title="'FirstName'" filter="{'firstName':'text'}">
+          {{data.firstName}}
+        </td>
+        <td width="150px" data-title="'LastName'" filter="{'lastName':'text'}">
+          {{data.lastName}}
+        </td>
+        <td width="300px" data-title="'Email'" filter="{'email':'text'}">
+          {{data.email}}
+        </td>
+        <td width="80px" data-title="'Song No'" filter="{'reserve1':'text'}">
+          {{data.reserve1}}
+        </td>
+        <td width="80px" data-title="'Receive EDM'" filter="{'reserve5':'text'}">
+          {{data.reserve5}}
+        </td>
+        <td width="80px" data-title="'Can Use Video'" filter="{'reserve4':'text'}">
+          {{data.reserve4}}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<iframe id="download_frame" width="0px" height="0px" style="display:none;"></iframe>

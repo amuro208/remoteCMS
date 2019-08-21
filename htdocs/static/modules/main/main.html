@@ -1,0 +1,13 @@
+<div class="wrapper" ng-controller="MainController" style="padding:0px 15px;">
+  <div class="row">
+    <div class="col-md-{{todoPanelSize}}" style="padding:0px;" ng-if="!checkCreatableAuthority('app.main')">
+      <ng-include src="versionUrl('static/modules/main/views/todo.html')"></ng-include>
+    </div>
+    <div class="col-md-{{todoPanelSize}}" style="padding:0px;" ng-if="checkCreatableAuthority('app.main')">
+      <ng-include src="versionUrl('static/modules/main/views/alltodo.html')"></ng-include>
+    </div>
+    <div class="col-md-{{memoPanelSize}}" style="padding:0px;">
+      <ng-include src="versionUrl('static/modules/main/views/memo.html')"></ng-include>
+    </div>
+  </div>
+</div>

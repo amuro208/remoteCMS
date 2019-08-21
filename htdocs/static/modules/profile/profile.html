@@ -1,0 +1,53 @@
+<div class="wrapper col-md-6" style="padding:0px;" ng-controller="ProfileController">
+  <div class="panel panel-default">
+    <div class="panel-heading font-thin h4"
+         ng-class="{'compact':app.settings.compact}">
+      Profile
+      <button class="btn btn-xs btn-add glyphicon glyphicon-floppy-disk pull-right"
+              ng-disabled="profileForm.$invalid || profileForm.$pristine || user.password != user.confirmPassword"
+              ng-click="saveProfile(profileForm);"></button>
+    </div>
+
+    <div class="panel-body">
+      <form name="profileForm">
+        <div class="row">
+          <div class="form-group">
+            <label for="to" class="col-xs-4 control-label">Name</label>
+            <div class="col-xs-8">
+              <input type="text" class="form-control" readonly name="name" ng-model="user.name"></input>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="to" class="col-xs-4 control-label">Email</label>
+            <div class="col-xs-8">
+              <input type="text" class="form-control" readonly name="email" ng-model="user.email"></input>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="password" class="col-xs-4 control-label">Password</label>
+            <div class="col-xs-8">
+              <input type="password" class="form-control" ng-model="user.password" ng-required="true">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="confirm" class="col-xs-4 control-label">Confirm Password</label>
+            <div class="col-xs-8">
+              <input type="password" class="form-control" ng-model="user.confirmPassword" ng-required="true">
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>

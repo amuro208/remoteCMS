@@ -1,0 +1,43 @@
+<form name="menuForm" id="menuForm" class="css-form" novalidate>
+  <div ng-init="setForm(menuForm);"></div>
+  <div class="row">
+    <div class="form-group">
+      <label for="name" class="col-xs-2 control-label" translate="system.menu.NAME">Name</label>
+      <div class="col-xs-10">
+        <input type="text" class="form-control" id="name" name="name" ng-model="modifiedData.name" ng-required="true"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label for="url" class="col-xs-2 control-label" translate="system.menu.URL">Url</label>
+      <div class="col-xs-6">
+        <input type="text" class="form-control" id="url" name="url" ng-model="modifiedData.url" ng-required="true"/>
+      </div>
+      <label for="url" class="col-xs-2 control-label">Order</label>
+      <div class="col-xs-2">
+        <input type="text" class="form-control" id="url" name="url" ng-model="modifiedData.order" ng-required="true"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <div class="col-xs-12">
+        <div class="btn btn-info m-l-xs pull-right" ng-click="cancelMenu();">Cancel</div>
+        <div class="btn btn-default pull-right"
+             ng-show="mode=='create'"
+             ng-disabled="menuForm.$invalid"
+             ng-click="saveData();"
+             ng-if="checkCreatableAuthority(moduleName)">Add</div>
+        <div class="btn btn-default pull-right"
+             ng-show="mode=='modify'"
+             ng-disabled="menuForm.$invalid"
+             ng-click="saveData();"
+             ng-if="checkCreatableAuthority(moduleName)">Edit</div>
+      </div>
+    </div>
+  </div>
+
+</form>

@@ -1,0 +1,37 @@
+<div class="panel panel-default" ng-controller="LocalRfidScanListController">
+  <div class="panel-heading" ng-class="{'compact':app.settings.compact}">
+    <div class="row">
+      <div class="col-xs-2 m-n font-thin h4">
+        {{title}} 
+      </div>
+      <div class="col-xs-10" style="text-align:right;">
+        <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-ok"
+                ng-if="maderateMode"
+                ng-click="onClickMaderate()"> Maderate</button>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive" style="overflow-x:scroll;">
+    <table ng-table="listTableParams"
+           show-filter="true"
+           style="width:270px !important;"
+           class="table table-striped table-hover"
+           ng-class="{'compact':app.settings.compact}">
+      <tr ng-repeat="data in $data" ng-click="selectData(data)" ng-class="{'active': data.selected}" style="height:20px;">
+        <td width="40px" data-title="''" class="btn-cell">
+          <button class="btn btn-xs btn-delete glyphicon glyphicon-trash"
+                  ng-click="deleteData(data)"></button>
+        </td>
+        <td width="40px" class="text-right" sortable="'id'" data-title="'No'">
+          {{data.id}}
+        </td>
+        <td width="150px" data-title="'RFID'" filter="{'rfid':'text'}">
+          {{data.rfid}}
+        </td>
+        <td width="80px" data-title="'UserId'" filter="{'localUserId':'text'}">
+          {{data.localUserId}}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

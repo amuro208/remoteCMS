@@ -1,0 +1,64 @@
+<form name="systemUserForm" id="systemUserForm" class="css-form" novalidate>
+  <div ng-init="setForm(systemUserForm);"></div>
+  <div class="row">
+    <div class="form-group">
+      <label for="email" class="col-xs-2 control-label" translate="account.Email">Email</label>
+      <div class="col-xs-10">
+        <input type="text" class="form-control" id="title" name="email" ng-model="modifiedData.email" ng-required="true"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label for="firstName" class="col-xs-2 control-label" translate="account.FIRSTNAME">First Name</label>
+      <div class="col-xs-4">
+        <input type="text" class="form-control" id="firstName"
+               name="firstName" ng-model="modifiedData.firstName"/>
+      </div>
+      <label for="lastName" class="col-xs-2 control-label" translate="account.LASTNAME">Last Name</label>
+      <div class="col-xs-4">
+        <input type="text" class="form-control" id="lastName"
+               name="lastName" ng-model="modifiedData.lastName"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label for="password" class="col-xs-2 control-label" translate="account.PASSWORD">Password</label>
+      <div class="col-xs-4">
+        <input type="password" class="form-control" id="password"
+               name="firstName" ng-model="modifiedData.password"/>
+      </div>
+      <label for="approval" class="col-xs-2 control-label" translate="account.APPROVAL">Approval</label>
+      <div class="col-xs-4">
+        <input type="checkbox" class="" id="approval"
+               name="approval" ng-model="modifiedData.approval"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label for="confirm" class="col-xs-2 control-label" translate="account.CONFIRM">Confirm</label>
+      <div class="col-xs-4">
+        <input type="password" class="form-control" id="confirm"
+               name="lastName" ng-model="modifiedData.confirm"/>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <div class="col-xs-12">
+        <div class="btn btn-info m-l-xs pull-right" ng-click="cancelSystemUser();">Cancel</div>
+        <div class="btn btn-default pull-right"
+             ng-disabled="goodsDescForm.$invalid"
+             ng-if="checkCreatableAuthority(moduleName)"
+             ng-click="editSystemUser();">Edit</div>
+      </div>
+    </div>
+  </div>
+</form>

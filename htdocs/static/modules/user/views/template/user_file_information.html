@@ -1,0 +1,138 @@
+<div class="panel panel-default">
+  <div class="panel-heading inner-panel">
+    Files 
+  </div>
+  <div class="panel-body form">
+      <div class="row">
+        <div class="form-group">
+          <label for="file1" class="col-xs-2 control-label">File1<br><br>{{modifiedData.files[0].typeCode}}<br><br>{{modifiedData.files[0].id}}<br></br>
+            <a ng-if="modifiedData.file1" href="" class="btn btn-primary btn-xs glyphicon glyphicon-trash"
+               ng-click="deleteUserFile(modifiedData.files[0].id)"></a>   
+          </label>
+          <div class="col-xs-4">
+            <img ng-if="modifiedData.files[0].mimeType!='video/mp4' && modifiedData.file1" 
+                 ng-src="{{modifiedData.thumbfile1 || ''}}" 
+                 style="cursor:pointer;" ng-show="modifiedData.usethumbnail1 == 'Y'"
+                 alt="{{modifiedData.files[0].typeCode}}"
+                 tooltip="{{modifiedData.files[0].typeCode}}"
+                 width="100px" fancybox ng-click="openImageFancybox(modifiedData.file1)">
+            <img ng-if="modifiedData.files[0].mimeType!='video/mp4' && modifiedData.file1" 
+                 ng-src="{{modifiedData.file1 || ''}}" 
+                 style="cursor:pointer;" ng-hide="modifiedData.usethumbnail1 == 'Y'"
+                 alt="{{modifiedData.files[0].typeCode}}"
+                 tooltip="{{modifiedData.files[0].typeCode}}"
+                 width="100px" fancybox ng-click="openImageFancybox(modifiedData.file1)">
+            <img ng-if="modifiedData.files[0].mimeType=='video/mp4' && modifiedData.file1" 
+                 src="./static/img/playvideo.png" 
+                 style="cursor:pointer;"
+                 alt="{{modifiedData.files[0].typeCode}}"
+                 width="80px" fancybox ng-click="openVideoFancybox('/framework/index.php/userdata/playvideo/id/'+data.files[0].id)">
+          </div>
+          <label for="file2" class="col-xs-2 control-label">File2<br><br>{{modifiedData.files[1].typeCode}}<br><br>{{modifiedData.files[1].id}}<br></br>
+            <a ng-if="modifiedData.file2" href="" class="btn btn-primary btn-xs glyphicon glyphicon-trash"
+               ng-click="deleteUserFile(modifiedData.files[1].id)"></a>   
+          </label>
+          <div class="col-xs-4">
+            <img ng-if="modifiedData.files[0].mimeType!='video/mp4' && modifiedData.file2" 
+                 ng-src="{{modifiedData.thumbfile2 || ''}}" 
+                 style="cursor:pointer;" ng-show="modifiedData.usethumbnail1 == 'Y'"
+                 alt="{{modifiedData.files[0].typeCode}}"
+                 tooltip="{{modifiedData.files[0].typeCode}}"
+                 width="100px" fancybox ng-click="openImageFancybox(modifiedData.file2)">
+            <img ng-if="modifiedData.files[0].mimeType!='video/mp4' && modifiedData.file2" 
+                 ng-src="{{modifiedData.file2 || ''}}" 
+                 style="cursor:pointer;" ng-hide="modifiedData.usethumbnail1 == 'Y'"
+                 alt="{{modifiedData.files[0].typeCode}}"
+                 tooltip="{{modifiedData.files[0].typeCode}}"
+                 width="100px" fancybox ng-click="openImageFancybox(modifiedData.file2)">
+            <img ng-if="modifiedData.files[0].mimeType=='video/mp4' && modifiedData.file2" 
+                 src="./static/img/playvideo.png" 
+                 style="cursor:pointer;"
+                 alt="{{modifiedData.files[0].typeCode}}"
+                 width="80px" fancybox ng-click="openVideoFancybox('/framework/index.php/userdata/playvideo/id/'+data.files[0].id)">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="file3" class="col-xs-2 control-label">File3<br><br>{{modifiedData.files[2].typeCode}}<br><br>{{modifiedData.files[2].id}}<br></br>
+            <a ng-if="modifiedData.file3" href="" class="btn btn-primary btn-xs glyphicon glyphicon-trash"
+               ng-click="deleteUserFile(modifiedData.files[2].id)"></a>   
+          </label>
+          <div class="col-xs-4">
+            <img ng-if="modifiedData.files[0].mimeType!='video/mp4' && modifiedData.file3" 
+                 ng-src="{{modifiedData.thumbfile3 || ''}}" 
+                 style="cursor:pointer;" ng-show="modifiedData.usethumbnail1 == 'Y'"
+                 alt="{{modifiedData.files[0].typeCode}}"
+                 tooltip="{{modifiedData.files[0].typeCode}}"
+                 width="100px" fancybox ng-click="openImageFancybox(modifiedData.file3)">
+            <img ng-if="modifiedData.files[0].mimeType!='video/mp4' && modifiedData.file3" 
+                 ng-src="{{modifiedData.file3 || ''}}" 
+                 style="cursor:pointer;" ng-hide="modifiedData.usethumbnail1 == 'Y'"
+                 alt="{{modifiedData.files[0].typeCode}}"
+                 tooltip="{{modifiedData.files[0].typeCode}}"
+                 width="100px" fancybox ng-click="openImageFancybox(modifiedData.file3)">
+            <img ng-if="modifiedData.files[0].mimeType=='video/mp4' && modifiedData.file3" 
+                 src="./static/img/playvideo.png" 
+                 style="cursor:pointer;"
+                 alt="{{modifiedData.files[0].typeCode}}"
+                 width="80px" fancybox ng-click="openVideoFancybox('/framework/index.php/userdata/playvideo/id/'+data.files[0].id)">
+          </div>
+          <label for="file4" class="col-xs-2 control-label">File4<br><br>{{modifiedData.files[3].typeCode}}<br><br>{{modifiedData.files[3].id}}<br></br>
+            <a ng-if="modifiedData.file4" href="" class="btn btn-primary btn-xs glyphicon glyphicon-trash"
+               ng-click="deleteUserFile(modifiedData.files[3].id)"></a>   
+          </label>
+          <div class="col-xs-4">
+            <img ng-if="modifiedData.files[0].mimeType!='video/mp4' && modifiedData.file4" 
+                 ng-src="{{modifiedData.thumbfile4 || ''}}" 
+                 style="cursor:pointer;" ng-show="modifiedData.usethumbnail1 == 'Y'"
+                 alt="{{modifiedData.files[0].typeCode}}"
+                 tooltip="{{modifiedData.files[0].typeCode}}"
+                 width="100px" fancybox ng-click="openImageFancybox(modifiedData.file4)">
+            <img ng-if="modifiedData.files[0].mimeType!='video/mp4' && modifiedData.file4" 
+                 ng-src="{{modifiedData.file4 || ''}}" 
+                 style="cursor:pointer;" ng-hide="modifiedData.usethumbnail1 == 'Y'"
+                 alt="{{modifiedData.files[0].typeCode}}"
+                 tooltip="{{modifiedData.files[0].typeCode}}"
+                 width="100px" fancybox ng-click="openImageFancybox(modifiedData.file4)">
+            <img ng-if="modifiedData.files[0].mimeType=='video/mp4' && modifiedData.file4" 
+                 src="./static/img/playvideo.png" 
+                 style="cursor:pointer;"
+                 alt="{{modifiedData.files[0].typeCode}}"
+                 width="80px" fancybox ng-click="openVideoFancybox('/framework/index.php/userdata/playvideo/id/'+data.files[0].id)">
+          </div>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="col-xs-12" ng-controller="UserFileUploaderController">
+        <style>
+          .my-drop-zone { border: dotted 3px lightgray; }
+          .nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+          .another-file-over-class { border: dotted 3px green; }
+        </style>
+
+        <div ng-show="uploader.isHTML5">
+          <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
+          <div nv-file-drop="" uploader="uploader">
+            <div nv-file-over="" uploader="uploader" over-class="nv-file-over" class="well my-drop-zone" style="height:100px;">
+              Drop file here to upload
+            </div>
+          </div>
+        </div>
+
+        <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+        <input type="file" nv-file-select="" uploader="uploader" multiple class="btn btn-default" /><br/>
+
+        <div>
+          Progress:
+          <div class="progress" style="">
+            <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</div>

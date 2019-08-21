@@ -1,0 +1,306 @@
+*, html { line-height: 1.6em; }
+body, p { font-family: 'Arial' !important; }
+h1, h2, h3, h4 { font-weight: normal; !important; }
+
+body.main {
+  font-family: Arial, sans-serif;
+  font-size: 100%; /* best for all browser using em */
+  padding:0; 
+  margin:0;
+  background-color: #000;
+  background-position: center 114px !important;
+  background-repeat: no-repeat !important;
+  background-image: url('img/desktop/bg_image.png');
+}
+
+.mobile{
+  display:none;
+}
+
+#fancybox-wrap {
+  position: fixed;
+  top: 0px !important;
+}
+
+#f1_banner {
+  padding:0px;
+  margin:0px;
+  top:36px;
+  position:absolute;
+  width:100%;
+  height:30px;
+}
+
+#f1_banner_left{
+  position:absolute;
+  left:0px;
+}
+
+#f1_banner_right{
+  position:absolute;
+  right:0px;
+}
+#outer_wrapper{
+  height:100%;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  background-image: url('img/desktop/gr_brush.png');
+}
+#wrapper {
+  font-size: 1.0em; 
+  width:940px;
+  margin: 0px auto 0px auto;
+}
+section{
+  width:872px;
+  margin:0px auto;
+  padding:0px 0px 0px 0px;
+}
+
+section > .vk_content {
+  margin: 0px auto;
+  padding: 0px 0px;
+  width: 720px; 
+  text-align:center;
+}
+
+.vk_content > img{
+  width: 720px; 
+}
+
+section > .fp_content {
+  margin: 0px auto;
+  padding: 0px 0px;
+  width: 360px; 
+  text-align:center;
+}
+
+.fp_content > img{
+  width: 360px; 
+}
+
+section > .hash{
+  margin: 75px 0px 0px 0px;
+  width: 100%; 
+  text-align:center;
+}
+
+section > .sharebutton{
+  margin:50px 0px 0px 0px;
+  width: 100%; 
+  text-align:center;
+}
+
+#twitter{
+  margin: 0px 20px 0px 20px;
+}
+
+section > .message{
+  margin: 30px 0px 0px 0px;
+  width: 100%; 
+  text-align:center;
+}
+
+section > .banner{
+  height:71px; 
+  padding:0px;
+  margin: 40px 0px 0px 0px;
+  text-align:center;
+  position:relative;
+}
+
+.sponsor{
+}
+
+#facebook{
+  display: inline-block;
+  border: none;
+  outline: none;
+  width: 170px;
+  height: 58px;
+  background-position: left top !important;
+  background-repeat: no-repeat !important;
+  background-image: url('img/desktop/share.png');
+}
+#facebook:hover{
+  background-position: left bottom !important;
+}
+
+#twitter{
+  display: inline-block;
+  border: none;
+  outline: none;
+  width: 170px;
+  height: 58px;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  background-image: url('img/desktop/share.png');
+}
+
+#twitter:hover{
+  background-position: center bottom !important;
+}
+
+#instagram{
+  display: inline-block;
+  border: none;
+  outline: none;  
+  width: 170px;
+  height: 58px;
+  background-position: right top !important;
+  background-repeat: no-repeat !important;
+  background-image: url('img/desktop/share.png');
+}
+
+#instagram:hover{
+  background-position: right bottom !important;
+}
+
+#download{
+  display: inline-block;
+  border: none;
+  outline: none;  
+  width: 170px;
+  height: 48px;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  background-image: url('img/desktop/download.png');
+}
+
+#download:hover{
+  background-position: center bottom !important;
+}
+
+@media only screen and (min-width:600px) and (max-width: 960px){
+  body.main {
+    font-family: Arial, sans-serif;
+    font-size: 100%; /* best for all browser using em */
+    padding:0; 
+    margin:0;
+    background-color: #00a659;
+    background-image: url('');
+  }
+  
+  #wrapper{
+    width:100%;
+  }
+  section {
+    width:600px;
+  }
+  section > .hash{
+    margin: 40px 0px 0px 0px;
+  }
+  section > .sharebutton{
+    margin: 20px 0px 0px 0px;
+  }
+  section > .message{
+    margin: 20px 0px 0px 0px;
+  }
+  section > .banner{
+    margin: 20px 0px 40px 0px;
+  }
+  section > .vk_content{
+    width: 560px;
+  }
+  section > .fp_content{
+    width: 280px;
+  }
+  .vk_content > img{
+    width: 560px;
+  }
+  .fp_content > img{
+    width: 280px;
+  }
+  .sponsor{
+    position:relative;
+    width:100%;
+    top:0px;
+    margin: 20px 0px 0px 0px;
+    text-align:center;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  body.main {
+    font-family: Arial, sans-serif;
+    font-size: 100%; /* best for all browser using em */
+    padding:0; 
+    margin:0;
+    background-color: #00a659;
+    background-image: url('');
+  }
+
+  #wrapper{
+    width:100%;
+  }
+  .mobile{
+    display:block;
+  }
+  section {
+    width:300px;
+  }
+  section > .vk_content{
+    width:100%;
+  }
+  section > .fp_content{
+    width:100%;
+  }
+  .vk_content > img{
+    width: 100%;
+  }
+  .fp_content > img{
+    width: 100%;
+  }  
+  #facebook{
+    width: 198px;
+    background-image: url('');
+  }
+  #twitter{
+    width: 198px;
+    background-image: url('');
+  }
+  #instagram{
+    width: 198px;
+    background-image: url('');
+  }
+  #download{
+    width: 198px;
+    background-image: url('');
+  }
+  section > .hash{
+    margin: 30px 0px 0px 0px;
+  }
+  section > .sharebutton{
+    margin: 20px 0px 0px 0px;
+  }
+  section > .message{
+    margin: 20px 0px 0px 0px;
+  }
+  section > .banner{
+    margin: 20px 0px 40px 0px;
+  }
+  .content > img{
+    width: 240px;
+  }
+  .hash > img{
+    content: url("./img/txt_ausgp_mb.png")
+  }
+  #twitter{
+    margin: 0px auto 0px auto;
+  }
+  .message > img{
+    width:100%;
+    content: url("./img/mobile/txt_sharenow_mb.png")
+  }
+  #sponsor_img{
+    width: 113px;
+    content: url("./img/mobile/gr_poweredbytcs@2x.png")
+  }
+  .sponsor{
+    position:relative;
+    width:100%;
+    top:0px;
+    margin: 20px 0px 0px 0px;
+    text-align:center;
+  }
+}

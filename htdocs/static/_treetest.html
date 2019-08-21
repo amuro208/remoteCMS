@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS UI Tree demo</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link ng-repeat="stylesheet in stylesheets" ng-href="css/animate.css" type="text/css" rel="stylesheet" class="ng-scope" href="css/animate.css">
+  <link ng-repeat="stylesheet in stylesheets" ng-href="css/font-awesome.min.css" type="text/css" rel="stylesheet" class="ng-scope" href="css/font-awesome.min.css">
+  <link ng-repeat="stylesheet in stylesheets" ng-href="css/simple-line-icons.css" type="text/css" rel="stylesheet" class="ng-scope" href="css/simple-line-icons.css">
+  <link ng-repeat="stylesheet in stylesheets" ng-href="css/font.css" type="text/css" rel="stylesheet" class="ng-scope" href="css/font.css">
+  <link ng-repeat="stylesheet in stylesheets" ng-href="css/app.css" type="text/css" rel="stylesheet" class="ng-scope" href="css/app.css">
+  <link ng-repeat="stylesheet in stylesheets" ng-href="vendor/modules/ng-table/ng-table.min.css" type="text/css" rel="stylesheet" class="ng-scope" href="vendor/modules/ng-table/ng-table.min.css">
+  <link ng-repeat="stylesheet in stylesheets" ng-href="vendor/modules/ng-wizard/angular-wizard.min.css" type="text/css" rel="stylesheet" class="ng-scope" href="vendor/modules/ng-wizard/angular-wizard.min.css">
+  <link ng-repeat="stylesheet in stylesheets" ng-href="http://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css" type="text/css" rel="stylesheet" class="ng-scope" href="http://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+  <link rel="stylesheet" href="vendor/angular/angular-ui-tree/angular-ui-tree.min.css">
+  <link ng-repeat="stylesheet in stylesheets" ng-href="vendor/modules/angular-ui-select/select.min.css" type="text/css" rel="stylesheet" class="ng-scope" href="vendor/modules/angular-ui-select/select.min.css">
+  <link ng-repeat="stylesheet in stylesheets" ng-href="vendor/angular/angular-ui-tree/angular-ui-tree.min.css" type="text/css" rel="stylesheet" class="ng-scope" href="vendor/angular/angular-ui-tree/angular-ui-tree.min.css">
+  <link rel="stylesheet" href="css/custom.css">
+  
+  <script src="vendor/modernizr-2.6.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="main" src="js/main.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="app" src="js/app.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="config.lazyload" src="js/config.lazyload.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="config.router" src="js/config.router.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="appctrl" src="js/appctrl.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="AppBase" src="js/controllers/base/base.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="js/../vendor/jquery/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="config" src="js/config.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angular" src="js/../vendor/angular/angular.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="underScore" src="js/../vendor/modules/underscore/underscore-min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ngAnimate" src="js/../vendor/angular/angular-animate/angular-animate.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ngCookies" src="js/../vendor/angular/angular-cookies/angular-cookies.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ngResource" src="js/../vendor/angular/angular-resource/angular-resource.min.js"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ngCookies" src="js/../vendor/angular/angular-cookies/angular-cookies.min.js"></script></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ngSanitize" src="js/../vendor/angular/angular-sanitize/angular-sanitize.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ngTouch" src="js/../vendor/angular/angular-touch/angular-touch.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ngStorage" src="js/../vendor/angular/ngstorage/ngStorage.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="uiRouter" src="js/../vendor/angular/angular-ui-router/angular-ui-router.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="uiBootstrap" src="js/../vendor/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="uiLoad" src="js/services/ui-load.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="uiJq" src="js/directives/ui-jq.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="uiValidate" src="js/directives/ui-validate.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ocLazyLoad" src="js/../vendor/angular/oclazyload/ocLazyLoad.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="treeGrid" src="js/../vendor/angular/angular-bootstrap-grid-tree/tree-grid-directive.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ngTagsInput" src="js/../vendor/modules/ng-tags-input/ng-tags-input.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ngDialogs" src="js/../vendor/angular/angular-dialog/dialogs.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ngTranslate" src="js/../vendor/angular/angular-translate/angular-translate.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ngCurrency" src="js/../vendor/modules/ng-currency/ng-currency.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ngTable" src="js/../vendor/modules/ng-table/ng-table.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="uiSelect" src="js/../vendor/modules/angular-ui-select/select.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="uiTree" src="js/../vendor/angular/angular-ui-tree/angular-ui-tree.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ngWizard" src="js/../vendor/modules/ng-wizard/angular-wizard.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="loader-static-files" src="js/../vendor/angular/angular-translate/loader-static-files.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="storage-cookie" src="js/../vendor/angular/angular-translate/storage-cookie.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="storage-local" src="js/../vendor/angular/angular-translate/storage-local.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ngDialogsTranslation" src="js/../vendor/angular/angular-dialog/dialogs-default-translations.min.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="uiFullscreen" src="js/directives/ui-fullscreen.js"></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="uiToggleclass" src="js/directives/ui-toggleclass.js"></script>
+  <script src="vendor/jquery/sortable/jquery.sortable.js" async=""></script>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="uiNav" src="js/directives/ui-nav.js"></script>
+</head>
+<body ng-app="treeApp" ng-controller="treeCtrl">
+
+  <div class="container">
+    <h1 class="page-header">Tree - demo</h1>
+    <a href="index.html"><i class="glyphicon glyphicon-chevron-left"></i> Back to overview page</a>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>Tree view
+          <a href="" class="btn btn-default pull-right" ng-click="collapseAll()">Collapse all</a>
+          <a href="" class="btn btn-default pull-right" ng-click="expandAll()">Expand all</a>
+          <a href="" class="btn btn-default btn-warning pull-right" ng-click="moveLastToTheBeginning()">Move Last To The Begginig</a>
+
+        </h3>
+
+        <!-- Nested node template -->
+        <script type="text/ng-template" id="nodes_renderer.html">
+          <div ui-tree-handle class="tree-node tree-node-content">
+            <a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" nodrag ng-click="toggle(this)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+            {{node.title}}
+            <a class="pull-right btn btn-danger btn-xs" nodrag ng-click="remove(this)"><span class="glyphicon glyphicon-remove"></span></a>
+            <a class="pull-right btn btn-primary btn-xs" nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
+          </div>
+          <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+            <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+            </li>
+          </ol>
+        </script>
+        <div ui-tree id="tree-root">
+          <ol ui-tree-nodes ng-model="data">
+            <li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <h3>Data binding</h3>
+        <div class="info">
+            {{info}}
+        </div>
+        <pre class="code">{{ data | json }}</pre>
+      </div>
+    </div>
+
+  </div>
+
+  <!--[if IE 8]>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/3.4.0/es5-shim.min.js"></script>
+  <![endif]-->
+  <script src="vendor/angular/angular.min.js"></script>
+  <script type="text/javascript" src="vendor/angular/angular-ui-tree/angular-ui-tree.js"></script>
+  <script type="text/javascript">
+    (function() {
+      'use strict';
+
+      angular.module('treeApp', ['ui.tree'])
+      .controller('treeCtrl', function($scope) {
+        $scope.remove = function(scope) {
+          scope.remove();
+        };
+
+        $scope.toggle = function(scope) {
+          scope.toggle();
+        };
+
+        $scope.moveLastToTheBeginning = function () {
+          var a = $scope.data.pop();
+          $scope.data.splice(0,0, a);
+        };
+
+        $scope.newSubItem = function(scope) {
+          var nodeData = scope.$modelValue;
+          nodeData.nodes.push({
+            id: nodeData.id * 10 + nodeData.nodes.length,
+            title: nodeData.title + '.' + (nodeData.nodes.length + 1),
+            nodes: []
+          });
+        };
+
+        $scope.collapseAll = function() {
+          $scope.$broadcast('collapseAll');
+        };
+
+        $scope.expandAll = function() {
+          $scope.$broadcast('expandAll');
+        };
+
+        $scope.data = [{
+          "id": 1,
+          "title": "node1",
+          "nodes": [
+            {
+              "id": 11,
+              "title": "node1.1",
+              "nodes": [
+                {
+                  "id": 111,
+                  "title": "node1.1.1",
+                  "nodes": []
+                }
+              ]
+            },
+            {
+              "id": 12,
+              "title": "node1.2",
+              "nodes": []
+            }
+          ],
+        }, {
+          "id": 2,
+          "title": "node2",
+          "nodes": [
+            {
+              "id": 21,
+              "title": "node2.1",
+              "nodes": []
+            },
+            {
+              "id": 22,
+              "title": "node2.2",
+              "nodes": []
+            }
+          ],
+        }, {
+          "id": 3,
+          "title": "node3",
+          "nodes": [
+            {
+              "id": 31,
+              "title": "node3.1",
+              "nodes": []
+            }
+          ],
+        }];
+      });
+
+    })();
+  </script>
+</body>
+</html>

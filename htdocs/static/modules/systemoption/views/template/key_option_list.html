@@ -1,0 +1,82 @@
+<div class="panel panel-default">
+  <div class="panel-heading" ng-class="{'compact':app.settings.compact}">
+    <div class="row">
+      <div class="col-xs-2 m-n font-thin h4">
+        Key Option List
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-4">
+        <p><b>cms_home_url</b></p>
+        <p><b>cms_name</b></p>
+        <p><b>cms_verson</b></p>
+        <p><b>home_url</b></p>
+        <p><b>is_local_server : [Y|N]</b></p> 
+        <p><b>default_event_code : as name</b></p> 
+        <p><b>default_site_code : as name</b></p> 
+        <p><b>kiosk_code : the unique code</b></p> 
+        <hr>
+        <p>ping : [Y|N]</p> 
+        <p>remote_sync : [Y|N]</p> 
+        <p>reverse_sync : [Y|N]</p> 
+        <p>sync_path : [Y|N]</p> 
+        <p>daily_backup : [Y|N]</p> 
+        <p>git_pull : [Y|N]</p> 
+        <p>lateupload_delayseconds : seconds</p>
+      </div>
+      <div class="col-xs-4">
+        <p>EVENT_root_path : String</p>
+        <p>EVENT_file_ext : [.mp4|.gif|.png|.jpg]</p>
+        <p>EVENT_file_upload_count : Number</p>
+        <p>EVENT_uploadmethod : [post|ftp]</p>
+        <p>EVENT_sendemail_on_upload : email address</p>
+        <p>EVENT_must_field : if not, don't be approved</p>
+        <p>EVENT_reserve_field : reserve field.</p>
+        <p>EVENT_make_localthumbnail : [Y|N]</p>
+        <p>EVENT_make_remotethumbnail : [Y|N]</p>
+        <hr>
+        <p>EVENT_late_upload : [Y|N]</p>
+        <p>EVENT_remotesync : [Y|N]</p>
+        <p>EVENT_copy_photoId : [Y|N]</p>
+        <p>EVENT_copy_videoId : [Y|N]</p>
+        <p>EVENT_auto_approval : [Y|N]</p>
+        <p>EVENT_list_query : SQL</p>
+        <hr>
+        <p>EVENT_has_thumbnail : [Y|N] <- EVENT_copy_videoId</p>
+        <p>EVENT_thumbnail_ext : [.gif|.png|.jpg]<- EVENT_copy_videoId</p>
+        <p>EVENT_has_edm : [Y|N] <- EVENT_copy_videoId</p>
+        <p>EVENT_edm_ext : [.gif|.png|.jpg]<- EVENT_copy_videoId</p>
+        <hr>
+        <b>Rank</b>
+        <hr>
+        <p>EVENT_use_rank : [Y|N]</p>
+        <p>EVENT_rank_query : String</p>
+        <p>EVENT_rank_limit : Number</p>
+        <p>EVENT_current_rank : String</p>
+        <p>EVENT_current_rank_field : String</p>
+        <hr>
+        <b>Email</b>
+        <hr>
+        <p>EVENT_email_title : String</p>
+        <p>EVENT_email_template : String</p>
+        <hr>
+        <b>EDM</b> <p style='color:red;'>don't use anymore</p>
+        <hr>
+        <p>EVENT_edm_merge_image : [Y|N]</p>
+        <p>EVENT_edm_frame_path : String</p>
+        <p>EVENT_edm_image_rect : x,y,w,h</p>
+      </div>
+      <div class="col-xs-4">
+        <p>ftp_server</p>
+        <p>ftp_user</p>
+        <p>ftp_password</p>
+        <p>agent_url</p>
+        <p>upload_url</p>
+        <p>post_url</p>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

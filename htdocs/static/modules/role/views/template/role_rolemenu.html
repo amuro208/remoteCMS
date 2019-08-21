@@ -1,0 +1,21 @@
+<div class="panel panel-default">
+  <div class="panel-heading inner-panel">
+    Role Menu
+
+    <button ng-click="my_tree.expand_all()" class="pull-right btn btn-default btn-xs">Expand All</button>
+    <button ng-click="my_tree.collapse_all()" class="pull-right btn btn-default btn-xs">Collapse All</button>
+  </div>
+  <div>
+    <div id='treegrid'>
+      <tree-grid tree-data='tree_data'
+                 tree-control="my_tree"
+                 col-defs='col_defs'
+                 expand-on='expanding_property'
+                 on-select='my_tree_handler(branch)'
+                 on-change-tree-node='onChangeTreeNode(branch)'
+                 expand-level='2'
+                 icon-leaf='glyphicon glyphicon-tasks text-info'
+                 />
+    </div>
+  </div>
+</div>

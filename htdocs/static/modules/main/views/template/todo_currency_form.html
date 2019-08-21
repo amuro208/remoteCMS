@@ -1,0 +1,23 @@
+<form name="mainTodoCurrencyForm" id="mainTodoCurrencyForm" class="css-form" style="margin:7px;" novalidate>
+  <div class="row">
+    <div class="form-group">
+      <label for="address" class="col-xs-2 control-label">Amount</label>
+      <div class="col-xs-10">
+          <input type="text" class="form-control currency" ng-currency ng-model="todoData.reserve2" ng-required="true"/>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <div class="col-xs-12">
+        <div class="btn btn-info m-l-xs pull-right" ng-click="cancelConformTodo();">Cancel</div>
+        <div class="btn btn-default pull-right" ng-show="mode=='confirm'" 
+             ng-disabled="mainTodoCurrencyForm.$invalid" 
+             ng-click="confirmTodo(mainTodoCurrencyForm);">Confirm</div>
+        <div class="btn btn-default pull-right" ng-show="mode=='edit'" 
+             ng-disabled="mainTodoCurrencyForm.$invalid" 
+             ng-click="editTodo(mainTodoCurrencyForm);">Edit</div>
+      </div>
+    </div>
+  </div>
+</form>

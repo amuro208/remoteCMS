@@ -1,0 +1,26 @@
+<form name="form" class="css-form" novalidate>
+<div class="modal-header">
+    <h3 class="modal-title">{{title}}</h3>
+</div>
+<div class="modal-body">
+
+  <div class="row">
+    <div class="form-group">
+      <label for="name" class="col-xs-1 control-label">Name</label>
+      <div class="col-xs-5">
+        <input type="text" class="form-control" id="name" ng-model="modifiedData.name" required/>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <label for="url" class="col-xs-1 control-label">Url</label>
+    <div class="col-xs-11">
+      <input type="text" class="form-control" id="url" ng-model="modifiedData.url" required/>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="submit" class="btn min btn-default" ng-click="ok()" ng-disabled="form.$invalid || isUnchanged()">OK</button>
+  <button class="btn min btn-primary" ng-click="cancel()">Cancel</button>
+</div>
+</form>

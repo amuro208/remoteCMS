@@ -1,0 +1,173 @@
+<div class="panel panel-default">
+  <div class="panel-heading" ng-class="{'compact':app.settings.compact}">
+    <div class="row">
+      <div class="col-xs-2 m-n font-thin h4">
+        {{title}}
+      </div>
+      <div class="col-xs-10" style="text-align:right;">
+        <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-ok"
+                ng-if="maderateMode"
+                ng-click="onClickMaderate()"> Maderate</button>
+        <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-{{checkIcon}}"
+                ng-click="checkAll()"> {{checkTitle}}All</button>
+        <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-trash"
+                ng-click="onClickDeleteAll()"> BatchDelete</button>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive" style="overflow-x:scroll;">
+    <table ng-table="listTableParams"
+           show-filter="true"
+           style="width:2790px !important;"
+           class="table table-striped table-hover"
+           ng-class="{'compact':app.settings.compact}">
+      <tr ng-repeat="data in $data" ng-click="selectData(data)" ng-class="{'active': data.selected}" style="height:40px;">
+        <td width="40px" data-title="''" class="btn-cell">
+          <input type="checkbox" ng-model="data.selected" />
+        </td>
+        <td width="80px" data-title="''" class="btn-cell">
+          <button class="btn btn-xs btn-delete glyphicon glyphicon-edit"
+                  ng-click="modifyData(data)"></button>
+          <button class="btn btn-xs btn-delete glyphicon glyphicon-trash"
+                  ng-click="deleteData(data)"></button>
+        </td>
+        <td width="60px" class="text-right" sortable="'id'" data-title="'ID'">
+          {{data.id}}
+        </td>
+        <td width="120px" data-title="'Local Date'">
+          {{data.localCreateDate.date}}
+        </td>
+        <td width="80px" class="text-center" data-title="'Apr.'" filter="{'isApproved':'text'}">
+          <input type="checkbox" ng-checked="data.isApproved == 'Y'" ng-model="data.isApproved" ng-click="onClickApproved(data)"
+                 ng-disabled="data.isSentEmail == 'Y'" />
+          {{data.isApproved}}
+        <td width="120px" class="text-left" data-title="'StEm.-O(V)'" filter="{'isSentEmail':'text'}">
+          <input type="checkbox" ng-checked="data.isSentEmail == 'Y'" ng-model="data.isSentEmail" ng-click="onClickSentEmail(data)"/>
+          {{data.isSentEmail}}-{{data.emaillog}}
+        </td>
+        <td width="100px" data-title="'isFavorite'" filter="{'isFavorite':'text'}">
+          {{data.isFavorite}}
+        </td>
+        <td width="100px" data-title="'projectCode'" filter="{'projectCode':'text'}">
+          {{data.projectCode}}
+        </td>
+        <td width="80px" class="text-center" data-title="'EvtCd'" filter="{'eventCode':'text'}">
+          {{data.eventCode}}
+        </td>
+        <td width="80px" class="text-center" data-title="'SiteCd'" filter="{'siteCode':'text'}">
+          {{data.siteCode}}
+        </td>
+
+        <td width="50px" data-title="'File1'" style="padding:0px;text-align:center;">
+          <img ng-if="data.files[0].mimeType!='video/mp4' && data.file1" ng-src="{{data.thumbfile1 || ''}}"
+               style="cursor:pointer;" ng-show="data.usethumbnail1 == 'Y'"
+               alt="{{data.files[0].typeCode}}"
+               tooltip="{{data.files[0].typeCode}}"
+               width="50px" fancybox ng-click="openImageFancybox(data.file1)">
+          <img ng-if="data.files[0].mimeType!='video/mp4' && data.file1" ng-src="{{data.file1 || ''}}"
+               style="cursor:pointer;" ng-hide="data.usethumbnail1 == 'Y'"
+               alt="{{data.files[0].typeCode}}"
+               tooltip="{{data.files[0].typeCode}}"
+               width="50px" fancybox ng-click="openImageFancybox(data.file1)">
+          <img ng-if="data.files[0].mimeType=='video/mp4' && data.file1" src="./static/img/playvideo.png"
+               style="cursor:pointer;"
+               alt="{{data.files[0].typeCode}}"
+               width="40px" fancybox ng-click="openVideoFancybox('/framework/index.php/userdata/playvideo/id/'+data.files[0].id)">
+        </td>
+        <td width="50px" data-title="'File2'" style="padding:0px;text-align:center;">
+          <img ng-if="data.files[1].mimeType!='video/mp4' && data.file2" ng-src="{{data.thumbfile2 || ''}}"
+               style="cursor:pointer;" ng-show="data.usethumbnail2 == 'Y'"
+               alt="{{data.files[1].typeCode}}"
+               width="50px" fancybox ng-click="openImageFancybox(data.file2)">
+          <img ng-if="data.files[1].mimeType!='video/mp4' && data.file2" ng-src="{{data.file2 || ''}}"
+               style="cursor:pointer;" ng-hide="data.usethumbnail2 == 'Y'"
+               alt="{{data.files[1].typeCode}}"
+               width="50px" fancybox ng-click="openImageFancybox(data.file2)">
+          <img ng-if="data.files[1].mimeType=='video/mp4' && data.file2" src="./static/img/playvideo.png"
+               style="cursor:pointer;"
+               alt="{{data.files[1].typeCode}}"
+               width="40px" fancybox ng-click="openVideoFancybox('/framework/index.php/userdata/playvideo/id/'+data.files[1].id)">
+        </td>
+        <td width="50px" data-title="'File3'" style="padding:0px;text-align:center;">
+          <img ng-if="data.files[2].mimeType!='video/mp4' && data.file3" ng-src="{{data.thumbfile3 || ''}}"
+               style="cursor:pointer;" ng-show="data.usethumbnail3 == 'Y'"
+               alt="{{data.files[2].typeCode}}"
+               width="50px" fancybox ng-click="openImageFancybox(data.file3)">
+          <img ng-if="data.files[2].mimeType!='video/mp4' && data.file3" ng-src="{{data.file3 || ''}}"
+               style="cursor:pointer;" ng-hide="data.usethumbnail3 == 'Y'"
+               alt="{{data.files[2].typeCode}}"
+               width="50px" fancybox ng-click="openImageFancybox(data.file3)">
+          <img ng-if="data.files[2].mimeType=='video/mp4' && data.file3" src="./static/img/playvideo.png"
+               style="cursor:pointer;"
+               alt="{{data.files[2].typeCode}}"
+               width="40px" fancybox ng-click="openVideoFancybox('/framework/index.php/userdata/playvideo/id/'+data.files[2].id)">
+        </td>
+        <td width="50px" data-title="'File4'" style="padding:0px;text-align:center;">
+          <img ng-if="data.files[3].mimeType!='video/mp4' && data.file4" ng-src="{{data.thumbfile4 || ''}}"
+               style="cursor:pointer;" ng-show="data.usethumbnail4 == 'Y'"
+               alt="{{data.files[3].typeCode}}"
+               width="50px" fancybox ng-click="openImageFancybox(data.file4)">
+          <img ng-if="data.files[3].mimeType!='video/mp4' && data.file4" ng-src="{{data.file4 || ''}}"
+               style="cursor:pointer;" ng-hide="data.usethumbnail4 == 'Y'"
+               alt="{{data.files[3].typeCode}}"
+               width="50px" fancybox ng-click="openImageFancybox(data.file4)">
+          <img ng-if="data.files[3].mimeType=='video/mp4' && data.file4" src="./static/img/playvideo.png"
+               style="cursor:pointer;"
+               alt="{{data.files[3].typeCode}}"
+               width="40px" fancybox ng-click="openVideoFancybox('/framework/index.php/userdata/playvideo/id/'+data.files[3].id)">
+        </td>
+        <td width="150px" data-title="$scope.getTableTitle('p')" filter="{'firstName':'text'}">
+          {{data.firstName}}
+        </td>
+        <td width="150px" data-title="'LastName'" filter="{'lastName':'text'}">
+          {{data.lastName}}
+        </td>
+        <td width="200px" data-title="'Email'" filter="{'email':'text'}">
+          {{data.email}}
+        </td>
+        <td width="100px" data-title="'Phone'" filter="{'phone':'text'}">
+          {{data.phone}}
+        </td>
+        <td width="100px" data-title="'Mobile'" filter="{'mobile':'text'}">
+          {{data.mobile}}
+        </td>
+        <td width="80px" data-title="'Zip.'" filter="{'zipCode':'text'}">
+          {{data.zipCode}}
+        </td>
+        <td width="100px" data-title="'VideoId'" filter="{'videoId':'text'}">
+          {{data.videoId}}
+        </td>
+        <td width="100px" data-title="'PhotoId'" filter="{'photoId':'text'}">
+          {{data.photoId}}
+        </td>
+        <!--td width="100px" data-title="'GameCode'" filter="{'gameCode':'text'}">
+          {{data.gameCode}}
+        </td>
+        <td width="100px" data-title="'TeamCode'" filter="{'teamCode':'text'}">
+          {{data.teamCode}}
+        </td>
+        <td width="100px" data-title="'PlayerCode'" filter="{'teamPlayerCode':'text'}">
+          {{data.teamPlayerCode}}
+        </td-->
+        <td width="100px" data-title="'Reserve1'" filter="{'reserve1':'text'}">
+          {{data.reserve1}}
+        </td>
+        <td width="100px" data-title="'Reserve2'" filter="{'reserve2':'text'}">
+          {{data.reserve2}}
+        </td>
+        <td width="100px" data-title="'Reserve3'" filter="{'reserve3':'text'}">
+          {{data.reserve3}}
+        </td>
+        <td width="100px" data-title="'Reserve4'" filter="{'reserve4':'text'}">
+          {{data.reserve4}}
+        </td>
+        <td width="100px" data-title="'Reserve5'" filter="{'reserve5':'text'}">
+          {{data.reserve5}}
+        </td>
+        <td width="200px" data-title="'AccessCode'">
+          {{data.acode}}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

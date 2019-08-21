@@ -1,0 +1,57 @@
+<div class="panel panel-default" ng-controller="EventListController">
+  <div class="panel-heading" ng-class="{'compact':app.settings.compact}">
+    <div class="row">
+      <div class="col-xs-2 m-n font-thin h4">
+        Event
+      </div>
+      <div class="col-xs-10" style="text-align:right;">
+        <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-plus"
+                ng-click="createData()"
+                ng-if="checkCreatableAuthority(moduleName)"/>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive" style="overflow-x:scroll;">
+    <table ng-table="listTableParams"
+           style="width:1200px !important;"
+           class="table table-striped table-hover"
+           ng-class="{'compact':app.settings.compact}">
+      <tr ng-repeat="data in $data" ng-click="selectData(data)" ng-class="{'active': data.selected}">
+        <td width="75px" data-title="'Action'" class="btn-cell">
+          <button class="btn btn-xs btn-edit glyphicon glyphicon-edit"
+                  ng-click="modifyData(data)"></button>
+          <button class="btn btn-xs btn-delete glyphicon glyphicon-trash"
+                  ng-click="deleteData(data)"
+                  ng-if="checkCreatableAuthority(moduleName)"></button>
+        </td>
+		<td width="50px" class="text-center" data-title="'id'">
+          {{data.id}}
+        </td>
+        <td width="50px" class="text-center" data-title="'ProjectCode'">
+          {{data.projectCode}}
+        </td>
+        <td width="50px" class="text-center" data-title="'Project'">
+          {{data.projectCode|codeValue:'PROJECT'}}
+        </td>
+        <td width="50px" class="text-center" data-title="'EventCode'">
+          {{data.eventCode}}
+        </td>
+        <td width="150px" data-title="'Event'">
+          {{data.eventCode|codeValue:'EVENT'}}
+        </td>
+        <td width="50px" class="text-center" data-title="'SiteCode'">
+          {{data.siteCode}}
+        </td>
+        <td width="150px" data-title="'Site'">
+          {{data.siteCode|codeValue:'SITE'}}
+        </td>
+        <td width="150px" class="text-center" data-title="'Start Date'" sortable="'startDate'">
+          {{data.startDate}}
+        </td>
+        <td width="150px" class="text-center" data-title="'End Date'" sortable="'endDate'">
+          {{data.endDate}}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

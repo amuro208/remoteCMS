@@ -1,0 +1,30 @@
+<div class="panel panel-default" ng-controller='MainTodoController'>
+  <div class="panel-heading font-thin h4"
+       ng-class="{'compact':app.settings.compact}">
+    Todo
+  </div>
+  <div class="panel-body" ng-show="showTodoForm">
+    <ng-include src="versionUrl('static/modules/main/views/template/todo_form.html')"></ng-include>
+  </div>
+  <div class="panel-body" ng-controller='MainTodoSortableController' style="padding:15px 7px;">
+    <div class="col-sm-4 col-xs-4" ng-repeat="employee in todoListOriginData">
+        <div class="column" id="{{employee.id}}">
+            <div class="columnHeader">
+                <span>{{employee.firstName}} {{employee.lastName}} ({{employee.todos.length}})</span>
+            </div>
+            <ul as-sortable="sortableOptions"
+                ng-model="todoListData" class="sortable task-list ui-sortable"
+                ng-class="{'compact':app.settings.compact}"
+                style="padding:3px;">
+              <li class="list-primary" ng-repeat="todo in employee.todos | orderBy:'reserve5'"
+                  as-sortable-item style="padding:7px !important;">
+                <div class="task-title" as-sortable-item-handle>
+                  <ng-include src="versionUrl('static/modules/main/views/template/alltodo_card.html')"></ng-include>
+                </div>
+              </li>
+            </ul>
+
+        </div>
+    </div>
+  </div>
+</div>

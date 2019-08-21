@@ -1,0 +1,64 @@
+<div class="panel panel-default" ng-controller="CodeListController">
+  <div class="panel-heading" ng-class="{'compact':app.settings.compact}">
+    <div class="row">
+      <div class="col-xs-2 m-n font-thin h4">
+        Code
+      </div>
+      <div class="col-xs-10" style="text-align:right;">
+        <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-save"
+                ng-click="csvDownload()"
+                ng-if="checkCreatableAuthority(moduleName)">Download</button>
+        <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-plus"
+                ng-click="createData()"
+                ng-if="checkCreatableAuthority(moduleName)"/>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive" style="overflow-x:scroll;">
+    <table ng-table="listTableParams"
+           show-filter="true"
+           style="width:1455px !important;"
+           class="table table-striped table-hover"
+           ng-class="{'compact':app.settings.compact}">
+      <tr ng-repeat="data in $data" ng-click="selectData(data)" ng-class="{'active': data.selected}">
+        <td width="75px" data-title="'Action'" class="btn-cell">
+          <button class="btn btn-xs btn-edit glyphicon glyphicon-edit"
+                  ng-click="modifyData(data)"></button>
+          <button class="btn btn-xs btn-delete glyphicon glyphicon-trash"
+                  ng-click="deleteData(data)"
+                  ng-if="checkCreatableAuthority(moduleName)"></button>
+        </td>
+        <td width="50px" data-title="'ID'" sortable="'id'" filter="{'id':'text'}">
+          {{data.id}}
+        </td>
+        <td width="100px" data-title="'Category'" sortable="'category'" filter="{'category':'select'}" filter-data="categories($column)">
+          {{data.category}}
+        </td>
+        <td width="100px" data-title="'Code'" sortable="'code'" filter="{'code':'text'}">
+          {{data.code}}
+        </td>
+        <td width="300px" data-title="'Name'" sortable="'name'" filter="{'name':'text'}">
+          {{data.name}}
+        </td>
+        <td width="200px" data-title="'Description'" sortable="'detail'">
+          {{data.detail}}
+        </td>
+        <td width="120px" data-title="'Reserve#1'" sortable="'reserve1'">
+          {{data.reserve1}}
+        </td>
+        <td width="120px" data-title="'Reserve#2'" sortable="'reserve2'">
+          {{data.reserve2}}
+        </td>
+        <td width="120px" data-title="'Reserve#3'" sortable="'reserve3'">
+          {{data.reserve3}}
+        </td>
+        <td width="120px" data-title="'Reserve#4'" sortable="'reserve4'">
+          {{data.reserve4}}
+        </td>
+        <td width="120px" data-title="'Reserve#5'" sortable="'reserve5'">
+          {{data.reserve5}}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

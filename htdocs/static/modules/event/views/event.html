@@ -1,0 +1,30 @@
+<form name="dataForm" id="dataForm" class="css-form" novalidate>
+  <div ng-init="setForm(dataForm);"></div>
+  <div class="panel panel-default">
+    <div class="panel-heading" ng-class="{'compact':app.settings.compact}">
+      <div class="row">
+        <div class="col-xs-2 m-n font-thin h4">
+          Event
+        </div>
+        <div class="col-xs-10" style="text-align:right;">
+          <button class="btn btn-xs btn-add glyphicon glyphicon-floppy-disk"
+                  ng-disabled="dataForm.$invalid || dataForm.$pristine || isUnchanged()"
+                  ng-click="saveData();"
+                  ng-if="checkCreatableAuthority(moduleName)"
+                  alt="Save"></button>
+          <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-remove"
+                  ng-click="listData();" alt="List"></button>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="row normal">
+
+        <div class="col-xs-12 col-sm-6">
+          <ng-include src="versionUrl('static/modules/event/views/template/event_basic_information.html')" />
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>

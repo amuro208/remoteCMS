@@ -1,0 +1,27 @@
+<div class="panel panel-default" ng-controller='MainMemoController'>
+  <div class="panel-heading font-thin h4"
+       ng-class="{'compact':app.settings.compact}">
+    Memo
+    <a class="btn btn-info btn-xs pull-right" ng-click="createMemo();">New Memo</a>
+  </div>
+  <div class="panel-body" ng-show="showMemoForm">
+    <ng-include src="versionUrl('static/modules/main/views/template/memo_form.html')"></ng-include>
+  </div>
+  <div class="panel-body">
+    <ul id="sortable"
+        class="sortable task-list ui-sortable"
+        ng-class="{'compact':app.settings.compact}">
+
+      <li class="list-primary" ng-repeat="memo in memoListData">
+        <i class=" fa fa-ellipsis-v"></i>
+        <div class="task-title">
+          <div class="pull-right">
+            <button ng-click="doneMemo(memo);" class="btn btn-default btn-xs fa fa-check"></button>
+          </div>
+          <div class="task-title-sp" style="padding-right:30px;">{{memo.memo}}</div>
+          <div class="task-title-sp">{{memo.memoDate}} <b>{{memo.customerName}}</b></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

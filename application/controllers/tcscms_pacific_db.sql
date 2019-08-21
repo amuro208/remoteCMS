@@ -1,0 +1,716 @@
+-- MySQL dump 10.16  Distrib 10.1.24-MariaDB, for Linux (x86_64)
+--
+-- Host: localhost    Database: pacific1_ci1
+-- ------------------------------------------------------
+-- Server version	10.1.24-MariaDB-cll-lve
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `account`
+--
+
+DROP TABLE IF EXISTS `account`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(128) DEFAULT NULL,
+  `firstName` varchar(64) DEFAULT NULL,
+  `lastName` varchar(64) DEFAULT NULL,
+  `password` varchar(128) DEFAULT NULL,
+  `approval` char(1) DEFAULT 'N',
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account`
+--
+
+LOCK TABLES `account` WRITE;
+/*!40000 ALTER TABLE `account` DISABLE KEYS */;
+INSERT INTO `account` VALUES (1,'admin@thecreativeshop.com.au','Admin','TCS','f26cea7ff09c4e1e6b094844ed4d1c8d','Y','2015-06-04 04:02:59',NULL,'2015-06-05 07:06:34',1,'Y'),(2,'sbs2australiayt@gmail.com','SBS','Australia','','N','2015-09-14 14:00:00',NULL,'2016-05-05 06:12:58',1,'Y');
+/*!40000 ALTER TABLE `account` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `accountrole`
+--
+
+DROP TABLE IF EXISTS `accountrole`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `accountrole` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `aid` int(11) NOT NULL,
+  `roleId` int(11) NOT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`),
+  KEY `fk_AccountRole_Account1_idx` (`aid`),
+  KEY `fk_AccountRole_Role1_idx` (`roleId`),
+  CONSTRAINT `fk_AccountRole_Account1` FOREIGN KEY (`aid`) REFERENCES `account` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_AccountRole_Role1` FOREIGN KEY (`roleId`) REFERENCES `role` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `accountrole`
+--
+
+LOCK TABLES `accountrole` WRITE;
+/*!40000 ALTER TABLE `accountrole` DISABLE KEYS */;
+INSERT INTO `accountrole` VALUES (1,1,1,NULL,NULL,NULL,NULL,'Y'),(2,2,2,NULL,NULL,NULL,NULL,'Y');
+/*!40000 ALTER TABLE `accountrole` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `activitylog`
+--
+
+DROP TABLE IF EXISTS `activitylog`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `activitylog` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `emailLogId` int(11) NOT NULL,
+  `activityType` varchar(10) NOT NULL,
+  `platform` varchar(45) DEFAULT NULL,
+  `browser` varchar(45) DEFAULT NULL,
+  `version` varchar(45) DEFAULT NULL,
+  `referer` varchar(64) DEFAULT NULL,
+  `clicked` int(11) NOT NULL DEFAULT '0',
+  `downloaded` int(11) NOT NULL DEFAULT '0',
+  `shared1` int(11) NOT NULL DEFAULT '0',
+  `shared2` int(11) NOT NULL,
+  `shared3` int(11) NOT NULL DEFAULT '0',
+  `reserve1` varchar(64) DEFAULT NULL,
+  `reserve2` varchar(64) DEFAULT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`),
+  KEY `fk_table1_EmailLog1_idx` (`emailLogId`),
+  CONSTRAINT `fk_table1_EmailLog1` FOREIGN KEY (`emailLogId`) REFERENCES `emaillog` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=673 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `activitylog`
+--
+
+LOCK TABLES `activitylog` WRITE;
+/*!40000 ALTER TABLE `activitylog` DISABLE KEYS */;
+/*!40000 ALTER TABLE `activitylog` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `code`
+--
+
+DROP TABLE IF EXISTS `code`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `code` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category` varchar(45) DEFAULT NULL,
+  `code` varchar(45) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `note` varchar(45) DEFAULT NULL,
+  `reserve1` varchar(64) DEFAULT NULL,
+  `reserve2` varchar(64) DEFAULT NULL,
+  `reserve3` varchar(64) DEFAULT NULL,
+  `reserve4` varchar(64) DEFAULT NULL,
+  `reserve5` varchar(64) DEFAULT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `code`
+--
+
+LOCK TABLES `code` WRITE;
+/*!40000 ALTER TABLE `code` DISABLE KEYS */;
+INSERT INTO `code` VALUES (3,'SITE','1','Site1',NULL,'Y',NULL,NULL,NULL,NULL,'2015-06-07 04:30:39',1,'2015-06-13 23:21:29',1,'Y'),(4,'SITE','2','Site2',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:30:51',1,NULL,NULL,'Y'),(5,'SITE','3','Site3',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:31:12',1,NULL,NULL,'Y'),(6,'SITE','4','Site4',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:31:24',1,NULL,NULL,'Y'),(7,'SITE','5','Site5',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:31:35',1,NULL,NULL,'Y'),(8,'EVENT','PP','Perfect Pass',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:32:28',1,'2016-01-16 05:23:11',1,'N'),(9,'EVENT','QS','Cover The Court',NULL,'',NULL,NULL,NULL,NULL,'2015-06-07 04:32:45',1,'2015-07-02 01:24:54',1,'Y'),(10,'EVENT','MVP','Fans MVP',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:33:08',1,'2015-07-03 00:57:10',1,'Y'),(11,'EVENT','LK','Lipsync Karaoke',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:33:26',1,'2015-06-29 01:13:01',1,'Y'),(12,'EVENT','SR','Cheer Cam',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:33:51',1,'2015-07-03 00:56:56',1,'Y'),(13,'TEAM','AUS','AUS',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:34:55',1,NULL,NULL,'Y'),(14,'TEAM','NZL','NZL',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:35:17',1,NULL,NULL,'Y'),(15,'TEAM','ENG','ENG',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:35:34',1,NULL,NULL,'Y'),(16,'TEAM','JAM','JAM',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:35:58',1,NULL,NULL,'Y'),(17,'TEAM','MAW','MAW',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:36:14',1,NULL,NULL,'Y'),(18,'TEAM','RSA','RSA',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:36:28',1,NULL,NULL,'Y'),(19,'TEAM','FIJ','FIJ',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:36:44',1,NULL,NULL,'Y'),(20,'TEAM','WAL','WAL',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:36:58',1,NULL,NULL,'Y'),(21,'TEAM','TTO','TTO',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:37:24',1,NULL,NULL,'Y'),(22,'TEAM','BAR','BAR',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:37:36',1,NULL,NULL,'Y'),(23,'TEAM','SCO','SCO',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:37:53',1,NULL,NULL,'Y'),(24,'TEAM','SAM','SAM',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:38:14',1,NULL,NULL,'Y'),(25,'TEAM','UGA','UGA',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:38:30',1,NULL,NULL,'Y'),(26,'TEAM','SIN','SIN',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:38:41',1,NULL,NULL,'Y'),(27,'TEAM','ZAM','ZAM',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:38:55',1,NULL,NULL,'Y'),(28,'TEAM','SRI','SRI',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-07 04:39:06',1,NULL,NULL,'Y'),(29,'EVENT','TP','Team Photo',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-15 08:05:21',1,'2015-06-29 01:13:50',1,'N'),(30,'EVENT','VK','Virtual Kick',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-15 08:05:32',1,NULL,NULL,'Y'),(31,'EVENT','SR','Score&Roar',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-15 08:05:46',1,'2015-06-29 01:13:46',1,'N'),(32,'EVENT','FP','Face Painting',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-15 08:05:55',1,'2015-06-29 01:14:02',1,'N'),(33,'EVENT','FT','Foosball Table',NULL,NULL,NULL,NULL,NULL,NULL,'2015-06-15 08:06:05',1,'2015-06-29 01:13:59',1,'N'),(34,'EVENT','FC','Fancam',NULL,NULL,NULL,NULL,NULL,NULL,'2015-08-17 05:17:39',1,NULL,NULL,'Y'),(35,'EVENT','NRL','NRL Final Series',NULL,NULL,NULL,NULL,NULL,NULL,'2015-08-30 23:55:07',1,NULL,NULL,'Y'),(36,'EVENT','PP','Photo Event',NULL,NULL,NULL,NULL,NULL,NULL,'2016-01-16 05:16:04',1,NULL,NULL,'Y'),(37,'EVENT','VV','Video Event',NULL,NULL,NULL,NULL,NULL,NULL,'2016-01-16 05:16:20',1,NULL,NULL,'Y');
+/*!40000 ALTER TABLE `code` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `emaillog`
+--
+
+DROP TABLE IF EXISTS `emaillog`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `emaillog` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `accessCode` varchar(128) DEFAULT NULL,
+  `shareAccessCode` varchar(128) DEFAULT NULL,
+  `email` varchar(128) DEFAULT NULL,
+  `isValidEmail` char(1) NOT NULL DEFAULT 'N',
+  `isSent` char(1) DEFAULT 'N',
+  `sentDate` timestamp NULL DEFAULT NULL,
+  `isOpened` char(1) DEFAULT 'N',
+  `shortUrl` varchar(256) DEFAULT NULL,
+  `reserve1` varchar(256) DEFAULT NULL,
+  `reserve2` varchar(256) DEFAULT NULL,
+  `reserve3` varchar(256) DEFAULT NULL,
+  `reserve4` varchar(256) DEFAULT NULL,
+  `reserve5` varchar(256) DEFAULT NULL,
+  `reserve6` varchar(255) DEFAULT NULL,
+  `reserve7` varchar(255) DEFAULT NULL,
+  `reserve8` varchar(255) DEFAULT NULL,
+  `reserve9` varchar(255) DEFAULT NULL,
+  `reserve10` varchar(255) DEFAULT NULL,
+  `edmMedia` varchar(64) NOT NULL,
+  `openedDate` timestamp NULL DEFAULT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_accesscode` (`accessCode`),
+  KEY `fk_EmailLog_User1_idx` (`userId`),
+  CONSTRAINT `fk_EmailLog_User1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=379 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `emaillog`
+--
+
+LOCK TABLES `emaillog` WRITE;
+/*!40000 ALTER TABLE `emaillog` DISABLE KEYS */;
+/*!40000 ALTER TABLE `emaillog` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `event`
+--
+
+DROP TABLE IF EXISTS `event`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `event` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `eventCode` varchar(10) DEFAULT NULL,
+  `siteCode` varchar(10) DEFAULT NULL,
+  `startDate` varchar(19) DEFAULT NULL,
+  `endDate` varchar(19) DEFAULT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `event`
+--
+
+LOCK TABLES `event` WRITE;
+/*!40000 ALTER TABLE `event` DISABLE KEYS */;
+INSERT INTO `event` VALUES (4,'VK','1','2015-06-01 00:00:00','2015-07-31 00:00:00','2015-06-19 04:37:07',1,'2015-09-09 01:15:56',1,'N'),(6,'PP','1','2015-07-01 00:00:00','2015-08-31 00:00:00','2015-07-02 01:27:12',1,'2015-09-09 01:15:54',1,'N'),(7,'QS','1','2015-07-01 00:00:00','2015-08-31 00:00:00','2015-07-02 01:27:39',1,'2015-09-09 01:15:52',1,'N'),(8,'MVP','1','2015-07-01 00:00:00','2015-08-31 00:00:00','2015-07-02 01:27:49',1,'2015-09-09 01:15:51',1,'N'),(9,'PP','1','2018-01-01 00:00:00','2018-12-31 00:00:00','2015-07-02 01:28:00',1,'2018-02-18 01:57:42',1,'Y'),(10,'SR','1','2015-07-01 00:00:00','2015-08-31 00:00:00','2015-07-02 01:28:12',1,'2015-09-09 01:15:49',1,'N'),(11,'FC','1','2015-01-01 00:00:00','2016-01-01 00:00:00','2015-08-17 05:18:10',1,'2015-09-09 01:15:47',1,'N'),(12,'NRL','1','2015-08-01','2015-12-31','2015-08-30 23:55:37',1,'2015-09-09 01:15:42',1,'N'),(13,'VV','1','2016-01-01 00:00:00','2016-12-31 00:00:00','2016-01-16 05:16:57',1,'2016-05-05 06:12:21',1,'N'),(14,'SR','1','2018-01-01 00:00:00','2018-12-31 00:00:00','2018-02-24 18:56:37',1,'2018-02-24 18:59:07',1,'Y'),(15,'VK','1','2018-01-01 00:00:00','2018-12-31 00:00:00','2018-02-24 18:57:04',1,NULL,NULL,'Y');
+/*!40000 ALTER TABLE `event` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `localmedia`
+--
+
+DROP TABLE IF EXISTS `localmedia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `localmedia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `typeCode` varchar(20) DEFAULT NULL,
+  `filePath` varchar(128) DEFAULT NULL,
+  `fileName` varchar(128) DEFAULT NULL,
+  `thumbFilePath` varchar(128) DEFAULT NULL,
+  `Mimetype` varchar(64) DEFAULT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `userid_typecode_index` (`userId`,`typeCode`),
+  KEY `fk_LocalMedia_LocalUser1_idx` (`userId`),
+  CONSTRAINT `fk_LocalMedia_LocalUser1` FOREIGN KEY (`userId`) REFERENCES `localuser` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `localmedia`
+--
+
+LOCK TABLES `localmedia` WRITE;
+/*!40000 ALTER TABLE `localmedia` DISABLE KEYS */;
+/*!40000 ALTER TABLE `localmedia` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `localrfidscan`
+--
+
+DROP TABLE IF EXISTS `localrfidscan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `localrfidscan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rfid` varchar(64) DEFAULT NULL,
+  `localUserId` int(11) DEFAULT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`),
+  KEY `fk_ScannedRFID_LocalUser1_idx` (`localUserId`),
+  CONSTRAINT `fk_ScannedRFID_LocalUser1` FOREIGN KEY (`localUserId`) REFERENCES `localuser` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `localrfidscan`
+--
+
+LOCK TABLES `localrfidscan` WRITE;
+/*!40000 ALTER TABLE `localrfidscan` DISABLE KEYS */;
+/*!40000 ALTER TABLE `localrfidscan` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `localuser`
+--
+
+DROP TABLE IF EXISTS `localuser`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `localuser` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `siteCode` varchar(10) DEFAULT NULL,
+  `eventCode` varchar(10) DEFAULT NULL,
+  `firstName` varchar(64) DEFAULT NULL,
+  `lastName` varchar(64) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `mobile` varchar(20) DEFAULT NULL,
+  `zipCode` varchar(10) DEFAULT NULL,
+  `email` varchar(128) DEFAULT NULL,
+  `gameCode` varchar(10) DEFAULT NULL,
+  `teamCode` varchar(10) DEFAULT NULL,
+  `teamPlayerCode` varchar(10) DEFAULT NULL,
+  `isRemoteSynced` char(1) DEFAULT 'N',
+  `reserve1` varchar(64) DEFAULT NULL,
+  `reserve2` varchar(64) DEFAULT NULL,
+  `reserve3` varchar(64) DEFAULT NULL,
+  `reserve4` varchar(64) DEFAULT NULL,
+  `reserve5` varchar(64) DEFAULT NULL,
+  `videoId` varchar(64) DEFAULT NULL,
+  `photoId` varchar(64) DEFAULT NULL,
+  `isApproved` char(1) DEFAULT NULL,
+  `approvedDate` timestamp NULL DEFAULT NULL,
+  `approvedUser` int(11) DEFAULT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `localuser`
+--
+
+LOCK TABLES `localuser` WRITE;
+/*!40000 ALTER TABLE `localuser` DISABLE KEYS */;
+/*!40000 ALTER TABLE `localuser` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `media`
+--
+
+DROP TABLE IF EXISTS `media`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `media` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `typeCode` varchar(20) DEFAULT NULL,
+  `filePath` varchar(128) DEFAULT NULL,
+  `fileName` varchar(128) DEFAULT NULL,
+  `thumbFilePath` varchar(128) DEFAULT NULL,
+  `Mimetype` varchar(64) DEFAULT NULL,
+  `shortUrl` varchar(128) DEFAULT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`),
+  KEY `fk_Media_LocalUser1_idx` (`userId`),
+  CONSTRAINT `fk_Media_LocalUser1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4722 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `media`
+--
+
+LOCK TABLES `media` WRITE;
+/*!40000 ALTER TABLE `media` DISABLE KEYS */;
+INSERT INTO `media` VALUES (4713,1811,'Filedata00','PP/2018-02-18/fileName00.jpg','fileName00.jpg',NULL,'image/jpeg',NULL,'2018-02-18 04:16:49',NULL,NULL,NULL,'Y'),(4714,1811,'Filedata01','PP/2018-02-18/fileName01.jpg','fileName01.jpg',NULL,'image/jpeg',NULL,'2018-02-18 04:16:49',NULL,NULL,NULL,'Y'),(4715,1812,'videoId','SR/2018-02-18/user_1518928439978.mp4',NULL,NULL,'video/mp4',NULL,'2018-02-18 04:41:49',NULL,NULL,NULL,'Y'),(4716,1813,'videoId','SR/2018-02-18/user_1518928819235.mp4',NULL,NULL,'video/mp4',NULL,'2018-02-18 04:44:51',NULL,NULL,NULL,'Y'),(4717,1814,'videoId','SR/2018-02-18/user_1518929560146.mp4',NULL,NULL,'video/mp4',NULL,'2018-02-18 04:56:49',NULL,NULL,NULL,'Y'),(4718,1815,'videoId','SR/2018-02-18/user_1518930220999.mp4',NULL,NULL,'video/mp4',NULL,'2018-02-18 05:07:59',NULL,NULL,NULL,'Y'),(4719,1815,'videoId_edm','SR/2018-02-18/user_1518930220999.jpg',NULL,NULL,'image/jpeg',NULL,'2018-02-18 05:07:59',NULL,NULL,NULL,'Y'),(4720,1816,'videoId','VK/2018-02-18/user_1518930976100.mp4',NULL,NULL,'video/mp4',NULL,'2018-02-18 05:20:50',NULL,NULL,NULL,'Y'),(4721,1816,'videoId_edm','VK/2018-02-18/user_1518930976100.jpg',NULL,NULL,'image/jpeg',NULL,'2018-02-18 05:20:50',NULL,NULL,NULL,'Y');
+/*!40000 ALTER TABLE `media` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `menu`
+--
+
+DROP TABLE IF EXISTS `menu`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) DEFAULT NULL,
+  `name` varchar(64) DEFAULT NULL,
+  `url` varchar(128) DEFAULT NULL,
+  `menuorder` int(11) DEFAULT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`),
+  KEY `fk_Menu_Menu1_idx` (`pid`),
+  CONSTRAINT `fk_Menu_Menu1` FOREIGN KEY (`pid`) REFERENCES `menu` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `menu`
+--
+
+LOCK TABLES `menu` WRITE;
+/*!40000 ALTER TABLE `menu` DISABLE KEYS */;
+INSERT INTO `menu` VALUES (1,NULL,'System','/system',1,NULL,NULL,NULL,NULL,'Y'),(2,1,'Code','/system/code',1,NULL,NULL,NULL,NULL,'Y'),(3,1,'Role','/system/role',2,NULL,NULL,NULL,NULL,'Y'),(4,1,'System User','/system/user',4,NULL,NULL,'2015-06-04 22:53:23',1,'Y'),(5,1,'Menu','/system/menu',3,NULL,NULL,NULL,NULL,'Y'),(8,NULL,'Total Event','/user/total',3,'2015-06-04 06:55:30',1,'2015-06-17 03:19:23',1,'Y'),(9,NULL,'Perfect Passing','/user/pp',4,'2015-06-04 06:56:18',1,'2015-06-17 03:19:33',1,'Y'),(10,NULL,'Cover The Court','/user/qs',4,'2015-06-04 06:56:30',1,'2015-07-01 03:17:51',1,'Y'),(11,NULL,'MVP','/user/mvp',5,'2015-06-04 06:57:03',1,'2015-06-05 05:54:33',1,'Y'),(12,NULL,'Lypsync Karaoke','/user/lk',6,'2015-06-04 06:57:23',1,'2015-06-26 05:46:38',1,'Y'),(13,NULL,'Score&Roar','/user/sr',7,'2015-06-04 06:57:36',1,'2015-07-01 03:17:15',1,'Y'),(14,1,'System Option','/system/systemoption',8,'2015-06-04 22:52:41',1,'2015-06-04 23:10:57',1,'Y'),(15,1,'Event','/system/event',8,'2015-06-05 04:06:58',1,NULL,NULL,'Y'),(16,NULL,'Team Photo','/user/tp',10,'2015-06-15 07:27:19',1,NULL,NULL,'Y'),(17,NULL,'Virtual Kick','/user/vk',11,'2015-06-15 07:28:05',1,NULL,NULL,'Y'),(18,NULL,'Face Painting','/user/fp',12,'2015-06-15 07:28:32',1,NULL,NULL,'Y'),(19,NULL,'Foosball Table','/user/ft',13,'2015-06-15 07:28:48',1,NULL,NULL,'Y'),(20,NULL,'Local Maderation','/localmaderation',2,'2015-06-17 03:17:57',1,'2015-06-17 03:18:23',1,'Y'),(21,NULL,'Maderation','/maderation',3,'2015-06-17 03:18:43',1,NULL,NULL,'Y'),(22,NULL,'Statistics','/statistic',2,'2015-06-18 07:09:38',1,NULL,NULL,'Y');
+/*!40000 ALTER TABLE `menu` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `menurole`
+--
+
+DROP TABLE IF EXISTS `menurole`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `menurole` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `roleId` int(11) NOT NULL,
+  `menuId` int(11) NOT NULL,
+  `accessable` char(1) DEFAULT 'N',
+  `readable` char(1) DEFAULT 'N',
+  `writable` char(1) DEFAULT 'N',
+  `confirmable` char(1) DEFAULT 'N',
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`),
+  KEY `fk_RoleMenu_Menu1_idx` (`menuId`),
+  KEY `fk_RoleMenu_Role1_idx` (`roleId`),
+  CONSTRAINT `fk_RoleMenu_Menu1` FOREIGN KEY (`menuId`) REFERENCES `menu` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_RoleMenu_Role1` FOREIGN KEY (`roleId`) REFERENCES `role` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `menurole`
+--
+
+LOCK TABLES `menurole` WRITE;
+/*!40000 ALTER TABLE `menurole` DISABLE KEYS */;
+INSERT INTO `menurole` VALUES (1,1,1,'Y','Y','Y','Y',NULL,NULL,NULL,NULL,'Y'),(2,1,2,'Y','Y','Y','Y',NULL,NULL,NULL,NULL,'Y'),(3,1,3,'Y','Y','Y','Y',NULL,NULL,NULL,NULL,'Y'),(4,1,4,'Y','Y','Y','Y',NULL,NULL,NULL,NULL,'Y'),(5,1,5,'Y','Y','Y','Y',NULL,NULL,'2015-06-04 04:52:55',1,'Y'),(6,1,8,'N','Y','Y','Y','2015-06-04 06:58:08',1,'2015-06-15 07:37:35',1,'Y'),(7,1,9,'N','N','N','N','2015-06-04 06:58:11',1,'2015-09-09 00:17:42',1,'Y'),(8,1,10,'N','N','N','N','2015-06-04 06:58:13',1,'2015-09-09 00:17:39',1,'Y'),(9,1,11,'N','N','N','N','2015-06-04 06:58:15',1,'2015-09-09 00:17:33',1,'Y'),(10,1,12,'N','Y','Y','Y','2015-06-04 06:58:17',1,'2015-09-14 22:58:01',1,'Y'),(11,1,13,'N','N','N','N','2015-06-04 06:58:19',1,'2015-09-09 00:17:36',1,'Y'),(12,1,14,'N','Y','Y','Y','2015-06-04 22:55:43',1,'2015-06-04 22:55:47',1,'Y'),(13,1,15,'N','Y','Y','Y','2015-06-05 04:09:33',1,'2015-06-05 04:09:39',1,'Y'),(14,1,16,'N','N','N','N','2015-06-15 07:29:11',1,'2015-06-29 01:18:04',1,'Y'),(15,1,17,'N','N','N','N','2015-06-15 07:29:12',1,'2015-07-23 23:58:30',1,'Y'),(16,1,18,'N','N','N','N','2015-06-15 07:29:13',1,'2015-06-29 01:18:05',1,'Y'),(17,1,19,'N','N','N','N','2015-06-15 07:29:14',1,'2015-06-29 01:18:06',1,'Y'),(18,1,21,'N','N','N','N','2015-06-17 05:51:35',1,'2015-09-09 00:17:45',1,'Y'),(19,1,22,'N','Y','N','N','2015-06-18 07:10:00',1,NULL,NULL,'Y'),(20,2,12,'N','Y','Y','Y','2015-09-14 22:53:06',1,'2015-09-14 22:53:08',1,'Y'),(21,2,1,'N','N','N','N','2015-09-14 22:58:41',1,'2015-09-14 23:01:43',1,'Y');
+/*!40000 ALTER TABLE `menurole` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rfid`
+--
+
+DROP TABLE IF EXISTS `rfid`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rfid` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(64) DEFAULT NULL,
+  `lastName` varchar(64) DEFAULT NULL,
+  `BOD` varchar(10) DEFAULT NULL,
+  `email` varchar(128) DEFAULT NULL,
+  `mobile` varchar(45) DEFAULT NULL,
+  `rfid` varchar(64) DEFAULT NULL,
+  `fbUserId` varchar(64) DEFAULT NULL,
+  `accessCode` varchar(128) DEFAULT NULL,
+  `reserve1` varchar(64) DEFAULT NULL,
+  `reserve2` varchar(64) DEFAULT NULL,
+  `reserve3` varchar(64) DEFAULT NULL,
+  `reserve4` varchar(64) DEFAULT NULL,
+  `reserve5` varchar(64) DEFAULT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rfid`
+--
+
+LOCK TABLES `rfid` WRITE;
+/*!40000 ALTER TABLE `rfid` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rfid` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rfidscan`
+--
+
+DROP TABLE IF EXISTS `rfidscan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rfidscan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rfidId` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `mediaId` int(11) NOT NULL,
+  `RFID` varchar(64) DEFAULT NULL,
+  `fbId` varchar(64) DEFAULT NULL,
+  `fbUrl` varchar(128) DEFAULT NULL,
+  `fbShortUrl` varchar(128) DEFAULT NULL,
+  `isSent` char(1) DEFAULT 'N',
+  `sentDate` varchar(10) DEFAULT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`),
+  KEY `fk_ScannedRFID_User1_idx` (`userId`),
+  KEY `fk_ScannedRFID_RFID1_idx` (`rfidId`),
+  KEY `fk_ScannedRFID_Media1_idx` (`mediaId`),
+  CONSTRAINT `fk_ScannedRFID_Media1` FOREIGN KEY (`mediaId`) REFERENCES `media` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ScannedRFID_RFID1` FOREIGN KEY (`rfidId`) REFERENCES `rfid` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ScannedRFID_User1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rfidscan`
+--
+
+LOCK TABLES `rfidscan` WRITE;
+/*!40000 ALTER TABLE `rfidscan` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rfidscan` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `role`
+--
+
+DROP TABLE IF EXISTS `role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) DEFAULT NULL,
+  `note` varchar(128) DEFAULT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `role`
+--
+
+LOCK TABLES `role` WRITE;
+/*!40000 ALTER TABLE `role` DISABLE KEYS */;
+INSERT INTO `role` VALUES (1,'Admin','Admin\'s Role',NULL,NULL,NULL,NULL,'Y'),(2,'Guest','Guest',NULL,NULL,NULL,NULL,'Y');
+/*!40000 ALTER TABLE `role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sendsns`
+--
+
+DROP TABLE IF EXISTS `sendsns`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sendsns` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `snsTypeCode` varchar(10) DEFAULT NULL,
+  `accessToken` varchar(256) DEFAULT NULL,
+  `secretToken` varchar(255) DEFAULT NULL,
+  `snsId` varchar(128) DEFAULT NULL,
+  `snsUrl` varchar(128) DEFAULT NULL,
+  `snsShortUrl` varchar(128) DEFAULT NULL,
+  `isSent` char(1) DEFAULT 'N',
+  `sentDate` timestamp NULL DEFAULT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`),
+  KEY `fk_SNS_User1_idx` (`userId`),
+  CONSTRAINT `fk_SNS_User1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2210 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sendsns`
+--
+
+LOCK TABLES `sendsns` WRITE;
+/*!40000 ALTER TABLE `sendsns` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sendsns` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `systemoption`
+--
+
+DROP TABLE IF EXISTS `systemoption`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `systemoption` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) DEFAULT NULL,
+  `value` varchar(512) DEFAULT NULL,
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=391 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `systemoption`
+--
+
+LOCK TABLES `systemoption` WRITE;
+/*!40000 ALTER TABLE `systemoption` DISABLE KEYS */;
+INSERT INTO `systemoption` VALUES (2,'is_local_server','N','2015-06-04 23:15:45',1,'2015-09-09 00:16:49',1,'Y'),(3,'agent_url','http://203.191.181.166:8082/wordpress/cmd/agent/','2015-06-04 23:17:03',1,NULL,NULL,'Y'),(4,'kiosk_code','ubuntu1','2015-06-04 23:18:01',1,'2015-06-05 01:21:53',1,'Y'),(5,'ping','Y','2015-06-04 23:18:22',1,NULL,NULL,'Y'),(6,'remote_sync','Y','2015-06-04 23:18:37',1,NULL,NULL,'Y'),(7,'reverse_sync','N','2015-06-04 23:18:56',1,NULL,NULL,'Y'),(8,'sync_path','N','2015-06-04 23:19:16',1,'2015-06-11 01:18:56',1,'Y'),(9,'daily_backup','Y','2015-06-04 23:19:35',1,'2015-06-10 06:42:16',1,'Y'),(10,'daily_backup_path','.','2015-06-04 23:19:51',1,NULL,NULL,'Y'),(11,'git_pull','N','2015-06-04 23:20:08',1,NULL,NULL,'Y'),(12,'git_command','git pull origin master','2015-06-04 23:20:25',1,NULL,NULL,'Y'),(13,'ftp_server','103.18.108.180','2015-06-04 23:20:59',1,'2015-07-24 00:30:16',1,'Y'),(14,'ftp_user','ftpuser@fanfestnwc2015.com.au','2015-06-04 23:21:11',1,'2015-07-24 01:12:01',1,'Y'),(15,'ftp_password','Ev0lUt10N','2015-06-04 23:21:24',1,'2015-07-24 01:12:16',1,'Y'),(17,'upload_url','http://192.168.204.147/codeigniter/index.php/remote/','2015-06-04 23:22:22',1,'2015-08-17 01:37:27',1,'Y'),(18,'post_url','http://192.168.204.147/codeigniter/index.php/remote/','2015-06-04 23:22:39',1,'2015-08-17 01:37:38',1,'Y'),(19,'get_url','http://192.168.204.147/codeigniter/index.php/remote/','2015-06-04 23:22:48',1,'2015-08-17 01:37:48',1,'Y'),(20,'list_url','.','2015-06-04 23:23:01',1,NULL,NULL,'Y'),(21,'sendmail_url','.','2015-06-04 23:23:11',1,NULL,NULL,'Y'),(22,'server_port','80','2015-06-04 23:36:23',1,NULL,NULL,'Y'),(25,'PP_root_path','C:\\NBW\\PerfectPass\\','2015-06-09 06:48:25',1,'2015-07-01 02:59:30',1,'Y'),(26,'PP_file_ext','.png|.gif|.jpg','2015-06-09 06:49:48',1,'2015-06-09 06:55:30',1,'Y'),(27,'QS_file_upload_count','1','2015-06-09 07:00:18',1,'2015-06-26 07:15:57',1,'Y'),(28,'QS_root_path','C:\\NBW\\CoverTheCourt\\','2015-06-09 07:00:49',1,'2015-07-01 02:58:15',1,'Y'),(29,'QS_file_ext','.png|.gif|.jpg','2015-06-09 07:01:24',1,'2015-06-09 07:03:25',1,'Y'),(33,'begin_remotesync','0','2015-06-09 23:51:23',1,NULL,NULL,'Y'),(34,'begin_remotesync_time','','2015-06-09 23:51:36',1,NULL,NULL,'Y'),(35,'sync_server_url','http://localhost/codeigniter/index.php/system/','2015-06-11 01:40:07',1,NULL,NULL,'Y'),(36,'PP_auto_approval','N','2015-06-15 04:42:41',1,'2016-01-15 07:20:25',1,'Y'),(43,'VK_uploadmethod','post','2015-06-15 08:00:03',1,NULL,NULL,'Y'),(44,'VK_root_path','C:\\NBW\\LiverPoolVirtualKick\\','2015-06-15 08:00:18',1,'2015-07-01 03:02:51',1,'Y'),(45,'VK_remotesync','Y','2015-06-15 08:00:33',1,NULL,NULL,'Y'),(46,'VK_file_ext','.png|.gif|.jpg','2015-06-15 08:00:48',1,NULL,NULL,'Y'),(54,'default_event_code','SR','2015-06-16 04:18:27',1,'2015-06-29 04:31:04',1,'Y'),(55,'default_site_code','1','2015-06-16 04:18:35',1,NULL,NULL,'Y'),(56,'VK_file_upload_count','2','2015-06-16 04:56:41',1,NULL,NULL,'Y'),(57,'VK_must_field','eventCode,userFirstName,userLastName,userEmail,photoId','2015-06-16 05:14:19',1,'2015-06-29 03:58:21',1,'Y'),(62,'SR_root_path','C:\\NBW\\FanCam\\','2015-06-16 05:45:02',1,'2015-07-01 02:57:03',1,'Y'),(63,'SR_file_ext','.mp4','2015-06-16 05:45:21',1,NULL,NULL,'Y'),(64,'SR_uploadmethod','ftp','2015-06-16 05:45:33',1,NULL,NULL,'Y'),(65,'SR_remotesync','Y','2015-06-16 05:45:44',1,NULL,NULL,'Y'),(66,'SR_must_field','eventCode,userFirstName,userLastName,userEmail,videoId,FileData00,choosenYear','2015-06-16 05:46:02',1,'2015-07-29 07:52:46',1,'Y'),(73,'max_maderated_id','478','2015-06-17 03:50:51',1,'2015-06-17 05:37:30',1,'Y'),(75,'VK_auto_approval','Y','2015-06-17 05:29:19',1,'2015-06-17 06:03:03',1,'Y'),(76,'max_local_maderated_id','29',NULL,NULL,'2015-08-17 05:27:53',1,'Y'),(77,'cms_home_url','http://www.pepperfanzone.com.au/framework/index.php/','2015-06-18 03:57:48',1,'2015-12-18 00:37:06',1,'Y'),(78,'home_url','http://www.pepperfanzone.com.au/','2015-06-18 04:03:04',1,'2015-12-18 00:37:22',1,'Y'),(79,'email_test_data','이메일 테스트 데이타 입니다.','2015-06-18 23:28:22',1,NULL,NULL,'Y'),(80,'MVP_uploadmethod','post','2015-06-23 04:41:24',1,NULL,NULL,'Y'),(82,'MVP_remotesync','Y','2015-06-23 04:41:57',1,NULL,NULL,'Y'),(83,'MVP_email_title','MVP Email Title','2015-06-23 04:42:21',1,NULL,NULL,'Y'),(84,'MVP_edm_merge_image','N','2015-06-23 04:42:46',1,'2015-07-01 04:08:21',1,'Y'),(85,'MVP_edm_frame_path','E:\\\\Project\\\\2015\\\\201508_NetBall\\\\Bitnami\\\\frameworks\\\\codeigniter\\\\htdocs\\\\static\\\\img\\\\MVPFrame.png','2015-06-23 04:43:40',1,NULL,NULL,'Y'),(86,'MVP_edm_image_rect','{\"x\":\"214\",\"y\":\"39\",\n  \"cx\":\"0\",\"cy\":\"0\",\"cw\":\"350\",\"ch\":\"275\",\n   \"x1\":\"0\",\"y1\":\"50\",\"x2\":\"418\",\"y2\":\"240\"}','2015-06-23 04:45:53',1,'2015-06-29 07:36:17',1,'Y'),(87,'MVP_file_ext','.png|.jpg|.gif','2015-06-23 04:54:25',1,'2015-06-30 08:12:57',1,'Y'),(88,'QS_must_field','eventCode,userFirstName,userLastName,userEmail,userScore,userCountryId,photoId','2015-06-26 07:07:31',1,'2015-06-29 03:56:33',1,'Y'),(90,'QS_remotesync','Y','2015-06-26 07:15:23',1,NULL,NULL,'Y'),(91,'QS_auto_approval','Y','2015-06-26 07:15:42',1,NULL,NULL,'Y'),(92,'PP_must_field','eventCode,userFirstName,userLastName,userEmail,photoId','2015-06-26 07:24:09',1,'2015-06-29 03:56:53',1,'Y'),(93,'PP_remotesync','Y','2015-06-26 07:24:27',1,NULL,NULL,'Y'),(95,'PP_uploadmethod','post','2015-06-26 07:27:05',1,NULL,NULL,'Y'),(96,'PP_copy_photoId','Y','2015-06-26 07:27:41',1,NULL,NULL,'Y'),(97,'QS_copy_photoId','Y','2015-06-26 07:27:57',1,NULL,NULL,'Y'),(98,'QS_uploadmethod','post','2015-06-26 07:29:14',1,NULL,NULL,'Y'),(99,'PP_file_upload_count','1','2015-06-26 07:30:19',1,NULL,NULL,'Y'),(100,'SR_auto_approval','Y','2015-06-26 07:31:57',1,NULL,NULL,'Y'),(101,'SR_file_upload_count','1','2015-06-26 07:32:16',1,NULL,NULL,'Y'),(102,'SR_copy_videoId','Y','2015-06-26 07:32:56',1,NULL,NULL,'Y'),(103,'LK_root_path','C:\\SBS\\LipsyncKaraoke\\','2015-06-29 01:15:08',1,'2015-09-01 07:14:23',1,'Y'),(104,'LK_uploadmethod','ftp','2015-06-29 01:15:32',1,NULL,NULL,'Y'),(105,'LK_remotesync','Y','2015-06-29 01:15:46',1,NULL,NULL,'Y'),(106,'LK_must_field','eventCode,userFirstName,userLastName,userEmail,videoId,FileData00,userAgreeTNC','2015-06-29 01:16:02',1,'2015-09-01 07:14:08',1,'Y'),(107,'LK_file_upload_count','1','2015-06-29 01:16:28',1,NULL,NULL,'Y'),(108,'LK_file_ext','.mp4','2015-06-29 01:16:41',1,NULL,NULL,'Y'),(109,'LK_copy_videoId','Y','2015-06-29 01:16:53',1,NULL,NULL,'Y'),(110,'LK_auto_approval','Y','2015-06-29 01:17:05',1,NULL,NULL,'Y'),(111,'QS_rank_query','SELECT @rank:=@rank+1 rank,\n         reserve3 country,\n         \'\' id,\n         LTRIM(CONCAT(firstName,\' \',lastName)) name, \n         reserve2 score \n    FROM `localuser` a,(SELECT @rank:=0) b \n WHERE a.valid = \'Y\' and eventCode=\'QS\' \n ORDER BY reserve2 + 0  DESC','2015-06-29 02:04:23',1,'2015-07-24 07:52:38',1,'Y'),(112,'SR_has_thumbnail','N','2015-06-29 03:14:59',1,'2015-07-29 07:50:08',1,'Y'),(113,'SR_thumbnail_ext','.png|.jpg|.gif','2015-06-29 03:15:19',1,'2015-06-29 03:16:59',1,'Y'),(114,'LK_has_thumbnail','Y','2015-06-29 03:21:25',1,NULL,NULL,'Y'),(115,'LK_thumbnail_ext','.png|.gif|.jpg','2015-06-29 03:22:00',1,NULL,NULL,'Y'),(116,'LK_edm_ext','.png|.jpg|.gif','2015-06-29 03:22:39',1,NULL,NULL,'Y'),(117,'LK_has_edm','N','2015-06-29 03:22:52',1,'2015-07-01 01:28:00',1,'Y'),(118,'MVP_must_field','eventCode,userFirstName,userLastName,userEmail,userSelectTeam,userSelectPlayer,FileData00','2015-06-29 03:46:37',1,'2015-06-30 08:17:25',1,'Y'),(119,'MVP_rank_query','SELECT @rn:=@rn+1 rank,country country,\n       pcode id,\n       \'\' name,\n       cnt score \n  FROM (\n		SELECT `teamPlayerCode` pcode,\n               `teamCode` country,\n               count(*) cnt\n  		  FROM `localuser` a\n  		 WHERE eventCode = \'MVP\'\n 		 GROUP BY `teamPlayerCode`\n        ) x,(SELECT @rn:=0) y\n ORDER BY cnt DESC','2015-06-29 04:41:01',1,'2015-06-30 23:46:34',1,'Y'),(120,'MVP_rank_limit','5','2015-06-30 23:47:16',1,NULL,NULL,'Y'),(121,'MVP_current_rank','Y','2015-06-30 23:47:34',1,NULL,NULL,'Y'),(122,'MVP_current_rank_field','userSelectPlayer','2015-06-30 23:49:36',1,'2015-06-30 23:49:56',1,'Y'),(123,'MVP_edm_media','FileData00','2015-07-01 00:54:14',1,NULL,NULL,'Y'),(124,'QS_edm_frame_path','E:\\\\Project\\\\2015\\\\201508_NetBall\\\\Bitnami\\\\frameworks\\\\codeigniter\\\\htdocs\\\\static\\\\img\\\\MVPFrame.png','2015-07-01 01:02:28',1,NULL,NULL,'Y'),(125,'QS_edm_image_rect','{\"x\":\"214\",\"y\":\"39\", \"cx\":\"0\",\"cy\":\"0\",\"cw\":\"350\",\"ch\":\"275\", \"x1\":\"0\",\"y1\":\"50\",\"x2\":\"418\",\"y2\":\"240\"}','2015-07-01 01:02:45',1,NULL,NULL,'Y'),(127,'QS_edm_merge_image','N','2015-07-01 01:03:17',1,'2015-07-01 04:06:14',1,'Y'),(128,'QS_edm_media','photoId','2015-07-01 01:03:49',1,NULL,NULL,'Y'),(129,'PP_edm_frame_path','E:\\\\Project\\\\2015\\\\201508_NetBall\\\\Bitnami\\\\frameworks\\\\codeigniter\\\\htdocs\\\\static\\\\img\\\\MVPFrame.png','2015-07-01 01:05:36',1,NULL,NULL,'Y'),(130,'PP_edm_image_rect','{\"x\":\"214\",\"y\":\"39\", \"cx\":\"0\",\"cy\":\"0\",\"cw\":\"350\",\"ch\":\"275\", \"x1\":\"0\",\"y1\":\"50\",\"x2\":\"418\",\"y2\":\"240\"}','2015-07-01 01:06:06',1,NULL,NULL,'Y'),(131,'PP_edm_media','FileData00','2015-07-01 01:06:24',1,'2016-01-14 23:16:26',1,'Y'),(132,'PP_edm_merge_image','N','2015-07-01 01:06:55',1,'2015-07-01 04:07:06',1,'Y'),(133,'SR_has_edm','Y','2015-07-01 01:08:48',1,'2018-02-18 04:51:42',1,'Y'),(134,'SR_edm_frame_path','E:\\\\Project\\\\2015\\\\201508_NetBall\\\\Bitnami\\\\frameworks\\\\codeigniter\\\\htdocs\\\\static\\\\img\\\\MVPFrame.png','2015-07-01 01:09:21',1,NULL,NULL,'Y'),(135,'SR_edm_image_rect','{\"x\":\"214\",\"y\":\"39\", \"cx\":\"0\",\"cy\":\"0\",\"cw\":\"350\",\"ch\":\"275\", \"x1\":\"0\",\"y1\":\"50\",\"x2\":\"418\",\"y2\":\"240\"}','2015-07-01 01:09:39',1,NULL,NULL,'Y'),(136,'SR_edm_media','FileData00','2015-07-01 01:10:02',1,'2015-07-01 01:27:11',1,'Y'),(137,'SR_edm_merge_image','N','2015-07-01 01:10:18',1,'2015-07-01 04:07:30',1,'Y'),(138,'SR_edm_ext','.png|.gif|.jpg','2015-07-01 01:12:22',1,NULL,NULL,'Y'),(139,'LK_edm_frame_path','E:\\\\Project\\\\2015\\\\201508_NetBall\\\\Bitnami\\\\frameworks\\\\codeigniter\\\\htdocs\\\\static\\\\img\\\\MVPFrame.png','2015-07-01 01:26:39',1,NULL,NULL,'Y'),(140,'LK_edm_image_rect','{\"x\":\"214\",\"y\":\"39\", \"cx\":\"0\",\"cy\":\"0\",\"cw\":\"350\",\"ch\":\"275\", \"x1\":\"0\",\"y1\":\"50\",\"x2\":\"418\",\"y2\":\"240\"}','2015-07-01 01:26:57',1,NULL,NULL,'Y'),(141,'LK_edm_media','FileData00','2015-07-01 01:27:24',1,NULL,NULL,'Y'),(142,'LK_edm_merge_image','N','2015-07-01 01:27:41',1,'2015-07-01 04:07:59',1,'Y'),(143,'PP_email_template','pepper_email','2015-07-23 23:52:27',1,'2016-01-14 21:18:38',1,'Y'),(144,'PP_email_title','Your WSW photo!','2015-07-23 23:52:58',1,'2016-01-14 21:21:03',1,'Y'),(145,'QS_email_template','netball_email','2015-07-23 23:53:45',1,NULL,NULL,'Y'),(146,'QS_email_title','Cover The Court!','2015-07-23 23:54:02',1,NULL,NULL,'Y'),(147,'MVP_email_template','netball_email','2015-07-23 23:54:31',1,NULL,NULL,'Y'),(148,'MVP_email_title','MVP!','2015-07-23 23:54:48',1,NULL,NULL,'Y'),(149,'LK_email_template','sbs_email','2015-07-23 23:55:46',1,'2015-09-10 02:01:16',1,'Y'),(150,'LK_email_title','SBS 2 Pop! Weekend Lipsync','2015-07-23 23:56:02',1,'2015-09-17 08:33:30',1,'Y'),(151,'SR_email_template','netball_email','2015-07-23 23:57:54',1,NULL,NULL,'Y'),(152,'SR_email_title','Fan Cam!','2015-07-23 23:58:10',1,NULL,NULL,'Y'),(153,'LK_late_upload','Y','2015-07-28 06:37:39',1,NULL,NULL,'Y'),(154,'FC_must_field','eventCode,videoId','2015-08-17 05:20:46',1,NULL,NULL,'Y'),(155,'FC_remotesync','Y','2015-08-17 05:21:03',1,'2015-08-17 05:21:09',1,'Y'),(156,'FC_late_upload','N','2015-08-17 05:21:38',1,'2015-08-17 05:22:44',1,'Y'),(157,'FC_has_thumbnail','N','2015-08-17 05:21:52',1,NULL,NULL,'Y'),(158,'FC_auto_approval','Y','2015-08-17 05:22:33',1,'2015-10-12 23:37:35',1,'Y'),(159,'FC_copy_videoId','Y','2015-08-17 05:23:02',1,NULL,NULL,'Y'),(160,'FC_file_ext','.mp4','2015-08-17 05:23:36',1,NULL,NULL,'Y'),(161,'FC_file_upload_count','1','2015-08-17 05:23:48',1,NULL,NULL,'Y'),(162,'FC_root_path','C:\\NBW\\LipsyncKaraoke\\','2015-08-17 05:24:38',1,'2015-08-17 05:25:06',1,'Y'),(163,'FC_uploadmethod','post','2015-08-17 05:24:48',1,'2015-08-31 04:52:09',1,'Y'),(164,'cms_name','Pacific CMS','2015-08-17 23:20:45',1,'2018-02-24 18:55:41',1,'Y'),(165,'cms_version','?v=1_1_107','2015-08-17 23:21:10',1,'2015-09-21 22:21:52',1,'Y'),(177,'NRL_remotesync','N','2015-08-30 23:57:53',1,NULL,NULL,'Y'),(178,'NRL_auto_approval','N','2015-08-30 23:58:21',1,NULL,NULL,'Y'),(179,'NRL_must_field','eventCode,userFirstName,userLastName,userEmail,userPostcode,userSelectTeam,userScore,userAgreeTNC','2015-08-30 23:58:48',1,'2015-08-31 00:11:47',1,'Y'),(180,'lateupload_delayseconds','60','2015-09-01 07:16:18',1,NULL,NULL,'Y'),(198,'LK_fb_title','Check out my 15 seconds of fame as #SBSPopAsiaâ€™s newest superstar!','2015-09-10 01:04:04',1,'2015-09-16 03:18:41',1,'Y'),(199,'LK_fb_message','Pop! Weekend, 2-4 October SBS 2 - All Asian TV, All Weekend\nâ€ª#â€ŽSBS2PopWeekend\nFor more: www.sbs.com.au/popweekend','2015-09-10 01:04:29',1,'2015-09-19 01:57:12',1,'Y'),(232,'LK_fb_title_ch','æˆ‘è¦æˆä¸ºæœ€æ–°çš„#SBSPopAsia#å·¨æ˜Ÿï¼å¿«æ¥çœ‹çœ‹æˆ‘çš„15ç§’åæ°”è§†é¢‘ï¼','2015-09-16 03:03:13',1,NULL,NULL,'Y'),(233,'LK_fb_message_ch','10æœˆ2æ—¥è‡³4æ—¥ï¼ŒPop! Weekend on SBS2â€”â€”æ•´ä¸ªå‘¨æœ«ï¼Œå°½åœ¨äºšæ´²ç”µ\n#SBS2PopWeekend#\næ›´å¤šä¿¡æ¯è®¿é—®: sbs.com.au/popweekend','2015-09-16 03:03:44',1,NULL,NULL,'Y'),(236,'LK_fb_path_1','N','2015-09-16 07:39:39',1,'2015-09-16 22:51:01',1,'Y'),(237,'LK_fb_path_2','N','2015-09-16 07:39:55',1,'2015-10-12 07:08:15',1,'Y'),(238,'LK_fb_path_3','N','2015-09-16 07:40:04',1,'2015-09-16 22:51:38',1,'Y'),(239,'LK_fb_path_4','N','2015-09-16 07:40:19',1,'2015-09-16 22:52:19',1,'Y'),(240,'LK_twitter_title','See my 15 seconds of fame as #SBSPopAsiaâ€™s superstar!  #SBS2PopWeekend, 2-4 October @SBS2','2015-09-17 08:34:22',1,NULL,NULL,'Y'),(331,'FC_fb_title','Check out my 360Cam image from #TheRaces!','2015-10-12 23:53:14',1,'2015-10-14 02:38:39',1,'Y'),(332,'FC_fb_message','Royal Randwick, City Tattersalls Club Cup Day 17 October, 2015 Sydney Spring Carnival. For more info: www.facebook.com/RoyalRandwick','2015-10-12 23:53:33',1,'2015-10-14 07:19:06',1,'Y'),(333,'FC_edm_media','videoId_edm','2015-10-13 00:28:26',1,'2015-10-13 22:47:27',1,'Y'),(334,'FC_twitter_title','Check out my 360Cam image @royalrandwick! #TheRaces','2015-10-13 00:31:13',1,'2015-10-14 07:31:42',1,'Y'),(335,'FC_email_template','atc_email','2015-10-13 00:51:05',1,'2015-10-13 02:35:43',1,'Y'),(340,'FC_email_title','Your 360Cam image from #TheRaces!','2015-10-13 21:36:32',1,'2015-10-13 23:25:14',1,'Y'),(341,'FC_has_edm','Y','2015-10-13 22:02:55',1,NULL,NULL,'Y'),(342,'FC_edm_ext','png|jgp|gif','2015-10-13 22:03:49',1,NULL,NULL,'Y'),(351,'FC_edmtrack_link1','https://www.australianturfclub.com.au/','2015-10-15 21:51:35',1,'2015-10-15 22:01:54',1,'Y'),(352,'FC_edmtrack_link2','http://atc-website-content.s3.amazonaws.com/wp-content/uploads/2015/10/151012-Grandview-City-Tatts-winner.pdf','2015-10-15 21:51:53',1,'2015-10-15 22:02:03',1,'Y'),(353,'FC_edmtrack_link3','https://www.australianturfclub.com.au/privacy-policy/','2015-10-15 21:52:09',1,'2015-10-15 22:02:13',1,'Y'),(354,'FC_edmtrack_link4','http://www.thecreativeshop.com.au','2015-10-15 21:52:31',1,'2015-10-15 22:02:21',1,'Y'),(364,'PP_fb_title','Singing for the Wanderers at the Pepper Ultimate FanZone!','2016-01-12 02:24:51',1,'2016-01-14 21:21:40',1,'Y'),(365,'PP_fb_message','Singing for the Wanderers at the Pepper Ultimate FanZone!\nWestern Sydney Wanderers v Central Coast Mariners, 01.04.16\n#WeAreWanderers #wsw','2016-01-12 02:25:18',1,'2016-03-29 22:52:17',1,'Y'),(366,'VV_email_template','pepper_email','2016-01-14 21:24:39',1,NULL,NULL,'Y'),(367,'VV_email_title','Your WSW video!','2016-01-14 21:25:00',1,NULL,NULL,'Y'),(368,'VV_fb_title','Singing for the Wanderers at the Pepper Ultimate FanZone!','2016-01-14 21:25:33',1,NULL,NULL,'Y'),(370,'PP_edm_media','FileData00','2016-01-14 21:26:55',1,NULL,NULL,'Y'),(371,'LK_edm_ext','.png|.jpg|.gif','2016-01-14 21:27:38',1,NULL,NULL,'Y'),(372,'PP_fl_title','Singing for the Wanderers!','2016-01-14 22:17:40',1,'2016-01-14 22:23:58',1,'Y'),(373,'PP_fl_message','Western Sydney Wanderers v Central Coast Mariners, 01.04.16 #WeAreWanderers #wsw','2016-01-14 22:18:09',1,'2016-03-29 22:51:55',1,'Y'),(374,'VV_fl_title','Singing for the Wanderers!','2016-01-14 22:43:51',1,NULL,NULL,'Y'),(375,'VV_fl_message','Western Sydney Wanderers v Central Coast Mariners, 01.04.16 #WeAreWanderers #wsw','2016-01-14 22:44:08',1,'2016-03-29 22:52:41',1,'Y'),(376,'VV_fb_message','Singing for the Wanderers at the Pepper Ultimate FanZone!\nWestern Sydney Wanderers v Central Coast Mariners, 01.04.16\n#WeAreWanderers #wsw','2016-01-14 22:57:13',1,'2016-03-29 22:52:49',1,'Y'),(377,'PP_edmtrack_link5','http://www.thecreativeshop.com.au','2016-01-15 04:54:05',1,NULL,NULL,'Y'),(378,'VV_edmtrack_link5','http://www.thecreativeshop.com.au','2016-01-15 04:54:22',1,NULL,NULL,'Y'),(379,'PP_edmtrack_link4','http://www.pepper.com.au/','2016-01-15 04:55:24',1,NULL,NULL,'Y'),(380,'VV_edmtrack_link4','https://www.pepper.com.au','2016-01-15 04:55:58',1,NULL,NULL,'Y'),(381,'VV_edmtrack_link1','https://www.pepper.com.au','2016-01-15 04:58:27',1,NULL,NULL,'Y'),(382,'VV_edmtrack_link2','http://www.thecreativeshop.com.au','2016-01-15 04:58:41',1,NULL,NULL,'Y'),(383,'PP_edmtrack_link1','https://www.pepper.com.au','2016-01-15 04:59:06',1,NULL,NULL,'Y'),(384,'PP_edmtrack_link2','http://www.thecreativeshop.com.au','2016-01-15 04:59:23',1,NULL,NULL,'Y'),(385,'VV_auto_approval','N','2016-01-15 07:21:03',1,NULL,NULL,'Y'),(386,'PP_edmtrack_link3','https://www.pepper.com.au/about/on-the-house?cid=fanzone-microsite_display_wsw-ultimate_wsw','2016-02-11 23:21:05',1,'2016-02-17 04:33:50',1,'Y'),(387,'VV_edmtrack_link3','https://www.pepper.com.au/about/on-the-house?cid=fanzone-microsite_display_wsw-ultimate_wsw','2016-02-11 23:21:48',1,'2016-02-17 04:33:56',1,'Y'),(388,'VK_copy_videoId','Y','2018-02-18 05:10:29',1,NULL,NULL,'Y'),(389,'VK_has_edm','Y','2018-02-18 05:10:47',1,NULL,NULL,'Y'),(390,'VK_edm_ext','.png|.gif|.jpg','2018-02-18 05:11:13',1,NULL,NULL,'Y');
+/*!40000 ALTER TABLE `systemoption` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `siteCode` varchar(10) DEFAULT NULL,
+  `eventCode` varchar(10) DEFAULT NULL,
+  `firstName` varchar(64) DEFAULT NULL,
+  `lastName` varchar(64) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `mobile` varchar(20) DEFAULT NULL,
+  `zipCode` varchar(10) DEFAULT NULL,
+  `email` varchar(128) DEFAULT NULL,
+  `gameCode` varchar(10) DEFAULT NULL,
+  `teamCode` varchar(10) DEFAULT NULL,
+  `teamPlayerCode` varchar(10) DEFAULT NULL,
+  `isRemoteSynced` char(1) DEFAULT 'N',
+  `reserve1` varchar(64) DEFAULT NULL,
+  `reserve2` varchar(64) DEFAULT NULL,
+  `reserve3` varchar(64) DEFAULT NULL,
+  `reserve4` varchar(64) DEFAULT NULL,
+  `reserve5` varchar(64) DEFAULT NULL,
+  `videoId` varchar(64) DEFAULT NULL,
+  `photoId` varchar(64) DEFAULT NULL,
+  `localId` int(11) DEFAULT NULL,
+  `localCreateDate` timestamp NULL DEFAULT NULL,
+  `localSiteCode` varchar(10) DEFAULT NULL,
+  `isApproved` char(1) NOT NULL DEFAULT 'N',
+  `approvedDate` timestamp NULL DEFAULT NULL,
+  `approvedUser` int(11) DEFAULT NULL,
+  `isSentEmail` char(1) NOT NULL DEFAULT 'N',
+  `isSentSNS` char(1) NOT NULL DEFAULT 'N',
+  `createDate` timestamp NULL DEFAULT NULL,
+  `createUser` int(11) DEFAULT NULL,
+  `updateDate` timestamp NULL DEFAULT NULL,
+  `updateUser` int(11) DEFAULT NULL,
+  `valid` char(1) DEFAULT 'Y',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1817 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1808,'1','PP','t t','t','','5555555555','','tt@yahoo.com.au','','','','N','5555555555','11','Y','','','','',1,'2018-02-18 04:05:27','1','N',NULL,NULL,'N','N','2018-02-18 04:05:29',NULL,'2018-02-24 19:01:36',1,'N'),(1809,'1','PP','y y','y','','5555555555','','t@yahoo.com.au','','','','N','5555555555','11','Y','','','','',2,'2018-02-18 04:12:15','1','N',NULL,NULL,'N','N','2018-02-18 04:12:16',NULL,'2018-02-24 19:01:36',1,'N'),(1810,'1','PP','y y','y','','5677777777','','y@outlook.com','','','','N','5677777777','11','Y','','','','',3,'2018-02-18 04:14:38','1','N',NULL,NULL,'N','N','2018-02-18 04:14:39',NULL,'2018-02-24 19:01:36',1,'N'),(1811,'1','PP','t y','y','','5555555555','','y@yahoo.com.au','','','','N','5555555555','11','Y','','','','',4,'2018-02-18 04:16:46','1','N',NULL,NULL,'N','N','2018-02-18 04:16:49',NULL,'2018-02-24 19:01:36',1,'N'),(1812,'1','SR','Amuro Lee','Lee','','0443399887','','amuro208@gmail.com','','','','N','undefined','Y','','','','user_1518928439978','',5,'2018-02-18 04:34:02','1','Y',NULL,NULL,'N','N','2018-02-18 04:41:49',NULL,'2018-02-24 19:01:36',1,'N'),(1813,'1','SR','Luis Youn','Youn','','0444433334','','yhy2015@gmail.com','','','','N','undefined','Y','','','','user_1518928819235','',6,'2018-02-18 04:40:20','1','Y',NULL,NULL,'N','N','2018-02-18 04:44:51',NULL,'2018-02-24 19:01:36',1,'N'),(1814,'1','SR','Koo MinJae','MinJae','','4444444444','','333d@kkk.ccc','','','','N','undefined','Y','','','','user_1518929560146','',8,'2018-02-18 04:52:41','1','Y',NULL,NULL,'N','N','2018-02-18 04:56:49',NULL,'2018-02-24 19:01:36',1,'N'),(1815,'1','SR','AAA|BBBB AA|BBB','AA|BBB','','5555555555|555555555','','ddd@hhh.lll|ggg@ggg.kkk','','','','N','undefined','N','','','','user_1518930220999','',9,'2018-02-18 05:03:45','1','Y',NULL,NULL,'N','N','2018-02-18 05:07:59',NULL,'2018-02-24 19:01:36',1,'N'),(1816,'1','VK','AAA|BBBB AA|BBB','AA|BBB','','5555555555|555555555','','ddd@hhh.lll|ggg@ggg.kkk','','','','N','undefined','N','','','','user_1518930976100','',10,'2018-02-18 05:16:17','1','Y',NULL,NULL,'N','N','2018-02-18 05:20:50',NULL,'2018-02-24 19:01:36',1,'N');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-02-25  6:02:26

@@ -1,0 +1,30 @@
+/* ******************************************* */
+/* Optional CSS, default style for ng-sortable */
+/* ******************************************* */
+
+.as-sortable-item, .as-sortable-placeholder {
+    min-height: 20px;
+    margin: 1px 2px 5px 1px;
+    border-radius: 3px;
+}
+
+.as-sortable-item {
+    list-style: none;
+}
+
+.as-sortable-item-handle {
+}
+
+.as-sortable-placeholder {
+    border: 1px dashed darkgrey;
+    box-sizing: border-box;
+    background-color: #dbdbdb;
+    list-style: none;
+}
+
+.as-sortable-drag {
+    opacity: .8;
+}
+
+.as-sortable-hidden {
+}

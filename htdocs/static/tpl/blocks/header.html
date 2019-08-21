@@ -1,0 +1,108 @@
+<!-- navbar header -->
+<div class="navbar-header {{app.settings.navbarHeaderColor}}">
+  <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
+    <i class="glyphicon glyphicon-cog"></i>
+  </button>
+  <button class="pull-right visible-xs" ui-toggle-class="off-screen" data-target=".app-aside" ui-scroll="app">
+    <i class="glyphicon glyphicon-align-justify"></i>
+  </button>
+  <!-- brand -->
+  <a href="#/" class="navbar-brand text-lt" ng-class="{'compact':app.settings.compact}">
+    <i class="fa fa-dribbble"></i>
+    <img src="static/img/logo.png" alt="." class="hide">
+    <span class="hidden-folded m-l-xs">NEAT CMS</span>
+  </a>
+  <!-- / brand -->
+</div>
+<!-- / navbar header -->
+
+<!-- navbar collapse -->
+<div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
+  <!-- buttons -->
+  <div class="nav navbar-nav hidden-xs" ng-class="{'compact':app.settings.compact}">
+    <a href class="btn no-shadow navbar-btn" ng-class="{'compact':app.settings.compact}" ng-click="app.settings.asideFolded = !app.settings.asideFolded">
+      <i class="fa {{app.settings.asideFolded ? 'fa-indent' : 'fa-dedent'}} fa-fw"></i>
+    </a>
+  </div>
+  <!-- / buttons -->
+
+  <!-- nabar right -->
+  <ul class="nav navbar-nav navbar-right" ng-class="{'compact':app.settings.compact}">
+
+    <!--
+    <li class="dropdown">
+      <a href class="dropdown-toggle" data-toggle="dropdown">
+        Quick Menu <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu animated fadeInRight w">
+        <li>
+          <a ng-click="showWizard();" href>Individual Tax Return</a>
+        </li>
+      </ul>
+    </li>
+    -->
+    <!--
+    <li class="hidden-xs">
+      <a ng-click="showWizard();" href>Quick Menu</a>
+    </li>
+    -->
+
+    <!--
+    <li class="dropdown hidden-sm" is-open="lang.isopen">
+      <a href class="dropdown-toggle" data-toggle="dropdown">
+        {{selectLang}} <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu animated fadeInRight w">
+        <li ng-repeat="(langKey, label) in langs">
+          <a ng-click="setLang(langKey, $event)" href>{{label}}</a>
+        </li>
+      </ul>
+    </li>
+    -->
+
+    <li class="hidden-xs">
+      <a ng-click="lockScreen();" href><span class="glyphicon glyphicon-lock"></span></a>
+    </li>
+
+    <li class="hidden-xs">
+      <a ui-fullscreen></a>
+    </li>
+
+    <li class="hidden-xs" style="margin-top:-1px;width:48px;text-align:center;">
+      <a class="fa fa-gear" ng-click="toggleSetting();"></a>
+    </li>
+
+    <li class="dropdown">
+      <a href class="dropdown-toggle clear" data-toggle="dropdown">
+        <span class="hidden-sm hidden-md">{{user.name}}</span> <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu animated fadeInRight w">
+        <li>
+          <a ui-sref="app.profile">
+            <i class="icon-user fa-fw"></i>
+            Profile
+          </a>
+        </li>
+        <!--
+        <li>
+          <a ui-sref="app.docs">
+            <i class="fa fa-question"></i>
+            Help
+          </a>
+        </li>
+        -->
+        <li class="divider"></li>
+        <li>
+          <a ng-click="signout();">
+            <i class="fa fa-sign-out"></i>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+  <!-- / navbar right -->
+
+</div>
+<!-- / navbar collapse -->

@@ -1,0 +1,11 @@
+<div class="modal-over bg-black" ng-controller="AuthController">
+  <div class="modal-center animated fadeInUp text-center" style="width:200px;margin:-100px 0 0 -100px;">
+    <p class="h4 m-t m-b">{{user.name}}</p>
+    <div class="input-group">
+      <input type="password" ng-model="user.password" class="form-control text-sm btn-rounded no-border" placeholder="Enter pwd to continue">
+      <span class="input-group-btn">
+        <a href ng-click="releaseLock();" class="btn btn-success btn-rounded no-border"><i class="fa fa-arrow-right"></i></a>
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+  <div class="panel-heading inner-panel">
+    Basic Information
+  </div>
+  <div class="panel-body form">
+    <div class="row">
+      <div class="form-group">
+        <label for="name" class="col-xs-2 control-label">Name</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="name" ng-model="modifiedData.name" ng-required="true"/>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <label for="value" class="col-xs-2 control-label">Value</label>
+        <div class="col-xs-10">
+          <textarea class="form-control" id="value" ng-model="modifiedData.value" ng-required="true" style="height:200px;">
+          </textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

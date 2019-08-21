@@ -1,0 +1,52 @@
+<div class="panel panel-default">
+  <div class="panel-heading inner-panel">
+    Basic Information
+  </div>
+  <div class="panel-body form">
+    <div class="row">
+      <div class="form-group">
+        <label for="eventCode" class="col-xs-2 control-label">Project Code</label>
+        <div class="col-xs-4">
+          <select class="form-control" ng-model="modifiedData.projectCode"
+                  ng-required="true" id="projectCode" name="projectCode"
+                  ng-options="obj.code as obj.name for obj in projectCodeOptions">
+          </select>
+        </div>
+        <label for="eventCode" class="col-xs-2 control-label">Event Code</label>
+        <div class="col-xs-4">
+          <select class="form-control" ng-model="modifiedData.eventCode"
+                  ng-required="true" id="eventCode" name="eventCode"
+                  ng-options="obj.code as obj.name for obj in eventCodeOptions">
+          </select>
+        </div>
+      </div>
+    </div>
+	<div class="row">
+      <div class="form-group">
+        <label for="siteCode" class="col-xs-2 control-label">Site Code</label>
+        <div class="col-xs-4">
+          <select class="form-control" ng-model="modifiedData.siteCode"
+                  ng-required="true" id="siteCode" name="siteCode"
+                  ng-options="obj.code as obj.name for obj in siteCodeOptions">
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <label for="startDate" class="col-xs-2 control-label">Start Date</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="startDate"
+                   placeholder="YYYY-MM-DD HH:MI:SS"
+                   ng-model="modifiedData.startDate" ng-required="true"/>
+        </div>
+        <label for="endDate" class="col-xs-2 control-label">End Date</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="endDate"
+                   placeholder="YYYY-MM-DD HH:MI:SS"
+                   ng-model="modifiedData.endDate" ng-required="true"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

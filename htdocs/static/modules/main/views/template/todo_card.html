@@ -1,0 +1,11 @@
+<div class="pull-right">
+  <button ng-click="memoTodo(todo);" class="btn btn-default btn-xs fa fa-file-text-o"></button>
+  <button ng-click="doneTodo(todo);" class="btn btn-default btn-xs fa fa-check"></button>
+  <button ng-click="cancelTodo(todo);" class="btn btn-default btn-xs fa fa-remove"></button>
+  <button ng-click="rejectTodo(todo);" ng-show="todo.task.nextId" class="btn btn-default btn-xs fa fa-thumbs-down"></button>
+</div>
+<div class="task-title-sp"><b>{{todo.customerName}}</b> </div>
+<div class="task-title-sp" ng-if="todo.termName == null">{{todo.goods.name}}</div>
+<div class="task-title-sp" ng-if="todo.termName != null">{{todo.goods.name}}[{{todo.termName}}]</div>
+<div class="task-title-sp">{{todo.task.name}} by {{todo.dueDate}} </div>
+<div class="task-title-sp"><span ng-show="todo.note" style="color:#23b7e5;">{{todo.note}}</span></div>

@@ -1,0 +1,19 @@
+<script type="text/ng-template" id="custom/listpager">
+  <ul class="pager ng-cloak" style="padding:0px 7px;">
+    <li ng-repeat="page in pages"
+          ng-class="{'disabled': !page.active, 'previous': page.type == 'prev', 'next': page.type == 'next'}"
+          ng-show="page.type == 'prev' || page.type == 'next'" ng-switch="page.type">
+      <a ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo; Previous</a>
+      <a ng-switch-when="next" ng-click="params.page(page.number)" href="">Next &raquo;</a>
+    </li>
+    <li>
+      <div class="btn-group">
+          <button type="button" ng-class="{'active':params.count() == 10}" ng-click="params.count(10)" class="btn btn-xs btn-default">10</button>
+          <button type="button" ng-class="{'active':params.count() == 15}" ng-click="params.count(15)" class="btn btn-xs btn-default">15</button>
+          <button type="button" ng-class="{'active':params.count() == 20}" ng-click="params.count(20)" class="btn btn-xs btn-default">20</button>
+          <button type="button" ng-class="{'active':params.count() == 30}" ng-click="params.count(30)" class="btn btn-xs btn-default">30</button>
+          <button type="button" ng-class="{'active':params.count() == 50}" ng-click="params.count(50)" class="btn btn-xs btn-default">50</button>
+      </div>
+    </li>
+  </ul>
+</script>

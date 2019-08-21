@@ -1,0 +1,43 @@
+<table class="table table-bordered table-striped tree-grid"
+       ng-class="{'compact':appSettings.compact}">
+  <thead class="text-default">
+    <tr>
+      <th>Name</th>
+      <th ng-repeat="col in colDefs">{{col.displayName || col.field}}</th>
+      <th style="width:100px;text-align:center;">Read</th>
+      <th style="width:100px;text-align:center;">Write</th>
+      <th style="width:100px;text-align:center;">Confirm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="row in tree_rows | filter:{visible:true} track by row.branch.uid" 
+        ng-class="'level-' + {{ row.level }} + (row.branch.selected ? ' active':'')" 
+        class="tree-grid-row">
+      <td class="text-default">
+        <a ng-click="user_clicks_branch(row.branch)">
+          <i ng-class="row.tree_icon" ng-click="row.branch.expanded = !row.branch.expanded" class="indented tree-icon"></i>
+        </a>
+        <span class="indented tree-label">{{row.branch[expandOn]}}</span>
+      </td>
+      <td ng-repeat="col in colDefs" style="width:{{col.colWidth}}">{{row.branch[col.field]}}</td>
+      <td style="width:100px;text-align:center;">
+        <input type='checkbox'
+               ng-model="row.branch['readable']"
+               ng-checked="row.branch['readable']"
+               ng-click="changeTreeNode(row.branch)" />
+      </td>
+      <td style="width:100px;text-align:center;">
+        <input type='checkbox'
+               ng-model="row.branch['writable']"
+               ng-checked="row.branch['writable']"
+               ng-click="changeTreeNode(row.branch)"/>
+      </td>
+      <td style="width:100px;text-align:center;">
+        <input type='checkbox'
+               ng-model="row.branch['confirmable']"
+               ng-checked="row.branch['confirmable']"
+               ng-click="changeTreeNode(row.branch)"/>
+      </td>
+    </tr>
+  </tbody>
+<table>

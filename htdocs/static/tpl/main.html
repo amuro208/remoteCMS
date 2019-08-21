@@ -1,0 +1,224 @@
+<div class="wrapper" ng-controller="MainController">
+
+  <div class="row">
+    <div class="col-md-12 wizard" ng-show="wizard">
+      <wizard on-finish="finishedWizard()">
+        <wz-step title="Basic Information">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Basic Information</h3>
+            </div>
+            <div class="panel-body" style="height:140px;">
+
+            </div>
+            <div class="panel-footer" style="text-align:right">
+              <input class="btn btn-info" type="submit" wz-next value="Continue" />
+            </div>
+          </div>
+        </wz-step>
+        <wz-step title="Choose Service">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Choose Service</h3>
+            </div>
+            <div class="panel-body" style="height:140px;">
+
+            </div>
+            <div class="panel-footer" style="text-align:right">
+              <input class="btn btn-info" type="submit" wz-next value="Continue" />
+            </div>
+          </div>
+        </wz-step>
+        <wz-step title="Issue Invoice">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Issue Invoice</h3>
+            </div>
+            <div class="panel-body" style="height:140px;">
+
+            </div>
+            <div class="panel-footer" style="text-align:right">
+              <input class="btn btn-info" type="submit" wz-next value="Continue" />
+            </div>
+          </div>
+        </wz-step>
+        <wz-step title="Receive Money">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Receive Money</h3>
+            </div>
+            <div class="panel-body" style="height:140px;">
+
+            </div>
+            <div class="panel-footer" style="text-align:right">
+              <input class="btn btn-primary" type="submit" wz-next value="Finish Now!" ng-click="wizard=false;" />
+            </div>
+          </div>
+        </wz-step>
+      </wizard>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <section class="panel tasks-widget">
+        <header class="panel-heading font-thin h4" ng-class="{'compact':app.settings.compact}">
+          Todo list
+        </header>
+        <div class="panel-body">
+
+          <div class="task-content col-md-6">
+            <ul id="sortable"
+                class="sortable task-list ui-sortable"
+                ng-class="{'compact':app.settings.compact}">
+
+              <li class="list-primary">
+                <i class=" fa fa-ellipsis-v"></i>
+                <div class="task-title">
+                  <span class="task-title-sp">Test Customer : Test Service : ReadyToLodge </span>
+                  <span class="badge badge-sm label-success">2 Days</span>
+                  <div class="pull-right">
+                    <button class="btn btn-default btn-xs fa fa-file-text-o"></button>
+                    <button ng-click="done();" class="btn btn-info btn-xs fa fa-check"></button>
+                    <button ng-click="cancel();"class="btn btn-danger btn-xs fa fa-thumbs-down"></button>
+                  </div>
+                </div>
+              </li>
+
+              <li class="list-danger">
+                <i class=" fa fa-ellipsis-v"></i>
+                <div class="task-title">
+                  <span class="task-title-sp">Test Customer : Test Service : Lodged </span>
+                  <span class="badge badge-sm label-danger">Now</span>
+                  <div class="pull-right">
+                    <button class="btn btn-default btn-xs fa fa-file-text-o"></button>
+                    <button ng-click="done();" class="btn btn-info btn-xs fa fa-check"></button>
+                    <button ng-click="cancel();"class="btn btn-danger btn-xs fa fa-thumbs-down"></button>
+                  </div>
+                </div>
+              </li><li class="list-success" style="position: relative;">
+                <i class=" fa fa-ellipsis-v"></i>
+                <div class="task-title">
+                  <span class="task-title-sp">Test Customer : Test Service : Issue Invoice </span>
+                  <span class="badge badge-sm label-warning">2 Days</span>
+                  <div class="pull-right hidden-phone">
+                    <button class="btn btn-default btn-xs fa fa-file-text-o"></button>
+                    <button ng-click="done();" class="btn btn-info btn-xs fa fa-check"></button>
+                    <button ng-click="cancel();"class="btn btn-danger btn-xs fa fa-thumbs-down"></button>
+                  </div>
+                </div>
+              </li>
+
+              <li class="list-warning">
+                <i class=" fa fa-ellipsis-v"></i>
+                <div class="task-title">
+                  <span class="task-title-sp">Test Customer : Test Service : Collect Money </span>
+                  <span class="badge badge-sm label-primary">3 Days</span>
+                  <div class="pull-right hidden-phone">
+                    <button class="btn btn-default btn-xs fa fa-file-text-o"></button>
+                    <button ng-click="done();" class="btn btn-info btn-xs fa fa-check"></button>
+                    <button ng-click="cancel();"class="btn btn-danger btn-xs fa fa-thumbs-down"></button>
+                  </div>
+                </div>
+              </li>
+              <li class="list-info">
+                <i class=" fa fa-ellipsis-v"></i>
+                <div class="task-title">
+                  <span class="task-title-sp">Test Customer : Test Service : Collect Money </span>
+                  <span class="badge badge-sm label-info">Tomorrow</span>
+                  <div class="pull-right hidden-phone">
+                    <button class="btn btn-default btn-xs fa fa-file-text-o"></button>
+                    <button ng-click="done();" class="btn btn-info btn-xs fa fa-check"></button>
+                    <button ng-click="cancel();"class="btn btn-danger btn-xs fa fa-thumbs-down"></button>
+                  </div>
+                </div>
+              </li>
+              <li class="list-inverse">
+                <i class=" fa fa-ellipsis-v"></i>
+                <div class="task-title">
+                  <span class="task-title-sp">Test Customer : Test Service : Collect Money </span>
+                  <span class="badge badge-sm label-inverse">Now</span>
+                  <div class="pull-right hidden-phone">
+                    <button class="btn btn-default btn-xs fa fa-file-text-o"></button>
+                    <button ng-click="done();" class="btn btn-info btn-xs fa fa-check"></button>
+                    <button ng-click="cancel();"class="btn btn-danger btn-xs fa fa-thumbs-down"></button>
+                  </div>
+                </div>
+              </li>
+              <li class="list-primary">
+                <i class=" fa fa-ellipsis-v"></i>
+                <div class="task-title">
+                  <span class="task-title-sp">Test Customer : Test Service : Collect Money </span>
+                  <span class="badge badge-sm label-success">2 Days</span>
+                  <div class="pull-right hidden-phone">
+                    <button class="btn btn-default btn-xs fa fa-file-text-o"></button>
+                    <button ng-click="done();" class="btn btn-info btn-xs fa fa-check"></button>
+                    <button ng-click="cancel();"class="btn btn-danger btn-xs fa fa-thumbs-down"></button>
+                  </div>
+                </div>
+              </li>
+
+              <li class="list-success">
+                <i class=" fa fa-ellipsis-v"></i>
+                <div class="task-title">
+                  <span class="task-title-sp">Test Customer : Test Service : Collect Money </span>
+                  <span class="badge badge-sm label-danger">Today</span>
+                  <div class="pull-right hidden-phone">
+                    <button class="btn btn-default btn-xs fa fa-file-text-o"></button>
+                    <button ng-click="done();" class="btn btn-info btn-xs fa fa-check"></button>
+                    <button ng-click="cancel();"class="btn btn-danger btn-xs fa fa-thumbs-down"></button>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="task-content col-md-6">
+
+            <ul id="sortable"
+                class="sortable task-list ui-sortable"
+                ng-class="{'compact':app.settings.compact}">
+
+              <li class="list-primary">
+                <i class=" fa fa-ellipsis-v"></i>
+                <div class="task-title">
+                  <span class="task-title-sp">Test Customer : Please Make a phone call. </span>
+                  <div class="pull-right">
+                    <button ng-click="done();" class="btn btn-info btn-xs fa fa-check"></button>
+                  </div>
+                </div>
+              </li>
+
+              <li class="list-primary">
+                <i class=" fa fa-ellipsis-v"></i>
+                <div class="task-title">
+                  <span class="task-title-sp">Test Customer : Ask to visit. </span>
+                  <div class="pull-right">
+                    <button ng-click="done();" class="btn btn-info btn-xs fa fa-check"></button>
+                  </div>
+                </div>
+              </li>
+
+              <li class="list-primary">
+                <i class=" fa fa-ellipsis-v"></i>
+                <div class="task-title">
+                  <span class="task-title-sp">Test Customer : Complaint about service. </span>
+                  <div class="pull-right">
+                    <button ng-click="done();" class="btn btn-info btn-xs fa fa-check"></button>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+
+            <a class="btn btn-info btn-sm pull-right" href="#">Add New Memo</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+
+</div>

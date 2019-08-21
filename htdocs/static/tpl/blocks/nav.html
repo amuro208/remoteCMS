@@ -1,0 +1,196 @@
+<ul class="nav">
+    <li ng-class="{active:$state.includes('app.system')}" ng-if="checkAuthority('app.system')">
+        <a class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+            <i class="glyphicon glyphicon-th icon text-primary"></i>
+            <span translate="aside.nav.components.system.SYSTEM">System</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <!-- <li class="nav-sub-header">
+                <a href>
+                    <span class="font-bold" translate="aside.nav.components.system.SYSTEM">System</span>
+                </a>
+            </li> -->
+
+            <li>
+                <a href="#/app/system/code/list"
+                   ng-if="checkAuthority('app.system.code')">
+                    <span translate="aside.nav.components.system.CODE">Code</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#/app/system/menu"
+                   ng-if="checkAuthority('app.system.menu')">
+                    <span translate="aside.nav.components.system.MENU">Menu</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#/app/system/role/list"
+                   ng-if="checkAuthority('app.system.role')">
+                    <span translate="aside.nav.components.system.ROLE">Role</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#/app/system/user/list"
+                   ng-if="checkAuthority('app.system.user')">
+                    <span translate="aside.nav.components.system.USER">System User</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#/app/system/systemoption/list"
+                   ng-if="checkAuthority('app.system.systemoption')">
+                    <span translate="aside.nav.components.system.SETTING">System Option</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#/app/system/event/list"
+                   ng-if="checkAuthority('app.system.event')">
+                    <span translate="aside.nav.components.system.EVENT">Event</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+
+
+
+
+
+
+    <!--li ui-sref-active="{active:$state.includes('app.localmaderation')}" ng-if="app.localServer">
+        <a href="#/app/localuser/total/y">
+            <i class="glyphicon glyphicon-ok icon text-info-dker"></i>
+            <span class="font-bold">Local Maderation</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="{active:$state.includes('app.localuser')}" ng-if="app.localServer">
+        <a href="#/app/localuser/total/n">
+            <i class="glyphicon glyphicon-sort-by-alphabet icon text-info-dker"></i>
+            <span class="font-bold">Local Server</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="{active:$state.includes('app.localrfidscan')}" ng-if="app.localServer">
+        <a href="#/app/localrfidscan/list">
+            <i class="glyphicon glyphicon-sort-by-alphabet icon text-info-dker"></i>
+            <span class="font-bold">Local Scanned RFID</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="{active:$state.includes('app.statistic')}" ng-if="app.remoteServer">
+        <a href="#/app/statistic"
+           ng-if="checkAuthority('app.statistic')">
+            <i class="glyphicon glyphicon-signal icon text-info-dker"></i>
+            <span class="font-bold">Statistics</span>
+        </a>
+    </li>
+
+
+    <li ui-sref-active="{active:$state.includes('app.maderation')}" ng-if="app.remoteServer">
+        <a href="#/app/user/event/Maderation"
+           ng-if="checkAuthority('app.maderation')">
+            <i class="glyphicon glyphicon-ok icon text-info-dker"></i>
+            <span class="font-bold">Maderation</span>
+        </a>
+    </li-->
+
+    <li ui-sref-active="{active:$state.includes('app.user')}" ng-if="app.remoteServer">
+        <a href="#/app/user/event/TOTAL"
+           ng-if="checkAuthority('app.user.total')">
+            <i class="glyphicon glyphicon-sort-by-alphabet icon text-info-dker"></i>
+            <span class="font-bold">Total Event</span>
+        </a>
+    </li>
+
+
+
+
+
+
+    <li ng-class="{active:$state.includes('app.user')}" ng-if="checkAuthority('app.user.p3')">
+        <a class="auto">
+            <span class="pull-right text-muted">
+              <i class="fa fa-fw fa-angle-right text"></i>
+              <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="glyphicon glyphicon-th icon text-primary"></i>
+            <span translate="AMP">AMP</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li>
+              <a href="#/app/statistic/project/p3"
+                 ng-if="checkAuthority('app.user.p3')">
+                  <span class="font-bold" translate="Statistics">Statistics</span>
+              </a>
+           </li>
+            <li>
+                <a href="#/app/user/project/p3/event/wa"
+                   ng-if="checkAuthority('app.user.p3')">
+                    <span translate="iWall"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#/app/user/project/p3/event/vk"
+                   ng-if="checkAuthority('app.user.p3')">
+                    <span translate="VirtualKick">VirtualKick</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li ng-class="{active:$state.includes('app.user')}" ng-if="checkAuthority('app.user.p2')">
+        <a class="auto">
+            <span class="pull-right text-muted">
+              <i class="fa fa-fw fa-angle-right text"></i>
+              <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="glyphicon glyphicon-th icon text-primary"></i>
+            <span translate="Reflex">Reflex</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li>
+              <a href="#/app/statistic/project/p2">
+                  <span class="font-bold" translate="Statistics">Statistics</span>
+              </a>
+           </li>
+            <li>
+                <a href="#/app/user/project/p2/event/qs">
+                    <span translate="ReactionWall">ReactionWall</span>
+                </a>
+            </li>
+            <li>
+                <a href="#/app/user/project/p2/event/vk">
+                    <span translate="VirtualKick">VirtualKick</span>
+                </a>
+            </li>
+            <li>
+                <a href="#/app/user/project/p2/event/wa">
+                    <span translate="SimpleForm">SimpleForm</span>
+                </a>
+            </li>
+            <li>
+                <a href="#/app/user/project/p2/event/po">
+                    <span translate="VoteEvent">VoteEvent</span>
+                </a>
+            </li>
+            <li>
+                <a href="#/app/user/project/p2/event/pp">
+                    <span translate="PhotoEvent">PhotoEvent</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+
+</ul>

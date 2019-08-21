@@ -1,0 +1,31 @@
+<div class="panel panel-default" ng-controller='MainTodoController'>
+  <div class="panel-heading font-thin h4"
+       ng-class="{'compact':app.settings.compact}">
+    Todo
+  </div>
+  <div class="panel-body" ng-show="showTodoForm">
+    <ng-include src="versionUrl('static/modules/main/views/template/todo_form.html')"></ng-include>
+  </div>
+  <div class="panel-body" ng-show="showTodoTextForm">
+    <ng-include src="versionUrl('static/modules/main/views/template/todo_text_form.html')"></ng-include>
+  </div>
+  <div class="panel-body" ng-show="showTodoNumberForm">
+    <ng-include src="versionUrl('static/modules/main/views/template/todo_number_form.html')"></ng-include>
+  </div>
+  <div class="panel-body" ng-show="showTodoCurrencyForm">
+    <ng-include src="versionUrl('static/modules/main/views/template/todo_currency_form.html')"></ng-include>
+  </div>
+  <div class="panel-body">
+    <ul as-sortable="sortableOptions" ng-controller='MainTodoSortableController'
+        ng-model="todoListData" class="sortable task-list ui-sortable"
+        ng-class="{'compact':app.settings.compact}"
+        style="padding:0px;">
+      <li class="list-primary" ng-repeat="todo in todoListData | orderBy:'reserve5'"
+          as-sortable-item style="padding:7px !important;">
+        <div class="task-title" as-sortable-item-handle >
+          <ng-include src="versionUrl('static/modules/main/views/template/todo_card.html')"></ng-include>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

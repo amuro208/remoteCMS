@@ -1,0 +1,54 @@
+<div class="panel panel-default">
+  <div class="panel-heading" ng-class="{'compact':app.settings.compact}">
+    <div class="row">
+      <div class="col-xs-2 m-n font-thin h4">
+        Menu
+      </div>
+      <div class="col-xs-10" style="text-align:right;">
+        <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-plus"
+                ng-click="createData();"
+                ng-if="checkCreatableAuthority(moduleName)"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-body" ng-show="showMenuPanel">
+    <ng-include src="versionUrl('static/modules/menu/views/template/menu_form.html')" />
+  </div>
+
+  <div class="row wrapper" ng-hide="showMenuPanel">
+    <div class="col-xs-12">
+      <script type="text/ng-template" id="nodes_renderer.html">
+        <div class="pull-left tree-handle" ui-tree-handle>
+          <span class="glyphicon glyphicon-list"></span>
+          </div>
+        <div class="tree-node tree-node-content">
+          <a class="btn btn-default btn-xs noborder" ng-if="node.nodes && node.nodes.length > 0" nodrag ng-click="toggle(this)">
+            <span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span>
+          </a>
+          <span class="m-l-xs">{{node.name}}</span>
+          <a class="pull-right btn btn-default m-l-xs btn-xs" nodrag ng-click="deleteData(this.$modelValue)" ng-if="checkCreatableAuthority(moduleName)">
+            <span class="glyphicon glyphicon-trash"></span>
+          </a>
+          <a class="pull-right btn btn-default m-l-xs btn-xs" nodrag ng-click="createSubData(this)" ng-if="checkCreatableAuthority(moduleName)">
+            <span class="glyphicon glyphicon-plus"></span>
+          </a>
+          <a class="pull-right btn btn-default m-l-xs btn-xs" nodrag ng-click="modifyData(this.$modelValue)" ng-if="checkCreatableAuthority(moduleName)">
+            <span class="glyphicon glyphicon-edit"></span>
+          </a>
+          <span class="pull-right m-r" style="width:200px;font-weight:normal;">{{node.url}}</span>
+
+        </div>
+        <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+          <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+          </li>
+        </ol>
+      </script>
+      <div ui-tree id="tree-root">
+        <ol ui-tree-nodes ng-model="treeData">
+          <li ng-repeat="node in treeData" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

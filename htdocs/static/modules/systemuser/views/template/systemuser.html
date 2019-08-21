@@ -1,0 +1,29 @@
+<div>
+  <table class="table table-bordered table-striped tree-grid">
+    <thead class="text-default">
+      <tr>
+        <th width="65px" class="btn-cell">Action</th>
+        <th style='width:250px'>Email</th>
+        <th ng-repeat="col in colDefs">{{col.displayName || col.field}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="row in tree_rows | filter:{visible:true} track by row.branch.uid" ng-class="'level-' + {{ row.level }} + (row.branch.selected ? ' active':'')" class="tree-grid-row">
+        <td class="btn-cell">
+          <button class="btn btn-xs btn-edit glyphicon glyphicon-edit"
+                  ng-click="command('modify',row.branch)"></button>
+          <button class="btn btn-xs btn-delete glyphicon glyphicon-trash"
+                  ng-click="command('delete',row.branch)"></button>
+        </td>
+        <td class="text-default">
+          <a ng-click="user_clicks_branch(row.branch)">
+            <i ng-class="row.tree_icon"
+               ng-click="row.branch.expanded = !row.branch.expanded" class="indented tree-icon"></i>
+          </a>
+          <span class="indented tree-label">{{row.branch['email']}}</span>
+        </td>
+        <td ng-repeat="col in colDefs" style="width:{{col.colWidth}}">{{row.branch[col.field]}}</td>
+      </tr>
+    </tbody>
+  <table>
+</div>

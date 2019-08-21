@@ -1,0 +1,53 @@
+<div class="panel panel-default" ng-controller="SystemUserRolePanelController" ng-show="showUserRolePanel">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-8 m-n font-thin h4">
+        User's Role
+      </div>
+      <div class="col-xs-4" style="text-align:right;">
+        <button class="btn btn-xs btn-add m-l-xs glyphicon glyphicon-plus"
+                ng-click="openRole();"
+                ng-hide="showRolePanel"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-body" ng-show="showRolePanel">
+    <form name="roleForm" id="roleForm" class="css-form" novalidate>
+      <div class="row">
+        <div class="form-group">
+          <label for="roleId" class="col-xs-4 control-label">Role Type</label>
+          <div class="col-xs-8">
+            <select ng-options="obj.value as obj.text for obj in roleOptions" class="form-control" id="roleOptions" ng-model="modifiedData.roleId" ng-required="true">
+              <option value="">-- Choose Role --</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-xs-12">
+            <div class="btn btn-info m-l-xs pull-right" ng-click="cancelRole();">Cancel</div>
+            <div class="btn btn-default pull-right" ng-disabled="roleForm.$invalid" ng-click="addRole();">Add</div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="table-responsive" style="overflow-x:scroll;">
+    <table ng-table="listTableParams"
+           class="table table-striped table-hover"
+           ng-class="{'compact':app.settings.compact}">
+      <tr ng-repeat="data in $data" ng-click="selectData(data)" ng-class="{'active': data.selected}">
+        <td data-title="'Action'" class="btn-cell" style="text-align:center;width:40px;">
+          <button class="btn btn-xs btn-delete glyphicon glyphicon-trash" ng-click="deleteRole(data)"></button>
+        </td>
+        <td data-title="'Role Name'" sortable="'category'" filter="{'category':'text'}">
+          {{data.roleName}}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>

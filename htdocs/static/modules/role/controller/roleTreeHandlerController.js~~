@@ -1,0 +1,110 @@
+'use strict';
+
+angular.module('app').controller('RoleTreeHandlerController',
+[       '$scope','$controller','$timeout','menuService','roleService','menuroleService',
+function($scope,  $controller,  $timeout,  menuService,  roleService,  menuroleService) {
+
+  var tree;
+  $scope.tree_data = [{}];
+  $scope.my_tree = tree = {};
+  $scope.expanding_property = "name";
+  $scope.col_defs = [
+    //{ field: "url", displayName:"URL", colWidth:"150px"},
+  ];
+
+  $scope.currentMenuroleData = null;
+  $scope.currentRoleData = null;
+
+  var listParams = {
+    sorting:{
+      "order":"ASC"
+    }
+  };
+
+  $scope.$on('reloadTree',function(event,data){
+    $scope.currentRoleData = data;
+    if($scope.mode == "create"){
+      menuService.listDataByParams(listParams,menuService.dataUrl).then(function(){
+        var menulist = menuService.getAllDatas();
+        var treeData = menuService.getTree(menulist,"id","pid");
+        $scope.tree_data = treeData;
+      });
+    }else if($scope.mode == "modify"){
+      menuroleService.listDataByRoleId(data.id).then(function(datalist){
+        $scope.currentMenuroleData = datalist;
+        menuService.listDataByParams(listParams,menuService.dataUrl).then(function(){
+          var menulist = menuService.getAllDatas();
+          for(var i in datalist){
+            for(var j in menulist){
+
+              if(menulist[j].id == datalist[i].menuId){
+                menulist[j].readable = datalist[i].readable;
+                menulist[j].creatable = datalist[i].creatable;
+                menulist[j].updatable = datalist[i].updatable;
+
+                break;
+              }
+            }
+          }
+
+          var treeData = menuService.getTree(menulist,"id","pid");
+          $scope.tree_data = treeData;
+        });
+      });
+    }
+
+    $timeout(function(){
+      if($scope.my_tree != null){
+        $scope.my_tree.expand_all();
+      }
+    },500);
+
+  });
+
+  //After declear function on tree-grid directive;
+  $scope.onChangeTreeNode = function(data){
+
+    if(!$scope.checkCreatableAuthority("app.system.role")) return;
+
+    if($scope.mode == "create"){
+      console.log("create");
+    }
+
+    if($scope.mode == "modify"){
+
+      var data2;
+      var isFound = false;
+      if($scope.currentMenuroleData){
+
+        for(var i in $scope.currentMenuroleData){
+          if($scope.currentMenuroleData[i].menuId == data.id){
+            data2 = $scope.currentMenuroleData[i];
+            data2.readable = data.readable;
+            data2.creatable = data.creatable;
+            data2.updatable = data.updatable;
+            isFound = true;
+            break;
+          }
+        }
+
+        if(!isFound){
+          data2 = {};
+          data2.menuId = data.id;
+          data2.roleId = $scope.currentRoleData.id;
+          data2.readable = data.readable;
+          data2.creatable = data.creatable;
+          data2.updatable = data.updatable;
+          
+          menuroleService.updateData(data2).then(function(response){
+            $scope.currentMenuroleData[$scope.currentMenuroleData.length] = response;
+          });
+        }else{
+          menuroleService.updateData(data2).then(function(response){
+          });
+        }
+      }
+    }
+    return true;
+  };
+
+}]);

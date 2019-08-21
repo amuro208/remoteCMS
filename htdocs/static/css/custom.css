@@ -1,0 +1,832 @@
+/*
+.btn {
+  padding: 6px 12px 7px 12px;
+}
+*/
+
+/*.row {margin: 1.5em -7.5px}*/
+body.compact{
+  font-size:13px;
+}
+
+label{
+  margin-bottom:0px;
+}
+
+.compact label {
+  margin-bottom:0px;
+}
+
+form label.control-label{
+  text-align:right;
+  line-height: 0.90em;
+  padding-top: 0.5em;
+}
+
+input.ng-invalid-required,select.ng-invalid-required{
+  background-color: #fffacd;
+}
+
+input.ng-dirty.ng-invalid,select.ng-dirty.ng-invalid{
+  background-color: #FFC848;
+}
+
+.compact form label.control-label{
+  text-align:right;
+  line-height: 0.80em;
+  padding-top: 0.30em;
+}
+
+.row.normal{
+  margin:0px 0px;
+}
+[class*="col-"] {padding: 0px 7px 0px 7px;}
+.wrapper {
+  padding: 7px 15px;
+}
+
+.wrapper-md {
+  padding: 7px;
+}
+
+.panel {
+  margin-bottom: 10px;
+}
+
+.btn.min {
+  min-width : 80px;
+}
+
+.auth-form input.ng-invalid-required {
+  background-color: #ffffff;
+}
+
+.auth-form input.ng-dirty.ng-invalid {
+  background-color: #FFC848;
+}
+
+.ng-table tr.total td{
+  background-color:#ddd !important;
+  font-weight:bold;
+}
+
+.ng-table tr.subtotal td{
+  background-color:#ddd !important;
+}
+
+
+/*modal*/
+.modal-body > .row, .modal-data-group > .row{
+  margin:0px -7px 5px -7px;
+}
+
+.modal-header{
+  padding:10px 15px;
+}
+.modal-title{
+  font-size:20px;
+}
+
+form > .row ,
+.form > .row ,
+.datagroup > .row ,
+.tabcontents > .row ,
+.modal-data-group > .row
+{
+  margin-bottom:5px;
+}
+
+.compact form > .row ,
+.compact .form > .row ,
+.compact .datagroup > .row ,
+.compact .tabcontents > .row ,
+.compact .modal-data-group > .row
+{
+  margin-bottom:2px;
+}
+
+
+p.input-group{
+  margin:0px;
+  padding:0px;
+}
+/*ngGrid*/
+/*
+.ngHeaderCell {
+  background-color: #eaeaea !important;
+  bottom: 0;
+  color: #333333 !important;
+  position: absolute;
+  top: 0;
+}
+*/
+
+.pager {
+  margin: 10px 0 5px 0px;
+}
+
+.ngViewport{
+    height:450px !important;
+    width: 100% !important;
+    overflow-x:scroll !important;
+}
+.ngCanvas, .ngViewport, .ngRow, .ngFooterPanel, .ngTopPanel   {
+   width: 100% !important;
+}
+.ngRow {
+   border-bottom:none !important;
+}
+
+.short-list{
+  height:150px !important;
+}
+
+.middle-list{
+  height:301px !important;
+}
+
+.tall-list{
+  height:550px !important;
+}
+
+.compact .short-list{
+  height:75px !important;
+}
+
+.compact .middle-list{
+  height:220px !important;
+}
+
+.compact .tall-list{
+  height:330px !important;
+}
+
+
+.short-list .ngViewport{
+    height:150px !important;
+    overflow-x:scroll;
+}
+
+.middle-list .ngViewport{
+    height:330px !important;
+    overflow-x:scroll;
+}
+
+.tall-list .ngViewport{
+    height:550 !important;
+    overflow-x:scroll;
+}
+
+/*
+.ngRow.even {
+  background-color: #f3f3f3 !important;
+}
+*/
+
+.ngColList{
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+/*nestable*/
+.dd3-handle:hover{
+  background-color:#55c3e6;
+}
+
+.dd-item{
+  font-size:15px;
+}
+
+.p{
+  padding:15px;
+}
+
+.p-xs{
+  padding:5px;
+}
+
+.p-sm{
+  padding:10px;
+}
+
+.p-md{
+  padding:20px;
+}
+
+.p-lg{
+  padding:30px;
+}
+
+.p-n{
+  padding:0px;
+}
+
+.p-l{
+  padding-left:15px;
+}
+
+.p-l-xs{
+  padding-left:5px;
+}
+
+.p-l-sm{
+  padding-left:10px;
+}
+
+.p-l-md{
+  padding-left:20px;
+}
+
+.p-l-lg{
+  padding-left:30px;
+}
+
+.p-r{
+  padding-right:15px;
+}
+
+.p-r-xs{
+  padding-right:5px;
+}
+
+.p-r-sm{
+  padding-right:10px;
+}
+
+.p-r-md{
+  padding-right:20px;
+}
+
+.p-r-lg{
+  padding-right:30px;
+}
+
+.p-t{
+  padding-top:15px;
+}
+
+.p-t-xs{
+  padding-top:5px;
+}
+
+.p-t-sm{
+  padding-top:10px;
+}
+
+.p-t-md{
+  padding-top:20px;
+}
+
+.p-t-lg{
+  padding-top:30px;
+}
+
+.p-b{
+  padding-bottom:15px;
+}
+
+.p-b-xs{
+  padding-bottom:5px;
+}
+
+.p-b-sm{
+  padding-bottom:10px;
+}
+
+.p-b-md{
+  padding-bottom:20px;
+}
+
+.p-b-lg{
+  padding-bottom:30px;
+}
+
+/*buttons*/
+.btn-xxs{
+  font-size:6px;
+  padding: 0px 2px;
+}
+
+.btn.noborder{
+  border:0px;
+  margin:0px 0px 0px 5px;
+  padding:0px 5px;
+  box-shadow: 0 0px 0px rgba(90, 90, 90, 0.1);
+  background-color: rgba(0,0,0,0);
+}
+
+.btn-add {
+  color: #58666e !important;
+  background-color: #e8eff0;
+  border-color: #dee5e7;
+  border-bottom-color: #d8e1e3;
+  -webkit-box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+  box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+
+  /*
+  color: #58666e !important;
+  background-color: #fcfdfd;
+  background-color: #fff;
+  border-color: #dee5e7;
+  border-bottom-color: #d8e1e3;
+  -webkit-box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+  box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+  */
+}
+
+.btn-edit{
+  /*
+  color: #ffffff !important;
+  background-color: #3a3f51;
+  border-color: #3a3f51;
+  */
+  color: #58666e !important;
+  background-color: #e8eff0;
+  border-color: #dee5e7;
+  border-bottom-color: #d8e1e3;
+  -webkit-box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+  box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+}
+
+.btn-delete{
+  /*
+  color: #ffffff !important;
+  background-color: #fad733;
+  border-color: #fad733;
+  */
+  color: #330066 !important;
+  background-color: #e8eff0;
+  border-color: #dee5e7;
+  border-bottom-color: #d8e1e3;
+  -webkit-box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+  box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+}
+
+.btn-ok{
+
+}
+
+.btn-cancel{
+
+}
+
+hr {
+  margin: 10px -7px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.compact hr {
+  margin: 5px -7px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.panel-heading.inner-panel {
+  padding: 3px 7px 7px 7px;
+  font-weight:normal;
+  background-color:#edf1f2;
+}
+
+.grid-right, .currency {
+    text-align: right;
+}
+
+.tabcontents{
+  padding:10px 15px 0px 15px;
+}
+
+.ngRow.selected{
+  background-color: #23b7e5;
+  color:white;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: rgba(141,192,219,0.3);
+  color:black;
+}
+
+.table-hover > tbody > tr > td.active:hover, .table-hover > tbody > tr > th.active:hover, .table-hover > tbody > tr.active:hover > td, .table-hover > tbody > tr:hover > .active, .table-hover > tbody > tr.active:hover > th {
+  background-color: rgba(141,192,219,0.3);
+  color:black;
+}
+
+.table > tbody > tr.active{
+  background-color: rgba(141,192,219,0.3);
+  color:black;
+}
+
+.table > tbody > tr.active > td{
+  background-color: rgba(141,192,219,0.3);
+  color:black;
+}
+
+.table.compact > thead > tr > th {
+  padding: 4px 8px;
+}
+
+.table > thead > tr > th {
+  padding: 8px 8px;
+}
+
+.btn-cell{
+  text-align:center;
+}
+
+.compact .navbar-header > button {
+  padding: 0px 17px;
+  font-size: 14px;
+}
+
+.app-header-fixed.compact {
+  padding-top: 36px;
+}
+
+.navbar.compact {
+  min-height: 36px;
+}
+
+.navbar-brand.compact {
+  line-height: 36px;
+}
+
+.navbar-btn.compact {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.navbar-nav.compact > li > a {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.panel-heading.compact {
+  padding: 3px 15px 5px 15px;
+}
+
+.table .glyphicon {
+  top: 0px;
+}
+
+.table.compact > tbody > tr > td, .table.compact > tfoot > tr > td{
+  padding:2px 4px 2px 4px;
+  cursor:default;
+}
+
+.table > tbody > tr > td, .table > tfoot > tr > td{
+  padding:8px 8px 8px 8px;
+  cursor:default;
+}
+
+.table.compact > thead > tr > th.filter {
+  padding:1px;
+}
+
+.table > thead > tr > th.filter {
+  padding:8px;
+}
+
+.compact .form-control{
+  font-size:13px;
+  height: 26px;
+  padding: 3px 5px;
+}
+
+.table.compact > thead > tr > th .form-control{
+  min-height: 24px;
+  height: 24px !important;
+  padding: 1px 4px;
+  font-size: 12px;
+}
+
+.table > thead > tr > th .form-control{
+  height: 24px;
+  padding: 2px;
+  font-size: 14px;
+}
+
+.crop{
+  overflow:hidden;
+  line-height:20px;
+  height:20px;
+}
+
+.btn-xs, .btn-group-xs > .btn {
+  padding: 1px 4px;
+}
+
+/*--------------Tasks Widget--------------*/
+
+.task-content {
+    margin-bottom: 30px;
+}
+
+.tasks-widget .task-content:after {
+	clear: both;
+}
+
+.tasks-widget .task-footer  {
+	margin-top: 5px;
+}
+
+.tasks-widget .task-footer:after,
+.tasks-widget .task-footer:before {
+	content: "";
+	display: table;
+	line-height: 0;
+}
+
+.tasks-widget .task-footer:after {
+	clear: both;
+}
+
+.tasks-widget  .task-list {
+  padding:0;
+  margin:0;
+}
+
+.tasks-widget .task-list > li {
+  position:relative;
+  padding:10px 5px;
+  border-bottom:1px dashed #eaeaea;
+}
+
+.tasks-widget .task-list  li.last-line {
+  border-bottom:none;
+}
+
+.tasks-widget .task-list  li > .task-bell  {
+  margin-left:10px;
+}
+
+.tasks-widget .task-list  li > .task-checkbox {
+	float:left;
+	width:30px;
+}
+
+.tasks-widget .task-list  li > .task-title  {
+  overflow:hidden;
+  margin-right:10px;
+}
+
+.tasks-widget .task-list  li > .task-config {
+	position:absolute;
+	top:10px;
+	right:10px;
+}
+
+.tasks-widget .task-list  li .task-title .task-title-sp  {
+  margin-right:5px;
+}
+
+.tasks-widget .task-list  li.task-done .task-title-sp  {
+  text-decoration:line-through;
+  color: #bbbbbb;
+}
+
+.tasks-widget .task-list  li.task-done  {
+  background:#f6f6f6;
+}
+
+.tasks-widget .task-list  li.task-done:hover {
+  background:#f4f4f4;
+}
+
+.tasks-widget .task-list  li:hover  {
+  background:#f9f9f9;
+}
+
+.tasks-widget .task-list  li .task-config {
+  display:none;
+}
+
+.tasks-widget .task-list  li:hover > .task-config {
+  display:block;
+  margin-bottom:0 !important;
+}
+
+
+@media only screen and (max-width: 320px) {
+
+	.tasks-widget .task-config-btn {
+		float:inherit;
+		display:block;
+	}
+
+	.tasks-widget .task-list-projects li > .label {
+		margin-bottom:5px;
+	}
+
+}
+
+/*todolist*/
+
+#sortable {
+    list-style-type: none;
+    margin: 0 0 20px 0;
+    padding: 0;
+    width: 100%;
+}
+#sortable li {
+    padding-left: 3em;
+    font-size: 14px;
+}
+#sortable li i {
+    position: absolute;
+    left:6px;
+    padding:4px 10px 0 10px;
+    cursor: pointer;
+}
+
+#sortable li input[type=checkbox]{
+    margin-top: 0;
+}
+
+.ui-sortable > li {
+    padding: 7px 7px 7px 35px !important ;
+    position: relative;
+    background: #f5f6f8;
+    margin-bottom: 2px;
+    border-bottom   : none !important;
+}
+
+.ui-sortable li.list-primary {
+    border-left: 3px solid #41CAC0;
+}
+
+.ui-sortable li.list-success {
+    border-left: 3px solid #78CD51;
+}
+
+.ui-sortable li.list-danger {
+    border-left: 3px solid #FF6C60;
+}
+
+.ui-sortable li.list-warning {
+    border-left: 3px solid #F1C500;
+}
+
+.ui-sortable li.list-info {
+    border-left: 3px solid #58C9F3;
+}
+
+.ui-sortable li.list-inverse {
+    border-left: 3px solid #BEC3C7;
+}
+
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 3px;
+}
+
+.settings {
+  position: fixed;
+  top: 50px;
+  right: 0px;
+  z-index: 1050;
+  width: 240px;
+  -webkit-transition: right 0.2s;
+          transition: right 0.2s;
+}
+
+.settings.compact {
+  top: 36px;
+}
+
+#scrollable-area {
+    height: 450px;
+    overflow-y: scroll; /* <-- here is what is important*/
+}
+table {
+  width: 100%;
+}
+thead {
+    background: #fff;
+}
+
+.pager li > a, .pager li > span {
+  display: inline-block;
+  padding: 2px 11px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+table.ng-table.compact thead th:not(:first-child) {
+  border-left: 1px solid #e0e0e0;
+}
+
+table.ng-table.compact thead th:not(:last-child) {
+  border-right: 1px solid #e0e0e0;
+}
+
+table.ng-table.compact tbody td:not(:first-child) {
+  border-left: 1px solid #efefef;
+}
+
+table.ng-table.compact tbody td:not(:last-child) {
+  border-right: 1px solid #efefef;
+}
+
+.ng-table-pager{
+  padding: 7px 8px;
+  text-align:center;
+}
+
+.ng-table-pager .btn {
+  padding: 2px 6px;
+  font-size:12px;
+}
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 0px;
+  border-radius: 4px;
+}
+
+.compact .pagination>li>a{
+  padding: 3px 10px;
+}
+
+.filter-select{
+  min-height:30px;
+}
+
+.btn-xs, .btn-group-xs > .btn {
+  line-height: 1.42857143;
+}
+
+.wizard{
+  height:300px;
+  padding:5px 100px;
+}
+
+.wizard .steps{
+  height:240px;
+}
+
+.selectize-input {
+  padding: 7px 8px;
+}
+
+.angular-ui-tree-handle {
+    background: #f8faff;
+    border: 1px solid #dae2ea;
+    padding: 10px 10px;
+}
+
+.angular-ui-tree-handle:hover {
+    color: #438eb9;
+    background: #f4f6f7;
+    border-color: #dce2e8;
+}
+
+.angular-ui-tree-placeholder {
+    background: #f0f9ff;
+    border: 2px dashed #bed2db;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.group-title {
+    background-color: #687074 !important;
+    color: #FFF !important;
+}
+
+.tree-node {
+  border: 1px solid #dae2ea;
+  padding: 10px 10px 10px 0px;
+  cursor: pointer;
+}
+
+.tree-node:hover{
+  background-color: rgba(141,192,219,0.3);
+  color:black;
+}
+
+.tree-node.selected{
+  background-color: #23b7e5;
+  color:white;
+}
+
+.block-ui-message {
+  display: inline-block;
+  text-align: left;
+  background-color: #333;
+  color: #f5f5f5;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  /* needed for IE */
+  filter: alpha(opacity=100);
+}
+
+@media (max-width: 767px){
+  .compact .off-screen {
+    position: absolute;
+    top: 36px;
+  }
+}

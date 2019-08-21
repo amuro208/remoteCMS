@@ -1,0 +1,5 @@
+<div class="task-title-sp"><b>{{todo.customerName}}</b> </div>
+<div class="task-title-sp" ng-if="todo.termName == null">{{todo.goods.name}}</div>
+<div class="task-title-sp" ng-if="todo.termName != null">{{todo.goods.name}}[{{todo.termName}}]</div>
+<div class="task-title-sp">{{todo.task.name}} by {{todo.dueDate}} </div>
+<div class="task-title-sp"><span ng-show="todo.note" style="color:#23b7e5;">{{todo.note}}</span></div>
