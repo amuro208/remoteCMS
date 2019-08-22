@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 //Project General
-$config['home_url'] = "http://cms-p3.reflexwall.com.au/m/";
-$config['cms_home_url'] = "http://cms-p3.reflexwall.com.au/";
+$config['home_url'] = "http://karrinyup.ampcapital-digitalforest.com.au/m/";
+$config['cms_home_url'] = "http://karrinyup.ampcapital-digitalforest.com.au/";
 
 $config['auto_approval'] = 'Y';
 $config['manual_upload'] = 'N';
@@ -25,12 +25,12 @@ $config['WA_email_template'] = "P3-WA_amp_email";
 
 
 //Email
-$config['sender_name'] = "Reflexwall";
-$config['sender_email'] = "mail@amuroleehahaha.com";
+$config['sender_name'] = "Karrinyup";
+$config['sender_email'] = "no-reply@ampcapital-digitalforest.com.au";
 $config['useragent'] = 'CodeIgniter';
 $config['protocol'] = 'smtp';
 $config['smtp_host'] = 'smtp.gmail.com';
-$config['smtp_user'] = 'mail@amuroleehahaha.com';
+$config['smtp_user'] = 'no-reply@ampcapital-digitalforest.com.au';
 $config['smtp_pass'] = 'NewPassword1';
 $config['smtp_port'] = 587;
 $config['smtp_timeout'] = 60;
