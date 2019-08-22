@@ -10,3 +10,5 @@ application/logs/*
 
 htdocs/uploads/*
 conf/*
+
+application/config/projects/*
