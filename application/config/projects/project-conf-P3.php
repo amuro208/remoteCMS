@@ -19,18 +19,18 @@ $config['VK_email_template'] = "P3-VK_amp_email";
 
 $config['WA_uploadmethod'] = 'post';
 $config['WA_edm_media'] = "";
-$config['WA_email_title'] = "AMP Wall Servay";
+$config['WA_email_title'] = "Congratulations ##[FIRST_NAME]. You have caught the magic butterfly.";
 $config['WA_email_message'] = "";
 $config['WA_email_template'] = "P3-WA_amp_email";
 
 
 //Email
 $config['sender_name'] = "Reflexwall";
-$config['sender_email'] = "no_reply@reflexwall.com.au";
+$config['sender_email'] = "mail@amuroleehahaha.com";
 $config['useragent'] = 'CodeIgniter';
 $config['protocol'] = 'smtp';
-$config['smtp_host'] = 'mail.reflexwall.com.au';
-$config['smtp_user'] = 'no_reply@reflexwall.com.au';
+$config['smtp_host'] = 'smtp.gmail.com';
+$config['smtp_user'] = 'mail@amuroleehahaha.com';
 $config['smtp_pass'] = 'NewPassword1';
 $config['smtp_port'] = 587;
 $config['smtp_timeout'] = 60;

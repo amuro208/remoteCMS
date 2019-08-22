@@ -268,6 +268,16 @@ class SendEmail extends DoctrinAutoload {
       $templateOption = $this->config->item($user->getEventcode()."_email_template");
       if($titleOption !== false && $titleOption != ""){
         $title = $titleOption;
+        if(stripos($title,"##")>-1){
+            $firstIndex = stripos($title, "[");
+            $lastIndex = strripos($title, "]");
+  		      $keyw = substr($title,$firstIndex+1,$lastIndex-$firstIndex-1);
+    		  if($keyw == "FIRST_NAME"){
+    			     $title=str_replace("##[FIRST_NAME]",$user->getFirstname(),$title);
+    		  }else if($keyw == "LAST_NAME"){
+    			     $title=str_replace("##[LAST_NAME]",$user->getLastname(),$title);
+    		  }
+        }
       }else{
         $title = "STANDARD MAIL TITLE";
       }
