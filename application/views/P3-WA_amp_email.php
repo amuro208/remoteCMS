@@ -22,7 +22,7 @@
                 <table border="0" cellspacing="0" cellpadding="0">
                     <tr style="padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
                         <td align="center" style="padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
-                            <a href="http://www.ampcapital-digitalforest.com.au/TrackingService?t=ip&g=##[GUID]"><img border="0" width="600" style="display:block !important; line-height:0 !important; font-size:0 !important;" src="http://ampcapital-digitalforest.com.au/Src/Images/KARRINYUP_MOBILE_V1.jpg" /></a>
+                            <a href="<?php echo $cmsHomeUrl;?>trackit/clickedmlink2/1/<?php echo $accessCode;?>"><img border="0" width="600" style="display:block !important; line-height:0 !important; font-size:0 !important;" src="<?php echo $homeUrl; ?>/images/EDM/KARRINYUP_MOBILE_V1.jpg" /></a>
                         </td>
                     </tr>
                 </table>

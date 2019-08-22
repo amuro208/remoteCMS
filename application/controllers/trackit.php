@@ -311,35 +311,35 @@ class TrackIt extends DoctrinAutoload {
 
     $link = "";
     if($linkName == "1"){
-      log_message("debug",$user->getEventcode()."_edmtrack_link1");
-      $link =  $this->getOptionValue($user->getEventcode()."_edmtrack_link1");
+      log_message("debug",$this->config->item("edmtrack_link1"));
+      $link = $this->config->item("edmtrack_link1");
     }else if($linkName == "2"){
-      log_message("debug",$user->getEventcode()."_edmtrack_link2");
-      $link =  $this->getOptionValue($user->getEventcode()."_edmtrack_link2");
+      log_message("debug",$this->config->item("edmtrack_link2"));
+      $link = $this->config->item("edmtrack_link2");
     }else if($linkName == "3"){
-      log_message("debug",$user->getEventcode()."_edmtrack_link3");
-      $link =  $this->getOptionValue($user->getEventcode()."_edmtrack_link3");
+      log_message("debug",$this->config->item("edmtrack_link3"));
+      $link = $this->config->item("edmtrack_link3");
     }else if($linkName == "4"){
-      log_message("debug",$user->getEventcode()."_edmtrack_link4");
-      $link =  $this->getOptionValue($user->getEventcode()."_edmtrack_link4");
+      log_message("debug",$this->config->item("edmtrack_link4"));
+      $link = $this->config->item("edmtrack_link4");
     }else if($linkName == "5"){
-      log_message("debug",$user->getEventcode()."_edmtrack_link5");
-      $link =  $this->getOptionValue($user->getEventcode()."_edmtrack_link5");
+      log_message("debug",$this->config->item("edmtrack_link5"));
+      $link = $this->config->item("edmtrack_link5");
     }else if($linkName == "6"){
-      log_message("debug",$user->getEventcode()."_edmtrack_link6");
-      $link =  $this->getOptionValue($user->getEventcode()."_edmtrack_link6");
+      log_message("debug",$this->config->item("edmtrack_link6"));
+      $link = $this->config->item("edmtrack_link6");
     }else if($linkName == "7"){
-      log_message("debug",$user->getEventcode()."_edmtrack_link7");
-      $link =  $this->getOptionValue($user->getEventcode()."_edmtrack_link7");
+      log_message("debug",$this->config->item("edmtrack_link7"));
+      $link = $this->config->item("edmtrack_link7");
     }else if($linkName == "8"){
-      log_message("debug",$user->getEventcode()."_edmtrack_link8");
-      $link =  $this->getOptionValue($user->getEventcode()."_edmtrack_link8");
+      log_message("debug",$this->config->item("edmtrack_link8"));
+      $link = $this->config->item("edmtrack_link8");
     }else if($linkName == "9"){
-      log_message("debug",$user->getEventcode()."_edmtrack_link9");
-      $link =  $this->getOptionValue($user->getEventcode()."_edmtrack_link9");
+      log_message("debug",$this->config->item("edmtrack_link9"));
+      $link = $this->config->item("edmtrack_link9");
     }else{
-      log_message("debug",$user->getEventcode()."_edmtrack_link10");
-      $link =  $this->getOptionValue($user->getEventcode()."_edmtrack_link10");
+      log_message("debug",$this->config->item("edmtrack_link10"));
+      $link = $this->config->item("edmtrack_link10");
     }
 
     log_message("debug","link:".$link);

@@ -23,6 +23,8 @@ $config['WA_email_title'] = "Congratulations ##[FIRST_NAME]. You have caught the
 $config['WA_email_message'] = "";
 $config['WA_email_template'] = "P3-WA_amp_email";
 
+$config['edmtrack_link1'] = "https://www.karrinyupcentre.com.au/";
+
 
 //Email
 $config['sender_name'] = "Karrinyup";
