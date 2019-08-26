@@ -1511,7 +1511,14 @@ class CI_Email {
 					}
 			break;
 			case 'smtp'	:
-
+					//log_message("debug","protocol : ".$this->protocol);
+					//log_message("debug","sender_name : ".$this->sender_name);
+					//log_message("debug","sender_email : ".$this->sender_email);
+					//log_message("debug","smtp_host : ".$this->smtp_host);
+					//log_message("debug","smtp_user : ".$this->smtp_user);
+					//log_message("debug","smtp_pass : ".$this->smtp_pass);
+					//log_message("debug","smtp_port : ".$this->smtp_port);
+					//log_message("debug","smtp_timeout : ".$this->smtp_timeout);
 					if ( ! $this->_send_with_smtp())
 					{
 						$this->_set_error_message('lang:email_send_failure_smtp');
