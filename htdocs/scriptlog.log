@@ -1796,3 +1796,10 @@ Stack trace:
   thrown in C:\Bitnami\CMS\frameworks\codeigniter\application\libraries\Doctrine\ORM\ORMException.php on line 259
 [20-Aug-2019 13:34:50 Australia/Sydney] PHP Fatal error:  Call to undefined method Autoload::error() in C:\Bitnami\CMS\frameworks\codeigniter\application\controllers\api\autoload.php on line 71
 [20-Aug-2019 13:35:13 Australia/Sydney] PHP Fatal error:  Call to undefined method Autoload::error() in C:\Bitnami\CMS\frameworks\codeigniter\application\controllers\api\autoload.php on line 71
+[26-Aug-2019 13:13:49 Australia/Sydney] PHP Fatal error:  Call to undefined method CI_Email::initialise() in C:\Bitnami\CMS\frameworks\codeigniter\application\controllers\sendemail.php on line 255
+[26-Aug-2019 13:35:57 Australia/Sydney] PHP Fatal error:  Call to undefined method CI_Email::initialise() in C:\Bitnami\CMS\frameworks\codeigniter\application\controllers\sendemail.php on line 176
+[26-Aug-2019 13:38:06 Australia/Sydney] PHP Fatal error:  Call to undefined method CI_Email::initialise() in C:\Bitnami\CMS\frameworks\codeigniter\application\controllers\sendemail.php on line 176
+[26-Aug-2019 13:53:47 Australia/Sydney] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in C:\Bitnami\CMS\frameworks\codeigniter\system\libraries\Email.php on line 115
+[26-Aug-2019 13:54:23 Australia/Sydney] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in C:\Bitnami\CMS\frameworks\codeigniter\system\libraries\Email.php on line 115
+[26-Aug-2019 13:55:02 Australia/Sydney] PHP Fatal error:  Call to undefined method CI_Email::initialise() in C:\Bitnami\CMS\frameworks\codeigniter\application\controllers\sendemail.php on line 176
+[26-Aug-2019 13:55:36 Australia/Sydney] PHP Fatal error:  Call to undefined method CI_Email::initialise() in C:\Bitnami\CMS\frameworks\codeigniter\application\controllers\sendemail.php on line 176

@@ -126,7 +126,11 @@ class SendEmail extends DoctrinAutoload {
   //public function sendStandardEmail($user,$title,$msg,$template,$frameFileName){
   public function sendStandardEmail($user,$title,$msg,$template){
     log_message("debug","-------------------Start sendStandardEmail-----------------------");
-
+	$this->email->protocol = $this->config->item("protocol");
+	$this->email->smtp_host = $this->config->item("smtp_host");
+	$this->email->smtp_user = $this->config->item("smtp_user");
+	$this->email->smtp_pass = $this->config->item("smtp_pass");
+	$this->email->smtp_port = $this->config->item("smtp_port");
     //$senderEmail =  $this->config->item("smtp_user");
     $senderEmail =  $this->config->item("sender_email");
     $senderName =  $this->config->item("sender_name");
@@ -173,7 +177,7 @@ class SendEmail extends DoctrinAutoload {
       log_message("debug","-------------------#3 sendStandardEmail-----------------------");
 
       if($isValidEmail == 'Y' || $isValidEmail == 'E' || $isValidEmail == 'N' ){
-
+		
         $this->email->clear(TRUE);
         $this->email->from($senderEmail,$senderName);
         $this->email->to($receiver);
@@ -188,6 +192,8 @@ class SendEmail extends DoctrinAutoload {
         $data["eventCode"] = $user->getEventcode();
         $data["firstName"] = $firstNameList[$index];
         $data["lastName"] = $lastNameList[$index];
+
+		
 
         $medias = $user->getMedias();
         $edmMedia = $this->config->item($user->getEventcode()."_edm_media");// $this->getOptionValue($user->getEventcode()."_edm_media");
@@ -252,7 +258,7 @@ class SendEmail extends DoctrinAutoload {
     log_message("debug","userid:".$user->getId());
     log_message("debug",$user->getEmail()."  ".$this->getConfigPath($user));
     $this->config->load($this->getConfigPath($user));
-
+	
     //$frameFileName = $this->makeEDMFrameImage($user);
     //if($frameFileName !== false){;
       //Delete if there is already logs.

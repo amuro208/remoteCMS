@@ -41,15 +41,15 @@ $config['PO_email_message'] = "";
 $config['PO_email_template'] = "P2-PO_reflex_email";
 
 //Email
-$config['sender_name'] = "Reflexwall";
-$config['sender_email'] = "noreply@griffith2018dome.com.au";
+$config['sender_name'] = "Karrinyup";
+$config['sender_email'] = "noreply@ampcapital-digitalforest.com.au";
 $config['useragent'] = 'CodeIgniter';
 $config['protocol'] = 'smtp';
-$config['smtp_host'] = 'smtp.gmail.com';
-$config['smtp_user'] = 'noreply@griffith2018dome.com.au';
-$config['smtp_pass'] = 'NewPassword1';
-$config['smtp_port'] = 587;
-$config['smtp_timeout'] = 60;
+$config['smtp_host'] = 'ssl://smtp.googlemail.com';
+$config['smtp_user'] = 'noreply@ampcapital-digitalforest.com.au';
+$config['smtp_pass'] = 'NewPassword6';
+$config['smtp_port'] = 465;
+$config['smtp_timeout'] = 10;
 $config['wordwrap'] = TRUE;
 $config['wrapchars'] = 76;
 $config['mailtype'] = 'html';
