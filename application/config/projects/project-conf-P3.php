@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 //Project General
-$config['home_url'] = "http://cms-p3.reflexwall.com.au/m/";
-$config['cms_home_url'] = "http://cms-p3.reflexwall.com.au/";
+$config['home_url'] = "http://karrinyup.ampcapital-digitalforest.com.au/m/";
+$config['cms_home_url'] = "http://karrinyup.ampcapital-digitalforest.com.au/";
 
 $config['auto_approval'] = 'Y';
 $config['manual_upload'] = 'N';
@@ -19,18 +19,20 @@ $config['VK_email_template'] = "P3-VK_amp_email";
 
 $config['WA_uploadmethod'] = 'post';
 $config['WA_edm_media'] = "";
-$config['WA_email_title'] = "AMP Wall Servay";
+$config['WA_email_title'] = "Congratulations ##[FIRST_NAME]. You have caught the magic butterfly.";
 $config['WA_email_message'] = "";
 $config['WA_email_template'] = "P3-WA_amp_email";
 
+$config['edmtrack_link1'] = "https://www.karrinyupcentre.com.au/";
+
 
 //Email
-$config['sender_name'] = "Reflexwall";
-$config['sender_email'] = "no_reply@reflexwall.com.au";
+$config['sender_name'] = "Karrinyup";
+$config['sender_email'] = "no-reply@ampcapital-digitalforest.com.au";
 $config['useragent'] = 'CodeIgniter';
 $config['protocol'] = 'smtp';
-$config['smtp_host'] = 'mail.reflexwall.com.au';
-$config['smtp_user'] = 'no_reply@reflexwall.com.au';
+$config['smtp_host'] = 'smtp.gmail.com';
+$config['smtp_user'] = 'no-reply@ampcapital-digitalforest.com.au';
 $config['smtp_pass'] = 'NewPassword1';
 $config['smtp_port'] = 587;
 $config['smtp_timeout'] = 60;
