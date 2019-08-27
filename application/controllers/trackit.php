@@ -216,6 +216,9 @@ class TrackIt extends DoctrinAutoload {
       $emaillog = $query->getSingleResult();
       log_message("debug","xxxx");
       if($emaillog != null){
+        $user = $emaillog->getUserid();
+        $this->config->load($this->getConfigPath($user));
+
         log_message("debug","There is a emaillog");
         log_message("debug","###clickEdmLink000000");
 
@@ -261,6 +264,9 @@ class TrackIt extends DoctrinAutoload {
       $emaillog = $query->getSingleResult();
       $user = $emaillog->getUserid();
       if($emaillog != null){
+        $user = $emaillog->getUserid();
+        $this->config->load($this->getConfigPath($user));
+        
         if($emaillog->getIsopened() == 'N'){
           $emaillog->setIsvalidemail('Y');
           $emaillog->setIssent('Y');

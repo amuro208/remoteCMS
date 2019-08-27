@@ -27,9 +27,9 @@
                     </tr>
                 </table>
             </td>
-            <td style="padding: 0px 0px 0px 0px;">
+            <!--td style="padding: 0px 0px 0px 0px;">
                 <font class="magic-text">Hi ##[FIRST_NAME]</font>
-            </td>
+            </td-->
         </tr>
     </table>
 </body>
