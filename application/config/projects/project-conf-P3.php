@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 //Project General
 $config['home_url'] = "http://karrinyup.ampcapital-digitalforest.com.au/m/";
-$config['cms_home_url'] = "http://karrinyup.ampcapital-digitalforest.com.au/";
+$config['cms_home_url'] = "http://karrinyup.ampcapital-digitalforest.com.au/framework/index.php/";
 
 $config['auto_approval'] = 'Y';
 $config['manual_upload'] = 'N';

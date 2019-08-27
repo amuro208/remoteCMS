@@ -17,8 +17,6 @@ class Statistic extends DoctrinAutoloadRestful
     if($this->get("projectCode") != null){
       $pcode=$this->get("projectCode");
     }
-
-    $homeurl = $this->getOptionValue("home_url");
     $aid = $this->authUser->aid;
     $sql = "SELECT a.id,a.siteCode,a.firstName,a.lastName,a.mobile,a.email,a.localCreateDate,a.reserve1,a.reserve2,a.reserve3,a.reserve4,a.reserve5
               FROM `user` a
@@ -76,7 +74,6 @@ class Statistic extends DoctrinAutoloadRestful
   }
 
   public function data_get(){
-    $homeurl = $this->getOptionValue("home_url");
     $aid = $this->authUser->aid;
     $pcode = "*";
     if($this->get("projectCode") != null){

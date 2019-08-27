@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 //Project General
 $config['home_url'] = "http://reflex.amuroleehahaha.com/m/";
-$config['cms_home_url'] = "http://relfex.amuroleehahaha.com/";
+$config['cms_home_url'] = "http://relfex.amuroleehahaha.com/framework/index.php/";
 
 $config['auto_approval'] = 'Y';
 $config['manual_upload'] = 'N';
