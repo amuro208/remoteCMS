@@ -9,6 +9,7 @@ application/logs/
 !application/logs/.htaccess
 
 htdocs/uploads/
+!htdocs/uploads/p/
 conf/
 
 #application/config/projects/*
